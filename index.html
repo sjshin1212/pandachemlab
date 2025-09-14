@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min Shin - Panda Min's ChemLab | Chemistry Research Portfolio</title>
+    <meta name="description" content="Min Shin's professional chemistry research portfolio. USNCO Top 150, Science Bowl Top 12, research at UH Manoa and UT Austin. The Chemistry Panda from Hawaii.">
+    <meta name="keywords" content="Min Shin, Chemistry, Research, Science Bowl, USNCO, Hawaii, College Portfolio">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🐼</text></svg>">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Min Shin - Panda Min's ChemLab">
+    <meta property="og:description" content="Chemistry research portfolio of Min Shin - USNCO Top 150, Science Bowl National Champion">
+    <meta property="og:url" content="https://pandaminschemlab.com">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Min Shin",
+      "description": "Chemistry researcher and student leader from Hawaii",
+      "url": "https://pandaminschemlab.com",
+      "sameAs": [
+        "https://linkedin.com/in/minshin",
+        "https://github.com/minshin"
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <div class="logo-icon">🐼</div>
+                <span>Min's ChemLab</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#chemlab" class="nav-link">ChemLab</a></li>
+                <li><a href="#community" class="nav-link">Community</a></li>
+                <li><a href="#mylife" class="nav-link">My Life</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span>☰</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="section-hero benzene-bg">
+        <div class="container">
+            <div class="grid grid-2" style="align-items: center; gap: 4rem;">
+                <div class="fade-in-left">
+                    <h1 class="mb-2">Meet the Chemistry Panda 🐼⚗️</h1>
+                    <p class="lead-text mb-3">Min Shin from Hawaii</p>
+                    <p class="mb-4" style="font-size: 1.2rem;">
+                        Transforming challenges into scientific breakthroughs through 
+                        <strong>chemistry research</strong>, <strong>team leadership</strong>, 
+                        and <strong>educational impact</strong>. Currently conducting research 
+                        at two universities while mentoring 200+ students.
+                    </p>
+                    
+                    <!-- Key Achievements -->
+                    <div class="stats-grid mb-4">
+                        <div class="stat-item">
+                            <span class="stat-number">Top 12</span>
+                            <div class="stat-label">National Science Bowl</div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">Top 150</span>
+                            <div class="stat-label">USNCO Nationwide</div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3</span>
+                            <div class="stat-label">Active Research Projects</div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">200+</span>
+                            <div class="stat-label">Students Mentored</div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="#chemlab" class="btn btn-primary">
+                            🔬 Explore My Research
+                        </a>
+                        <button class="btn btn-secondary" onclick="openVideoModal()">
+                            📺 Watch My Story
+                        </button>
+                        <a href="#about" class="btn btn-accent">
+                            🐼 Meet the Panda
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="fade-in-right">
+                    <div style="text-align: center;">
+                        <div class="benzene-ring mb-3"></div>
+                        <div style="background: linear-gradient(135deg, #1e3a8a, #0891b2); padding: 3rem; border-radius: 24px; color: white; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                            <h3 style="color: white; margin-bottom: 1rem;">Current Focus</h3>
+                            <div style="display: grid; gap: 1rem;">
+                                <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 12px;">
+                                    <strong>🧪 UH Manoa Research</strong><br>
+                                    <small>Bi-organometallic Catalysts</small>
+                                </div>
+                                <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 12px;">
+                                    <strong>🏛️ UT Austin Collaboration</strong><br>
+                                    <small>Selective Hydrogenation</small>
+                                </div>
+                                <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 12px;">
+                                    <strong>🌱 Independent Study</strong><br>
+                                    <small>Biodegradable Plastics</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Overview -->
+    <section class="benzene-bg" style="padding: 4rem 0;">
+        <div class="container">
+            <h2 class="text-center mb-4">Journey Highlights</h2>
+            <div class="grid grid-4">
+                <div class="card fade-in-up">
+                    <div class="card-header">
+                        <div class="card-icon">🐼</div>
+                        <div>
+                            <h4>About Me</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: var(--neutral-gray);">Personal Story</p>
+                        </div>
+                    </div>
+                    <p>From health challenges to national achievements - discover the resilient panda's journey of growth and leadership.</p>
+                    <a href="#about" class="btn btn-secondary" style="width: 100%; justify-content: center;">Learn More</a>
+                </div>
+
+                <div class="card fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="card-header">
+                        <div class="card-icon">⚗️</div>
+                        <div>
+                            <h4>ChemLab</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: var(--neutral-gray);">Research Projects</p>
+                        </div>
+                    </div>
+                    <p>Cutting-edge research in computational chemistry, catalyst design, and sustainable materials at top universities.</p>
+                    <a href="#chemlab" class="btn btn-secondary" style="width: 100%; justify-content: center;">Explore Research</a>
+                </div>
+
+                <div class="card fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="card-header">
+                        <div class="card-icon">🤝</div>
+                        <div>
+                            <h4>Community</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: var(--neutral-gray);">Leadership Impact</p>
+                        </div>
+                    </div>
+                    <p>Founded chemistry club, led teams to national championships, and mentored hundreds of students across Hawaii.</p>
+                    <a href="#community" class="btn btn-secondary" style="width: 100%; justify-content: center;">See Impact</a>
+                </div>
+
+                <div class="card fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="card-header">
+                        <div class="card-icon">🌺</div>
+                        <div>
+                            <h4>My Life</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: var(--neutral-gray);">Hawaii & Beyond</p>
+                        </div>
+                    </div>
+                    <p>Life in paradise, jazz philosophy, and the personal moments that shape a well-rounded individual.</p>
+                    <a href="#mylife" class="btn btn-secondary" style="width: 100%; justify-content: center;">Get Personal</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section Preview -->
+    <section id="about" class="section-alt benzene-bg">
+        <div class="container">
+            <div class="grid grid-2" style="align-items: center; gap: 4rem;">
+                <div class="fade-in-left">
+                    <h2 class="mb-3">The Resilient Panda's Journey 🐼</h2>
+                    <p class="lead-text mb-3">
+                        "Ma'am, his face! He's bleeding everywhere!" - but it was just strawberry syrup.
+                    </p>
+                    <p>
+                        What started as a health challenge became the foundation for developing extraordinary 
+                        focus and resilience. From monthly ER visits to national science competitions, 
+                        my journey proves that constraints can become catalysts for innovation.
+                    </p>
+                    
+                    <!-- Quick Stats -->
+                    <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin: 2rem 0;">
+                        <h4 style="margin-bottom: 1rem; color: var(--primary-navy);">Academic Excellence</h4>
+                        <div class="grid grid-3" style="gap: 1rem;">
+                            <div class="text-center">
+                                <div style="font-size: 1.5rem; font-weight: bold; color: var(--primary-teal);">4.32</div>
+                                <small>Weighted GPA</small>
+                            </div>
+                            <div class="text-center">
+                                <div style="font-size: 1.5rem; font-weight: bold; color: var(--primary-teal);">1540</div>
+                                <small>SAT Score</small>
+                            </div>
+                            <div class="text-center">
+                                <div style="font-size: 1.5rem; font-weight: bold; color: var(--primary-teal);">7</div>
+                                <small>AP Courses</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p style="font-style: italic; color: var(--neutral-gray);">
+                        "I embraced being the panda - moving through the world with patience, 
+                        precision, and purpose."
+                    </p>
+
+                    <div class="mt-3">
+                        <a href="#about-detailed" class="btn btn-primary">Read Full Story</a>
+                        <a href="/resume.pdf" class="btn btn-secondary" target="_blank">📄 Download Resume</a>
+                    </div>
+                </div>
+                
+                <div class="fade-in-right">
+                    <!-- Timeline Preview -->
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <h4 style="color: var(--primary-navy);">2022 - The Beginning</h4>
+                                <p>Started high school with determination to overcome physical limitations through academic excellence.</p>
+                            </div>
+                            <div class="timeline-dot"></div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <h4 style="color: var(--primary-navy);">2023-2024 - Rising Leader</h4>
+                                <p>Founded Chemistry Club, became team captain for multiple science competitions.</p>
+                            </div>
+                            <div class="timeline-dot"></div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <h4 style="color: var(--primary-navy);">2025 - National Recognition</h4>
+                                <p>USNCO Top 150, Science Bowl Top 12, research collaborations at two universities.</p>
+                            </div>
+                            <div class="timeline-dot"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ChemLab Section Preview -->
+    <section id="chemlab" class="benzene-bg">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2 class="mb-3">Welcome to My ChemLab 🧪</h2>
+                <p class="lead-text">
+                    Where curiosity meets computational chemistry and sustainable innovation
+                </p>
+                <div class="benzene-ring"></div>
+            </div>
+
+            <!-- Research Dashboard -->
+            <div style="background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal)); color: white; padding: 3rem; border-radius: 24px; margin-bottom: 3rem;">
+                <h3 style="color: white; text-align: center; margin-bottom: 2rem;">Active Research Portfolio</h3>
+                <div class="grid grid-3">
+                    <div class="text-center">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🏛️</div>
+                        <div style="font-size: 1.8rem; font-weight: bold;">2</div>
+                        <div>University Collaborations</div>
+                    </div>
+                    <div class="text-center">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🧬</div>
+                        <div style="font-size: 1.8rem; font-weight: bold;">3</div>
+                        <div>Active Projects</div>
+                    </div>
+                    <div class="text-center">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">💡</div>
+                        <div style="font-size: 1.8rem; font-weight: bold;">∞</div>
+                        <div>Future Possibilities</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Research Projects Grid -->
+            <div class="grid grid-3">
+                <div class="research-card fade-in-up">
+                    <div class="research-header">
+                        <h4 style="color: white; margin: 0;">🧪 UH Manoa Research</h4>
+                    </div>
+                    <div class="research-body">
+                        <div class="research-status">Optimizing Geometries</div>
+                        <h4>Bi-organometallic Catalyst Design</h4>
+                        <p>Exploring molecular geometries of Si2H2 systems and biphenyl bismuth complexes for polymer degradation catalysis using DFT and Hartree-Fock methods.</p>
+                        <div style="margin-top: 1rem;">
+                            <strong>Methods:</strong> DFT, Hartree-Fock, KBO Analysis<br>
+                            <strong>Goal:</strong> Sustainable Polymer Catalysis<br>
+                            <strong>Lab:</strong> Sattasathuchana Group
+                        </div>
+                        <a href="#chemlab-detailed" class="btn btn-primary" style="margin-top: 1rem; width: 100%; justify-content: center;">View Details</a>
+                    </div>
+                </div>
+
+                <div class="research-card fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="research-header">
+                        <h4 style="color: white; margin: 0;">🏛️ UT Austin Collaboration</h4>
+                    </div>
+                    <div class="research-body">
+                        <div class="research-status">VASP Simulations</div>
+                        <h4>Selective Hydrogenation Pathways</h4>
+                        <p>Investigating thermodynamically and kinetically favorable reaction pathways for furfural to furfuryl alcohol conversion using machine learning simulations.</p>
+                        <div style="margin-top: 1rem;">
+                            <strong>Methods:</strong> VASP ML Simulations<br>
+                            <strong>Goal:</strong> Optimize Reaction Pathways<br>
+                            <strong>Lab:</strong> Weirui Chan Group
+                        </div>
+                        <a href="#chemlab-detailed" class="btn btn-primary" style="margin-top: 1rem; width: 100%; justify-content: center;">View Details</a>
+                    </div>
+                </div>
+
+                <div class="research-card fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="research-header">
+                        <h4 style="color: white; margin: 0;">🌱 Independent Research</h4>
+                    </div>
+                    <div class="research-body">
+                        <div class="research-status">Literature Complete</div>
+                        <h4>Biodegradable Plastic Enhancement</h4>
+                        <p>Comprehensive analysis of techniques to improve mechanical and thermal properties of biodegradable plastics through copolymerization and natural fiber additives.</p>
+                        <div style="margin-top: 1rem;">
+                            <strong>Focus:</strong> PLA-PHB Copolymerization<br>
+                            <strong>Goal:</strong> Performance-Biodegradability Balance<br>
+                            <strong>Program:</strong> Lumiere Research
+                        </div>
+                        <a href="#chemlab-detailed" class="btn btn-primary" style="margin-top: 1rem; width: 100%; justify-content: center;">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <p style="font-style: italic; color: var(--neutral-gray);">
+                    "From 'Min Shin the Chemistry Guy' to research collaborator - 
+                    every molecule tells a story of curiosity and discovery."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section Preview -->
+    <section id="community" class="section-alt benzene-bg">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2 class="mb-3">Building Communities Through Science 🤝</h2>
+                <p class="lead-text">From kittens to lions - transforming teams and creating lasting impact</p>
+                
+                <!-- Impact Statistics -->
+                <div style="background: white; padding: 3rem; border-radius: 24px; margin: 2rem 0; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <div class="grid grid-4">
+                        <div class="text-center">
+                            <div style="font-size: 3rem; color: var(--accent-coral); margin-bottom: 0.5rem;">200+</div>
+                            <div style="font-weight: 600; color: var(--primary-navy);">Students Mentored</div>
+                            <small style="color: var(--neutral-gray);">Math & Chemistry Tutoring</small>
+                        </div>
+                        <div class="text-center">
+                            <div style="font-size: 3rem; color: var(--accent-coral); margin-bottom: 0.5rem;">6</div>
+                            <div style="font-weight: 600; color: var(--primary-navy);">Leadership Roles</div>
+                            <small style="color: var(--neutral-gray);">Captain & Founder Positions</small>
+                        </div>
+                        <div class="text-center">
+                            <div style="font-size: 3rem; color: var(--accent-coral); margin-bottom: 0.5rem;">5000+</div>
+                            <div style="font-weight: 600; color: var(--primary-navy);">Food Packages</div>
+                            <small style="color: var(--neutral-gray);">Hawaii Foodbank Service</small>
+                        </div>
+                        <div class="text-center">
+                            <div style="font-size: 3rem; color: var(--accent-coral); margin-bottom: 0.5rem;">$1000</div>
+                            <div style="font-weight: 600; color: var(--primary-navy);">Fundraised</div>
+                            <small style="color: var(--neutral-gray);">Science Department Award</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity Grid -->
+            <div class="activity-grid">
+                <div class="activity-card fade-in-up">
+                    <div class="activity-image">
+                        🧪
+                    </div>
+                    <div class="activity-content">
+                        <h4 class="activity-title">Chemistry Club Founder</h4>
+                        <div class="activity-stats">Founder (2024) • 20+ Active Members</div>
+                        <p>Established after-school laboratory sessions, USNCO training programs, and local chemistry competitions to foster interest in chemistry throughout the school community.</p>
+                        <ul style="color: var(--neutral-gray); font-size: 0.95rem; margin-top: 1rem;">
+                            <li>Advanced experiments beyond curriculum</li>
+                            <li>USNCO preparation workshops</li>
+                            <li>Virtual competition hosting</li>
+                            <li>Peer tutoring networks</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="activity-card fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="activity-image">
+                        🏆
+                    </div>
+                    <div class="activity-content">
+                        <h4 class="activity-title">Science Teams Captain</h4>
+                        <div class="activity-stats">6x Team Captain • Top 12 National</div>
+                        <p>Led Science Bowl and Science Olympiad teams from struggling "kittens" to roaring lions, achieving historic first-time national recognition for Iolani School.</p>
+                        <ul style="color: var(--neutral-gray); font-size: 0.95rem; margin-top: 1rem;">
+                            <li>Science Bowl: Top 12 National (2025)</li>
+                            <li>Science Olympiad: 12th National (2025)</li>
+                            <li>First Hawaii Science Bowl Invitational</li>
+                            <li>Team culture transformation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="activity-card fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="activity-image">
+                        📚
+                    </div>
+                    <div class="activity-content">
+                        <h4 class="activity-title">Educational Impact</h4>
+                        <div class="activity-stats">Head Tutor • 200+ Students Served</div>
+                        <p>Transformed the Math Center experience by creating collaborative learning environments and producing promotional content to increase student engagement.</p>
+                        <ul style="color: var(--neutral-gray); font-size: 0.95rem; margin-top: 1rem;">
+                            <li>Math Center head tutor (2025-2026)</li>
+                            <li>Chemistry and math tutoring</li>
+                            <li>Created tutor training programs</li>
+                            <li>Promotional video production</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="activity-card fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="activity-image">
+                        🏛️
+                    </div>
+                    <div class="activity-content">
+                        <h4 class="activity-title">Civic Engagement</h4>
+                        <div class="activity-stats">Political Intern • Environmental Advocate</div>
+                        <p>Interned at Rep. Sam Kong's office, participating in legislative processes and advising on environmental issues affecting Hawaii's communities.</p>
+                        <ul style="color: var(--neutral-gray); font-size: 0.95rem; margin-top: 1rem;">
+                            <li>Legislative process participation</li>
+                            <li>Environmental policy discussions</li>
+                            <li>Community issue advocacy</li>
+                            <li>Hawaii Foodbank volunteering</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <p style="font-style: italic; color: var(--neutral-gray); max-width: 600px; margin: 0 auto;">
+                    "Authentic leadership is not about setting an example but about approaching 
+                    your teammates with genuine intent to help them grow. Even from a small island 
+                    like Hawaii, through friendship and relentless effort, we demonstrated we could roar like lions."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Life Section Preview -->
+    <section id="mylife" class="benzene-bg">
+        <div class="container">
+            <!-- Hawaii Hero -->
+            <div class="hawaii-section">
+                <div class="grid grid-2" style="align-items: center; gap: 3rem;">
+                    <div>
+                        <h2 style="color: white; margin-bottom: 1rem;">Life in Paradise 🌺</h2>
+                        <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem; margin-bottom: 2rem;">
+                            Where science meets music, and the ocean breeze carries dreams of molecular discovery.
+                        </p>
+                        <p style="color: rgba(255,255,255,0.8);">
+                            From the beaches of Hawaii to the laboratories of leading universities, 
+                            my journey is shaped by island wisdom, jazz improvisation, and the 
+                            endless curiosity of a panda who dared to dream big.
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <div style="font-size: 6rem; margin-bottom: 1rem;">🏝️</div>
+                        <div style="color: rgba(255,255,255,0.9);">
+                            <strong>Hawaii Born & Raised</strong><br>
+                            <small>Where every sunset inspires new discoveries</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jazz Philosophy -->
+            <div class="grid grid-2" style="align-items: center; gap: 4rem; margin-top: 4rem;">
+                <div class="fade-in-left">
+                    <h3 class="mb-3">Jazz Philosophy: Embracing Beautiful Mistakes 🎺</h3>
+                    <p>
+                        "Recently, my goal has been to master the art of messing up—an endeavor 
+                        far more challenging than chasing perfection."
+                    </p>
+                    <p>
+                        Jazz taught me that the tension born of discord, once resolved, 
+                        blossoms into resonant beauty. This philosophy transformed how I approach 
+                        research, leadership, and life itself.
+                    </p>
+                    
+                    <div style="background: var(--light-gray); padding: 2rem; border-radius: 16px; margin: 2rem 0;">
+                        <h4 style="color: var(--primary-navy); margin-bottom: 1rem;">From Perfectionism to Flow</h4>
+                        <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.95rem;">
+                            <div>
+                                <strong style="color: var(--neutral-gray);">Before Jazz:</strong>
+                                <ul style="color: var(--neutral-gray); margin-top: 0.5rem;">
+                                    <li>Geometric precision required</li>
+                                    <li>Restarted over single mistakes</li>
+                                    <li>Color-coded everything</li>
+                                    <li>Perfection as only success path</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <strong style="color: var(--primary-teal);">After Jazz:</strong>
+                                <ul style="color: var(--primary-teal); margin-top: 0.5rem;">
+                                    <li>Embracing creative messiness</li>
+                                    <li>Transform failure into freedom</li>
+                                    <li>Balance precision with intuition</li>
+                                    <li>Let music lead somewhere unexpected</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p style="font-style: italic; color: var(--neutral-gray);">
+                        "Yes, I still color-code my folders—but now I also know how to set aside 
+                        the sheet music and let the music lead me somewhere unexpected."
+                    </p>
+                </div>
+                
+                <div class="fade-in-right">
+                    <div style="background: linear-gradient(135deg, var(--accent-coral), #f59e0b); padding: 3rem; border-radius: 24px; color: white; text-align: center;">
+                        <div style="font-size: 4rem; margin-bottom: 1rem;">🎺</div>
+                        <h4 style="color: white; margin-bottom: 1rem;">Lead Trombonist</h4>
+                        <p style="color: rgba(255,255,255,0.9); margin-bottom: 2rem;">
+                            Stage Band at Iolani High School<br>
+                            <small>Big Band Bash Festival Coordinator</small>
+                        </p>
+                        
+                        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 12px;">
+                            <strong style="display: block; margin-bottom: 0.5rem;">Musical Growth</strong>
+                            <div style="font-size: 0.9rem; color: rgba(255,255,255,0.8);">
+                                From classical perfection to jazz improvisation<br>
+                                From solo performance to section leadership<br>
+                                From following sheet music to creative expression
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personal Moments -->
+            <div class="text-center mt-4">
+                <h3 class="mb-3">Moments That Matter</h3>
+                <p style="color: var(--neutral-gray); max-width: 800px; margin: 0 auto 3rem;">
+                    Beyond the lab and competition halls, these are the moments that shape who I am—
+                    a curious panda navigating life with wonder, humor, and genuine care for others.
+                </p>
+                
+                <!-- Personal Photo Grid Placeholder -->
+                <div class="grid grid-3" style="gap: 1rem;">
+                    <div style="height: 200px; background: linear-gradient(135deg, var(--primary-teal), var(--accent-coral)); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                        🌊
+                        <div style="position: absolute; bottom: 1rem; left: 1rem; font-size: 0.9rem;">Hawaii Beaches</div>
+                    </div>
+                    <div style="height: 200px; background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal)); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                        👥
+                        <div style="position: absolute; bottom: 1rem; left: 1rem; font-size: 0.9rem;">Team Moments</div>
+                    </div>
+                    <div style="height: 200px; background: linear-gradient(135deg, var(--accent-coral), #f59e0b); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                        🏝️
+                        <div style="position: absolute; bottom: 1rem; left: 1rem; font-size: 0.9rem;">Island Life</div>
+                    </div>
+                </div>
+                
+                <p style="font-style: italic; color: var(--neutral-gray); margin-top: 2rem;">
+                    "The playful child became a leader, cheering his team with pranks and humor amid the intensity of competition. 
+                    The panda, once a symbol of fragility, now reflects how I move through the world—steadily, 
+                    attentively, and with quiet resilience."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact/Footer -->
+    <footer style="background: var(--primary-navy); color: white; padding: 3rem 0;">
+        <div class="container">
+            <div class="grid grid-3" style="gap: 3rem;">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="font-size: 2rem;">🐼</div>
+                        <h4 style="color: white;">Min Shin</h4>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.8);">
+                        The Chemistry Panda from Hawaii<br>
+                        Transforming challenges into discoveries
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">Get In Touch</h4>
+                    <div style="color: rgba(255,255,255,0.8);">
+                        📧 minshin362@gmail.com<br>
+                        📱 (512) 915-7892<br>
+                        📍 Honolulu, Hawaii
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">Quick Links</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <a href="#about" style="color: rgba(255,255,255,0.8); text-decoration: none;">About Me</a>
+                        <a href="#chemlab" style="color: rgba(255,255,255,0.8); text-decoration: none;">Research Portfolio</a>
+                        <a href="#community" style="color: rgba(255,255,255,0.8); text-decoration: none;">Community Impact</a>
+                        <a href="/resume.pdf" style="color: rgba(255,255,255,0.8); text-decoration: none;" target="_blank">Download Resume</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid rgba(255,255,255,0.2); margin-top: 2rem; padding-top: 2rem; text-align: center; color: rgba(255,255,255,0.6);">
+                <p>&copy; 2025 Min Shin - Panda Min's ChemLab. Built with curiosity and dedication.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div id="videoModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; align-items: center; justify-content: center;">
+        <div style="background: white; padding: 2rem; border-radius: 16px; max-width: 600px; width: 90%;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <h3>My Story (Coming Soon)</h3>
+                <button onclick="closeVideoModal()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+            </div>
+            <div style="aspect-ratio: 16/9; background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal)); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; margin-bottom: 1rem;">
+                <div style="text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎬</div>
+                    <p>Video coming soon with AI animation!</p>
+                    <p style="font-size: 0.9rem; opacity: 0.8;">Featuring the Chemistry Panda's journey</p>
+                </div>
+            </div>
+            <p style="text-align: center; color: var(--neutral-gray);">
+                This video will showcase my personal journey through animated storytelling, 
+                combining real footage with AI-generated panda animations.
+            </p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
