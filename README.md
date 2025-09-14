@@ -1,8 +1,8 @@
-# Panda Min's ChemLab - Professional Portfolio Website
+# Min Shin's ChemLab - Professional Portfolio Website
 
-## 🐼⚗️ Project Overview
+## ⚗️ Project Overview
 
-A sophisticated, professional portfolio website for **Min Shin**, showcasing chemistry research excellence, leadership impact, and personal journey. Built with modern web technologies and optimized for college applications to top-tier universities.
+A sophisticated, professional portfolio website for **Min Shin**, showcasing chemistry research excellence, academic achievements, and leadership roles. Built with modern web technologies and optimized for college applications to top-tier universities.
 
 ### 🎯 **Target Universities**
 - **Top Tier**: Stanford, Caltech, UPenn
@@ -28,11 +28,11 @@ A sophisticated, professional portfolio website for **Min Shin**, showcasing che
 - Quick overview cards for all main sections
 - Video modal placeholder for future AI-animated content
 
-#### 🐼 **About Section**
-- **Personal Story**: Resilient journey from health challenges to national recognition
-- **Academic Excellence**: GPA 4.32, SAT 1540, 7 AP courses
-- **Interactive Timeline**: Growth milestones with engaging animations
-- **Achievement Highlights**: Awards and recognitions
+#### 📚 **About Section**
+- **Academic Profile**: Professional presentation of educational background
+- **Academic Excellence**: GPA 4.32, SAT 1550, 9 AP courses
+- **Achievement Highlights**: National and state-level awards and recognitions
+- **Coursework**: Advanced STEM courses including college-level mathematics
 
 #### ⚗️ **ChemLab Section** 
 - **Research Dashboard**: 3 active projects overview
@@ -42,17 +42,17 @@ A sophisticated, professional portfolio website for **Min Shin**, showcasing che
 - **Future Vision**: Graduate research goals and impact plans
 
 #### 🤝 **Community Section**
-- **Impact Statistics**: 200+ students mentored, 6 leadership roles, $1000+ fundraised
+- **Impact Statistics**: 100+ students tutored, 6 leadership roles, 10+ competitions
 - **Chemistry Club**: Founder and leader with 20+ active members
 - **Science Teams**: Captain leading to national championships (Top 12 Science Bowl, Top 12 Science Olympiad)
 - **Educational Service**: Math Center head tutor and chemistry mentor
 - **Civic Engagement**: Political internship and community service
 
-#### 🌺 **My Life Section**
-- **Hawaii Theme**: Life in paradise with wave animations and island imagery
-- **Jazz Philosophy**: From perfectionism to improvisation mindset
-- **Trombone Leadership**: Lead trombonist and section leader
-- **Personal Growth**: Balancing precision with creative expression
+#### 🎺 **Music & Activities Section**
+- **Trombone Performance**: Lead trombonist in Iolani Stage Band
+- **Musical Leadership**: Section leader and student recruitment
+- **Big Band Bash Festival**: Annual jazz festival coordination
+- **Performance Schedule**: Regular concerts and special events
 
 ### 🚀 **Technical Excellence**
 
