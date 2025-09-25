@@ -685,3 +685,81 @@ section {
     box-shadow: none !important;
   }
 }
+
+/* Hero Section Responsive Layouts */
+.hero-stats-grid {
+    display: grid;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+/* Stats Grid: Mobile (1 column) → Tablet (2x2) → Desktop (4x1) */
+@media (max-width: 480px) {
+    .hero-stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .hero-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 769px) {
+    .hero-stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Current Focus - Full Width Responsive */
+.current-focus-container {
+    width: 100%;
+    margin: 2rem 0;
+}
+
+.current-focus-card {
+    background: linear-gradient(135deg, #1e3a8a, #0891b2);
+    color: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.focus-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .focus-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.focus-item {
+    background: rgba(255,255,255,0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Hero Buttons Responsive */
+.hero-buttons-container {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .hero-buttons-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-buttons-container {
+        grid-template-columns: 1fr;
+    }
+}
