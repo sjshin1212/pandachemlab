@@ -58,74 +58,71 @@
     <!-- Hero Section -->
     <section id="home" class="section-hero benzene-bg">
         <div class="container">
-            <div class="grid grid-2" style="align-items: center; gap: 4rem;">
-                <div class="fade-in-left">
-                    <div class="mb-2">
-                        <img src="images/Main_Title.png" alt="Min Shin's ChemLab" style="max-width: 600px; width: 100%; height: auto;">
-                    </div>
-                    <p class="lead-text mb-3">Min Shin from Hawaii</p>
-                    <p class="mb-4" style="font-size: 1.2rem;">
-                        Transforming challenges into scientific breakthroughs through 
-                        <strong>chemistry research</strong>, <strong>team leadership</strong>, 
-                        and <strong>educational impact</strong>. Currently conducting research 
-                        at two universities while tutoring 100+ students.
-                    </p>
-                    
-                    <!-- Key Achievements -->
-                    <div class="stats-grid mb-4">
-                        <div class="stat-item">
-                            <span class="stat-number">Top 12</span>
-                            <div class="stat-label">National Science Bowl</div>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">Top 150</span>
-                            <div class="stat-label">USNCO Nationwide</div>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">3</span>
-                            <div class="stat-label">Active Research Projects</div>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">100+</span>
-                            <div class="stat-label">Students Tutored</div>
-                        </div>
-                    </div>
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <div class="mb-2">
+                    <img src="images/Main_Title.png" alt="Min Shin's ChemLab" style="max-width: 600px; width: 100%; height: auto;">
+                </div>
+                <p class="lead-text mb-3">Min Shin from Hawaii</p>
+                <p class="mb-4" style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+                    Transforming challenges into scientific breakthroughs through 
+                    <strong>chemistry research</strong>, <strong>team leadership</strong>, 
+                    and <strong>educational impact</strong>. Currently conducting research 
+                    at two universities while tutoring 100+ students.
+                </p>
+            </div>
+            
+            <!-- Key Achievements - Responsive Stats Grid -->
+            <div class="hero-stats-grid mb-4">
+                <div class="stat-item">
+                    <span class="stat-number">Top 12</span>
+                    <div class="stat-label">National Science Bowl</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Top 150</span>
+                    <div class="stat-label">USNCO Nationwide</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">3</span>
+                    <div class="stat-label">Active Research Projects</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100+</span>
+                    <div class="stat-label">Students Tutored</div>
+                </div>
+            </div>
 
-                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                        <a href="#chemlab" class="btn btn-primary">
-                            🔬 Explore My Research
-                        </a>
-                        <button class="btn btn-secondary" onclick="openVideoModal()">
-                            📺 Watch My Story
-                        </button>
-                        <a href="#about" class="btn btn-accent">
-                            🐼 Meet the Panda
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="fade-in-right">
-                    <div style="text-align: center;">
-                        
-                        <div style="background: linear-gradient(135deg, #1e3a8a, #0891b2); padding: 3rem; border-radius: 24px; color: white; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
-                            <h3 style="color: white; margin-bottom: 1rem;">Current Focus</h3>
-                            <div style="display: grid; gap: 1rem;">
-                                <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 12px;">
-                                    <strong>🧪 UH Manoa Research</strong><br>
-                                    <small>Bi-organometallic Catalysts</small>
-                                </div>
-                                <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 12px;">
-                                    <strong>🏛️ UT Austin Collaboration</strong><br>
-                                    <small>Selective Hydrogenation</small>
-                                </div>
-                                <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 12px;">
-                                    <strong>🌱 Independent Study</strong><br>
-                                    <small>Biodegradable Plastics</small>
-                                </div>
-                            </div>
+            <!-- Current Focus - Full Width -->
+            <div class="current-focus-container mb-4">
+                <div class="current-focus-card">
+                    <h3 style="color: white; margin-bottom: 1rem; text-align: center;">Current Focus</h3>
+                    <div class="focus-grid">
+                        <div class="focus-item">
+                            <strong>🧪 UH Manoa Research</strong><br>
+                            <small>Bi-organometallic Catalysts</small>
+                        </div>
+                        <div class="focus-item">
+                            <strong>🏛️ UT Austin Collaboration</strong><br>
+                            <small>Selective Hydrogenation</small>
+                        </div>
+                        <div class="focus-item">
+                            <strong>🌱 Independent Study</strong><br>
+                            <small>Biodegradable Plastics</small>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- Action Buttons - Responsive -->
+            <div class="hero-buttons-container">
+                <a href="#chemlab" class="btn btn-primary">
+                    🔬 Explore My Research
+                </a>
+                <button class="btn btn-secondary" onclick="openVideoModal()">
+                    📺 Watch My Story
+                </button>
+                <a href="#about" class="btn btn-accent">
+                    🐼 Meet the Panda
+                </a>
             </div>
         </div>
     </section>
