@@ -564,28 +564,18 @@ section {
   height: 60px;
   position: relative;
   margin: 0 auto;
+  background-image: url('images/molecule_structure_icon.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .benzene-ring::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border: 3px solid var(--primary-teal);
-  border-radius: 50%;
-  animation: rotate 20s infinite linear;
+  display: none;
 }
 
 .benzene-ring::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 8px;
-  height: 8px;
-  background: var(--accent-coral);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
+  display: none;
 }
 
 @keyframes rotate {
