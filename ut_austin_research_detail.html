@@ -36,6 +36,13 @@
             animation: wave 15s infinite linear;
         }
         
+        .research-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            transition: var(--transition-normal);
+        }
+        
         .molecule-visual {
             display: inline-block;
             width: 100px;
@@ -279,19 +286,6 @@
     <!-- Research Overview -->
     <section class="benzene-bg" style="padding: 4rem 0;">
         <div class="container">
-            <!-- Furfural Molecular Structure -->
-            <div class="text-center" style="margin-bottom: 4rem;">
-                <h2 style="color: var(--primary-navy); margin-bottom: 2rem;">Molecular Foundation</h2>
-                <div class="research-image">
-                    <img src="images/Furfural-Molecule.png" 
-                         alt="Furfural Molecular Structure with VASP Simulation" 
-                         style="max-width: 600px; width: 50%; height: auto; border-radius: 16px; box-shadow: var(--shadow-lg);">
-                    <p style="font-size: 0.9rem; color: var(--neutral-gray); margin-top: 1rem; font-style: italic;">
-                        Figure 1: Furfural molecule structure as modeled in VASP computational simulations
-                    </p>
-                </div>
-            </div>
-            
             <div class="grid grid-2" style="gap: 4rem; align-items: start;">
                 <div>
                     <h2 style="color: var(--primary-navy); margin-bottom: 2rem;">Research Background</h2>
@@ -345,9 +339,9 @@
                         <div class="research-image" style="margin: 2rem 0;">
                             <img src="images/Desirable-Undesirable-Pathway.png" 
                                  alt="Desirable vs Undesirable Reaction Pathways" 
-                                 style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: var(--shadow-md);">
+                                 style="max-width: 100%; height: auto; border-radius: 12px;">
                             <p style="font-size: 0.9rem; color: var(--neutral-gray); margin-top: 1rem; font-style: italic;">
-                                Figure 2: Comparison of desirable pathway (furfuryl alcohol) vs undesirable pathways (furan, THF)
+                                Comparison of desirable pathway (furfuryl alcohol) vs undesirable pathways (furan, THF)
                             </p>
                         </div>
                         
@@ -380,12 +374,24 @@
                     structure to find the lowest energy state using density functional theory (DFT).
                 </p>
                 
+                <!-- Furfural Molecular Structure moved here -->
+                <div class="text-center" style="margin: 2rem 0;">
+                    <div class="research-image">
+                        <img src="images/Furfural-Molecule.png" 
+                             alt="Furfural Molecular Structure with VASP Simulation" 
+                             style="max-width: 500px; width: 100%; height: auto; border-radius: 12px;">
+                        <p style="font-size: 0.9rem; color: var(--neutral-gray); margin-top: 1rem; font-style: italic;">
+                            Furfural molecule structure as modeled in VASP computational simulations
+                        </p>
+                    </div>
+                </div>
+                
                 <!-- Molecular Structure Images -->
                 <div class="grid grid-2" style="gap: 2rem; margin: 2rem 0;">
                     <div class="research-image">
                         <img src="images/Mole-Structure.png" 
                              alt="Molecular Structure Analysis" 
-                             style="width: 100%; height: auto; border-radius: 12px; box-shadow: var(--shadow-md);">
+                             style="width: 100%; height: auto; border-radius: 12px;">
                         <p style="font-size: 0.85rem; color: var(--neutral-gray); margin-top: 0.5rem; font-style: italic;">
                             Molecular geometry optimization
                         </p>
@@ -393,7 +399,7 @@
                     <div class="research-image">
                         <img src="images/Binding.png" 
                              alt="Surface Binding Analysis" 
-                             style="width: 100%; height: auto; border-radius: 12px; box-shadow: var(--shadow-md);">
+                             style="width: 100%; height: auto; border-radius: 12px;">
                         <p style="font-size: 0.85rem; color: var(--neutral-gray); margin-top: 0.5rem; font-style: italic;">
                             Surface binding configurations
                         </p>
@@ -420,17 +426,17 @@
                     <div class="research-image">
                         <img src="images/Energy-Profile.png" 
                              alt="Energy Profile Analysis" 
-                             style="width: 100%; height: auto; border-radius: 12px; box-shadow: var(--shadow-md);">
+                             style="width: 100%; height: auto; border-radius: 12px;">
                         <p style="font-size: 0.85rem; color: var(--neutral-gray); margin-top: 0.5rem; font-style: italic;">
-                            Figure 3: Energy profiles for different reaction pathways
+                            Energy profiles for different reaction pathways
                         </p>
                     </div>
                     <div class="research-image">
                         <img src="images/Enthalpy.png" 
                              alt="Enthalpy Change Analysis" 
-                             style="width: 100%; height: auto; border-radius: 12px; box-shadow: var(--shadow-md);">
+                             style="width: 100%; height: auto; border-radius: 12px;">
                         <p style="font-size: 0.85rem; color: var(--neutral-gray); margin-top: 0.5rem; font-style: italic;">
-                            Figure 4: Enthalpy changes for Pt(111) vs PtSn surfaces
+                            Enthalpy changes for Pt(111) vs PtSn surfaces
                         </p>
                     </div>
                 </div>
@@ -453,9 +459,9 @@
                 <div class="research-image text-center" style="margin: 2rem 0;">
                     <img src="images/Hydrogenation.png" 
                          alt="Hydrogenation Process Comparison" 
-                         style="max-width: 700px; width: 100%; height: auto; border-radius: 12px; box-shadow: var(--shadow-md);">
+                         style="max-width: 700px; width: 100%; height: auto; border-radius: 12px;">
                     <p style="font-size: 0.9rem; color: var(--neutral-gray); margin-top: 1rem; font-style: italic;">
-                        Figure 5: Hydrogenation mechanisms on Pt(111) vs PtSn alloy surfaces
+                        Hydrogenation mechanisms on Pt(111) vs PtSn alloy surfaces
                     </p>
                 </div>
                 
@@ -622,7 +628,7 @@
                     <div class="research-image text-center">
                         <img src="images/HOH.png" 
                              alt="Hydrogen-Oxygen-Hydrogen Molecular Interaction" 
-                             style="max-width: 200px; width: 100%; height: auto; border-radius: 12px; box-shadow: var(--shadow-md);">
+                             style="max-width: 200px; width: 100%; height: auto; border-radius: 12px;">
                         <p style="font-size: 0.85rem; color: var(--neutral-gray); margin-top: 0.5rem; font-style: italic;">
                             H-O-H molecular interactions
                         </p>
