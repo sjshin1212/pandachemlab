@@ -17,7 +17,8 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Min Shin - Panda Min's ChemLab">
     <meta property="og:description" content="Chemistry research portfolio of Min Shin - USNCO Top 150, Science Bowl National Champion">
-    <meta property="og:url" content="https://pandaminschemlab.com">
+    <meta property="og:url" content="https://engineershin.com" />
+    <link rel="canonical" href="https://engineershin.com" />
     
     <!-- Schema.org -->
     <script type="application/ld+json">
@@ -26,13 +27,16 @@
       "@type": "Person",
       "name": "Min Shin",
       "description": "Chemistry researcher and student leader from Hawaii",
-      "url": "https://pandaminschemlab.com",
+      "url": "https://engineershin.com",
       "sameAs": [
         "https://linkedin.com/in/minshin",
-        "https://github.com/minshin"
       ]
     }
-    </script>
+</script>
+    
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
 </head>
 <body>
     <!-- Navigation -->
@@ -42,16 +46,19 @@
                 <div class="logo-icon">🐼</div>
                 <span>Min's ChemLab</span>
             </a>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="primary-navigation">
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#chemlab" class="nav-link">ChemLab</a></li>
                 <li><a href="#community" class="nav-link">Community</a></li>
                 <li><a href="#mylife" class="nav-link">My Life</a></li>
             </ul>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <span>☰</span>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"
+                aria-label="Toggle navigation menu"
+                aria-expanded="false" aria-controls="primary-navigation">
+              <span>☰</span>
             </button>
+            
         </div>
     </nav>
 
@@ -723,6 +730,6 @@
     </div>
 
     <!-- JavaScript -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
