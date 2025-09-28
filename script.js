@@ -241,6 +241,13 @@ function initTimelineInteraction() {
   });
 }
 
+// [저모션 환경] 모션 최소화
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function animateNumber(element, start, end, duration, finalText) {
+  if (reduceMotion) { element.textContent = finalText; return; }
+  // (나머지 기존 로직 그대로)
+}
+
 function createRipple(element, event) {
     const ripple = document.createElement('span');
     const rect = element.getBoundingClientRect();
