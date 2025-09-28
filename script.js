@@ -63,12 +63,13 @@ function initNavigation() {
 
     // Mobile menu toggle
     if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', function() {
-            navMenu.classList.toggle('mobile-active');
-            this.innerHTML = navMenu.classList.contains('mobile-active') ? '✕' : '☰';
-        });
+      mobileMenuBtn.addEventListener('click', function () {
+        navMenu.classList.toggle('mobile-active');
+        const isOpen = navMenu.classList.contains('mobile-active');
+        this.innerHTML = isOpen ? '✕' : '☰';
+        this.setAttribute('aria-expanded', String(isOpen));
+      });
     }
-
     // Auto-highlight current section
     window.addEventListener('scroll', updateActiveNavLink);
 }
@@ -231,17 +232,13 @@ function animateNumber(element, start, end, duration, finalText) {
 
 // Timeline Interaction
 function initTimelineInteraction() {
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    
-    timelineItems.forEach(item => {
-        item.addEventListener('click', function() {
-            // Toggle expanded state
-            this.classList.toggle('expanded');
-            
-            // Add ripple effect
-            createRipple(this, event);
-        });
+  const timelineItems = document.querySelectorAll('.timeline-item');
+  timelineItems.forEach(item => {
+    item.addEventListener('click', function (e) {
+      this.classList.toggle('expanded');
+      createRipple(this, e); // ← event -> e 로 명시 전달
     });
+  });
 }
 
 function createRipple(element, event) {
