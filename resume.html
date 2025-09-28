@@ -14,10 +14,11 @@
         /* Custom styles for the resume page to ensure proper structure and readability */
         .resume-header {
             text-align: center;
-            padding: var(--spacing-md) 0;
+            padding: 4rem 0 2rem 0; /* Adjusted padding to accommodate fixed navbar */
             background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
             color: white;
             border-radius: 0 0 20px 20px;
+            margin-top: 80px; /* Space for the fixed navbar */
             margin-bottom: var(--spacing-xl);
         }
         
@@ -177,6 +178,32 @@
             font-size: 0.85rem;
             color: var(--neutral-gray);
         }
+        
+        /* Custom styles matching ut_austin_research_detail.html */
+        .back-to-portfolio {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            background: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+            text-decoration: none;
+            color: var(--primary-navy);
+            font-size: 1.5rem;
+            z-index: 100;
+            transition: var(--transition-normal);
+        }
+        
+        .back-to-portfolio:hover {
+            transform: scale(1.1);
+            background: var(--primary-navy);
+            color: white;
+        }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
@@ -198,10 +225,18 @@
             .awards-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .back-to-portfolio {
+                top: 80px;
+                left: 10px;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
         }
 
         @media print {
-            .download-pdf-btn {
+            .download-pdf-btn, .back-to-portfolio, #navbar {
                 display: none !important;
             }
             .resume-header {
@@ -209,6 +244,7 @@
                 color: black !important;
                 background: white !important;
                 border-bottom: 2px solid black;
+                margin-top: 0;
             }
             .resume-header h1 {
                 color: black !important;
@@ -217,12 +253,11 @@
     </style>
 </head>
 <body>
-    <!-- Back to Portfolio Button -->
-    <a href="#" onclick="history.back()" class="back-to-portfolio" title="Back to Portfolio">
+    
+    <a href="index.html" class="back-to-portfolio" title="Back to Portfolio">
         ←
     </a>
 
-    <!-- Navigation (same as main site) -->
     <nav id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
@@ -231,7 +266,7 @@
             </a>
         </div>
     </nav>
-        
+    
     <main class="benzene-bg">
         <div class="resume-header">
             <div class="container">
@@ -315,265 +350,6 @@
                 <div class="resume-item fade-in-up" style="animation-delay: 0.2s;">
                     <div class="item-title">
                         <h3>Team Co-Captain, Science Bowl</h3>
-                        <div class="dates">August 2022 - Present</div>
+                        <div class="dates">October 2023 - Present</div>
                     </div>
-                    <div class="item-subtitle">Iolani High School, Honolulu, HI</div>
-                    <div class="item-details">
-                        <ul>
-                            <li>Led the team to Top 12 nationwide at the 2025 National Science Bowl for the first time in school history, earning $1000 for the science department</li>
-                            <li>Organized and hosted the first-ever in-person Iolani Science Bowl Invitational for 5 local high schools</li>
-                            <li>Organized the first-ever trip to a national competition at UC Berkeley</li>
-                            <li>Facilitated a strong STEM community by sharing study materials and writing sample questions for virtual tournaments nationwide</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="resume-item fade-in-up" style="animation-delay: 0.3s;">
-                    <div class="item-title">
-                        <h3>Lead Trombonist, Stage Band</h3>
-                        <div class="dates">August 2022 - Present</div>
-                    </div>
-                    <div class="item-subtitle">Iolani High School, Honolulu, HI</div>
-                    <div class="item-details">
-                        <ul>
-                            <li>Led the trombone section and to students to join, resulting in a trombone section for the first time in a few years</li>
-                            <li>Actively helped organize the **Big Band Bash festival** (jazz festival for all Oahu jazz bands) through gear setup and fundraising</li>
-                            <li>Performed solos and collaborated with the band for active engagement</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="resume-item fade-in-up" style="animation-delay: 0.4s;">
-                    <div class="item-title">
-                        <h3>Team Co-Captain, Math Team & Head Tutor, Math Center</h3>
-                        <div class="dates">August 2022 - Present</div>
-                    </div>
-                    <div class="item-subtitle">Iolani High School, Honolulu, HI</div>
-                    <div class="item-details">
-                        <ul>
-                            <li>Led team to success in $20+$ state competitions, awarded $\mathbf{6x}$ **Perfect Score Honor Rolls**</li>
-                            <li>**Tutored $\mathbf{200+}$ middle and high school students** who find math challenging throughout the years</li>
-                            <li>Empowered students by fostering a safe and collaborative learning atmosphere and producing promotional videos to advertise the center</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="resume-item fade-in-up" style="animation-delay: 0.5s;">
-                    <div class="item-title">
-                        <h3>Intern, Rep. Sam Satoru Kong's Office</h3>
-                        <div class="dates">March 2024 - Present</div>
-                    </div>
-                    <div class="item-subtitle">Hawaii Congress, Honolulu, HI</div>
-                    <div class="item-details">
-                        <ul>
-                            <li>Participated in different legislative processes and advised the representative on **environmental issues in Hawaii**, utilizing scientific knowledge</li>
-                            <li>Conducted meaningful discussions about socioeconomic and environmental issues in the community</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="resume-item fade-in-up" style="animation-delay: 0.6s;">
-                    <div class="item-title">
-                        <h3>Volunteer, Hawaii Foodbank</h3>
-                        <div class="dates">May 2024</div>
-                    </div>
-                    <div class="item-subtitle">Honolulu, HI</div>
-                    <div class="item-details">
-                        <ul>
-                            <li>**Created $\mathbf{5000+}$ food packages** to contribute to the health and wellness of elders in Hawaii and reduce food waste</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="resume-section">
-                <h2 class="fade-in-up">Research & Experience</h2>
-
-                <div class="resume-item fade-in-up">
-                    <div class="item-title">
-                        <h3>Research Intern, Sattasathuchana Group</h3>
-                        <div class="dates">July 2025 - Present</div>
-                    </div>
-                    <div class="item-subtitle">UH Manoa, Honolulu, HI (Computational Chemistry Lab)</div>
-                    <div class="item-details">
-                        <ul>
-                            <li>Assisted research on molecular geometries of $\text{Si}_2\text{H}_2$ and chemical bonding analysis of Bi-organometallic systems for **polymer degradation catalysis**</li>
-                            <li>Utilized **Hartree-Fock Methods** and **DFT** to optimize molecular geometry and calculate KBO ($\text{Kinetic Bond Order}$) to determine the **minima of homolytic cleavage energy**</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="resume-item fade-in-up" style="animation-delay: 0.1s;">
-                    <div class="item-title">
-                        <h3>Research Intern, High School Research Association</h3>
-                        <div class="dates">June - July 2025</div>
-                    </div>
-                    <div class="item-subtitle">UT Austin, TX (Computational Material Science Lab led by Weirui Chan)</div>
-                    <div class="item-details">
-                        <ul>
-                            <li>Actively assisted research on **selective hydrogenation of furfural to furfuryl alcohol** to prevent the production of undesirable compounds like furan and THF</li>
-                            <li>Used **VASP machine learning simulation** based on a quantum system to predict the enthalpy and activation energy of the reaction and find the most thermodynamically and kinetically favorable reaction pathway</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="resume-item fade-in-up" style="animation-delay: 0.2s;">
-                    <div class="item-title">
-                        <h3>Independent Research, Lumiere Research Program</h3>
-                        <div class="dates">June - August 2024</div>
-                    </div>
-                    <div class="item-subtitle">Research on Biodegradable Plastic Enhancement</div>
-                    <div class="item-details">
-                        <ul>
-                            <li>Discussed different techniques to **enhance the mechanical and thermal properties of biodegradable plastics** (e.g., copolymerization like PLA-PHB blends and natural fiber additives)</li>
-                            <li>Analyzed how **structural factors** such as polymer crystallinity and molecular composition influence both strength and degradation rate, addressing the trade-off with durability</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-
-            <section class="resume-section section-alt" style="padding: var(--spacing-xl) var(--spacing-md);">
-                <h2 class="fade-in-up">Awards and Honors</h2>
-                <div class="awards-grid">
-                    
-                    <div class="award-category fade-in-up">
-                        <h4>Math Team</h4>
-                        <div class="award-item">
-                            <span>6x Perfect Score Honor, Oahu Math Competition (State)</span>
-                            <span class="year">2023-2025</span>
-                        </div>
-                        <div class="award-item">
-                            <span>1st Place, Oahu Math Competition (State)</span>
-                            <span class="year">2023, 2024, 2025</span>
-                        </div>
-                        <div class="award-item">
-                            <span>7th Place, Artelab Math Team Competition (National)</span>
-                            <span class="year">2023</span>
-                        </div>
-                        <div class="award-item">
-                            <span>10th Place, Artelab Math Team Competition (National)</span>
-                            <span class="year">2022</span>
-                        </div>
-                        <div class="award-item">
-                            <span>AIME Qualification (National)</span>
-                            <span class="year">2023</span>
-                        </div>
-                        <div class="award-item">
-                            <span>Distinction Roll, AMC (National)</span>
-                            <span class="year">2023</span>
-                        </div>
-                    </div>
-
-                    <div class="award-category fade-in-up" style="animation-delay: 0.1s;">
-                        <h4>Science Bowl</h4>
-                        <div class="award-item">
-                            <span>2025 National Science Bowl Top 12 (National)</span>
-                            <span class="year">2025</span>
-                        </div>
-                        <div class="award-item">
-                            <span>Top 12, 2025 Blair-Amador Invitational (National)</span>
-                            <span class="year">2025</span>
-                        </div>
-                        <div class="award-item">
-                            <span>1st Place, Iolani Invitational (State)</span>
-                            <span class="year">2023, 2024, 2025</span>
-                        </div>
-                        <div class="award-item">
-                            <span>1st Place, Leeward Regional Tournament (State)</span>
-                            <span class="year">2023, 2024, 2025</span>
-                        </div>
-                    </div>
-                    
-                    <div class="award-category fade-in-up" style="animation-delay: 0.2s;">
-                        <h4>Science Olympiad - Individual (State)</h4>
-                        <div class="award-item">
-                            <span>1st Place Chemistry Lab, State Tournament</span>
-                            <span class="year">2025</span>
-                        </div>
-                        <div class="award-item">
-                            <span>1st Place Material Science, State Tournament</span>
-                            <span class="year">2025</span>
-                        </div>
-                        <div class="award-item">
-                            <span>1st Place Chemistry Lab, Leeward Regional Tournament</span>
-                            <span class="year">2025</span>
-                        </div>
-                        <div class="award-item">
-                            <span>1st Place Robot Tour, Leeward Regional Tournament</span>
-                            <span class="year">2025</span>
-                        </div>
-                        <div class="award-item">
-                            <span>1st Place in Material Science, Iolani Invitational</span>
-                            <span class="year">2024</span>
-                        </div>
-                        <div class="award-item">
-                            <span>1st Place in Forensics, Iolani Invitational</span>
-                            <span class="year">2024</span>
-                        </div>
-                        <div class="award-item">
-                            <span>1st Place in Robot Tour, Iolani Invitational</span>
-                            <span class="year">2024</span>
-                        </div>
-                    </div>
-
-                    <div class="award-category fade-in-up" style="animation-delay: 0.3s;">
-                        <h4>Science Olympiad - Individual (National)</h4>
-                        <div class="award-item">
-                            <span>10th Place Material Science, 2025 National (National)</span>
-                            <span class="year">2025</span>
-                        </div>
-                        <div class="award-item">
-                            <span>14th Place Chemistry Lab, 2025 National (National)</span>
-                            <span class="year">2025</span>
-                        </div>
-                        <div class="award-item">
-                            <span>2nd Place Chemistry Lab, Jordan Invitational (National)</span>
-                            <span class="year">2025</span>
-                        </div>
-                        <div class="award-item">
-                            <span>18th Place Material Science, MIT Invitational (National)</span>
-                            <span class="year">2025</span>
-                        </div>
-                        <div class="award-item">
-                            <span>18th Place Chemistry Lab, MIT Invitational (National)</span>
-                            <span class="year">2025</span>
-                        </div>
-                        <div class="award-item">
-                            <span>4th Place Material Science, Highland Virtual Invitational (National)</span>
-                            <span class="year">2024</span>
-                        </div>
-                        <div class="award-item">
-                            <span>3rd Place Chemistry Lab, Highland Invitational (National)</span>
-                            <span class="year">2024</span>
-                        </div>
-                        <div class="award-item">
-                            <span>7th Place Chemistry Lab, Boyceville Virtual Invitational (National)</span>
-                            <span class="year">2024</span>
-                        </div>
-                        <div class="award-item">
-                            <span>2nd Place Codebusters, Boyceville Virtual Invitational (National)</span>
-                            <span class="year">2023</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <a href="Resume.pdf" class="btn btn-primary download-pdf-btn" target="_blank" style="display: block; width: fit-content; margin: 0 auto 3rem auto; padding: 1rem 3rem;">
-                Download PDF
-            </a>
-
-        </div>
-    </main>
-    
-    <footer style="background: var(--primary-navy); color: white; padding: 3rem 0;">
-        <div class="container">
-            <div style="border-top: 1px solid rgba(255,255,255,0.2); margin-top: 0; padding-top: 2rem; text-align: center; color: rgba(255,255,255,0.6);">
-                <p>&copy; 2025 Min Shin - Panda Min's ChemLab. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+                    <div class="item-subtitle">Iolani High School, Honolulu, HI (Team
