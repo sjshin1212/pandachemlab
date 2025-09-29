@@ -17,7 +17,7 @@
     <meta property="og:url" content="https://engineershin.com/uh_research_detail.html" />
     
     <style>
-        /* Shared Styles from independent_research_detail.html / ut_austin_research_detail.html */
+        /* Shared Styles from ut_austin_research_detail.html / independent_research_detail.html */
         .research-header-banner {
             background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
             color: white;
@@ -42,7 +42,6 @@
         
         .research-image img {
             height: auto;
-            /* REMOVED: border-radius / box-shadow as per user request */
             transition: var(--transition-normal);
         }
         
@@ -135,6 +134,14 @@
             max-width: 800px;
             margin: 0 auto;
         }
+        
+        .download-button-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
     </style>
 </head>
 <body>
@@ -190,11 +197,14 @@
         <div class="container">
             <h3 style="color: white; margin-bottom: 1rem;">Project Summary</h3>
             <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; line-height: 1.6;">
-                Organobismuth compounds are emerging as promising alternatives to **traditional transition-metal catalysts** due to Bismuth's lower toxicity, affordability, and environmental friendliness. My research uses **quantum mechanical models (Hartree-Fock and DFT)** and **quasi atomic orbital (QUAO) analysis** to study how ligands affect the stability of the crucial Bismuth-Hydrogen (Bi-H) bond, guiding the design of safer, more efficient catalysts.
+                [cite_start]Organobismuth compounds are emerging as promising alternatives to <strong>traditional transition-metal catalysts</strong> [cite: 483] [cite_start]due to Bismuth's lower toxicity, affordability, and environmental friendliness[cite: 636]. [cite_start]My research uses <strong>quantum mechanical models (Hartree-Fock and DFT)</strong> and <strong>quasi atomic orbital (QUAO) analysis</strong> [cite: 499] [cite_start]to study how ligands affect the stability of the crucial Bismuth-Hydrogen (Bi-H) bond, guiding the design of safer, more efficient catalysts[cite: 503].
             </p>
-            <div class="text-center" style="margin-top: 2rem;">
+            <div class="download-button-group">
                 <a href="HIR Research Flyer.pdf" class="btn btn-secondary" target="_blank" style="background: white; color: var(--primary-navy);">
                     📄 Download Research Flyer (PDF)
+                </a>
+                <a href="HIR Min Shin - Elevator Speech.pdf" class="btn btn-secondary" target="_blank" style="background: white; color: var(--primary-navy);">
+                    🎤 Download Elevator Speech (PDF)
                 </a>
             </div>
         </div>
@@ -208,40 +218,22 @@
             <div class="card" style="margin-bottom: 2rem;">
                 <h4 style="color: var(--primary-teal);">💸 Cost and Toxicity of Transition Metals</h4>
                 <p>
-                    Transition metals (like Platinum, Palladium, Rhodium) are essential for chemical reactions like hydrogenation and cross-coupling. However, they are **expensive**, **toxic**, and **environmentally hazardous**, limiting sustainable and large-scale applications.
+                    [cite_start]Transition metals are widely used in reactions like hydrogenation and cross-coupling due to their excellent ability to undergo redox cycles[cite: 632]. [cite_start]However, many are **expensive, toxic, and environmentally hazardous**, posing challenges for green chemistry applications[cite: 634]. [cite_start]Bismuth offers a promising alternative, being perceived as one of the safest metals often employed for medicinal purposes[cite: 637].
                 </p>
                 
+                <h5 style="color: var(--primary-navy); margin-bottom: 1rem; margin-top: 1.5rem;">The Bismuth Advantage</h5>
+                <ul style="color: var(--neutral-gray); margin: 0; padding-left: 1rem; list-style: disc;">
+                    [cite_start]<li>Bismuth is **safer and more affordable** compared to Platinum, Palladium, and Rhodium[cite: 636].</li>
+                    [cite_start]<li>It is capable of mediating redox catalysis under mild conditions[cite: 639].</li>
+                    [cite_start]<li>Developing organobismuth catalysts could significantly improve sustainable and efficient catalyst use[cite: 643].</li>
+                </ul>
+
                 <div class="research-image text-center">
                     <img src="image_UH/UH_Fig3_440.png" 
                          alt="Transition Metal Catalyzed Reactions" 
                          style="max-width: 450px; width: 100%; height: auto; margin: 2rem auto 1rem auto; display: block;">
                     <p style="font-size: 0.9rem; color: var(--neutral-gray); margin-top: 0.5rem; font-style: italic;">
                         Transition metals catalyze different reaction pathways such as hydrogenation and cross-coupling.
-                    </p>
-                </div>
-                <div class="research-image text-center">
-                    <img src="image_UH/UH_Fig21_600.png" 
-                         alt="Periodic Table of Elements" 
-                         style="max-width: 700px; width: 100%; height: auto; margin: 2rem auto 1rem auto; display: block;">
-                    <p style="font-size: 0.9rem; color: var(--neutral-gray); margin-top: 0.5rem; font-style: italic;">
-                        The majority of high-level chemistry often focuses on transition metals.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="card" style="margin-bottom: 2rem;">
-                <h4 style="color: var(--primary-teal);">✨ Bismuth as a Greener Alternative</h4>
-                <p>
-                    Bismuth, a main-group element, is **safer** (often used for medicinal purposes), **cheaper** (costing significantly less per kg than Pt, Pd, or Rh), and capable of mediating **redox catalysis** under mild conditions. Developing organobismuth catalysts can significantly improve sustainable chemistry.
-                </p>
-                
-                <h5 style="color: var(--primary-navy); margin-bottom: 1rem; margin-top: 1.5rem;">Bismuth Redox Catalysis Overview</h5>
-                <div class="research-image text-center">
-                    <img src="image_UH/UH_Fig10_830.png" 
-                         alt="General Scheme of Bismuth Redox Catalysis" 
-                         style="max-width: 600px; width: 100%; height: auto; margin: 2rem auto 1rem auto; display: block;">
-                    <p style="font-size: 0.9rem; color: var(--neutral-gray); margin-top: 0.5rem; font-style: italic;">
-                        General Scheme of Bismuth Redox Catalysis showing the Bi(III)/Bi(I) and Bi(III)/Bi(V) cycles.
                     </p>
                 </div>
             </div>
@@ -251,23 +243,25 @@
             <div class="card" style="background: var(--light-gray); padding: 2rem; margin-bottom: 2rem;">
                 <h3 style="color: var(--primary-navy); margin-bottom: 1rem; text-align: center;">How to minimize bond dissociation energy for homolytic cleavage of Bi-H?</h3>
                 <p style="text-align: center;">
-                    The instability of the bismuth-hydrogen (Bi-H) bond limits the use of organobismuth complexes. Homolytic cleavage of the Bi-H bond (breaking it into radicals) is essential for the catalyst to cycle efficiently between the Bi(III) and Bi(II) oxidation states.
+                    The instability of the bismuth-hydrogen (Bi-H) bond limits the use of organobismuth complexes. [cite_start]Homolytic cleavage of the Bi-H bond (breaking it into radicals) is essential for the catalyst to cycle efficiently between the Bi(III) and Bi(II) oxidation states[cite: 501, 651].
                 </p>
-            </div>
-            
-            <div class="research-image text-center">
-                <img src="image_UH/UH_Fig17_380.png" 
-                     alt="Homolytic Cleavage Energy of Bi-H bond" 
-                     style="max-width: 400px; width: 100%; height: auto; margin: 1rem auto; display: block;">
-                <p style="font-size: 0.9rem; color: var(--neutral-gray); margin-top: 0.5rem; font-style: italic;">
-                    Homolytic cleavage of the Bi-H bond to generate Bi(II) radicals.
-                </p>
+                <div class="research-image text-center">
+                    <img src="image_UH/UH_Fig17_380.png" 
+                         alt="Homolytic Cleavage Energy of Bi-H bond" 
+                         style="max-width: 400px; width: 100%; height: auto; margin: 1rem auto; display: block;">
+                    <p style="font-size: 0.9rem; color: var(--neutral-gray); margin-top: 0.5rem; font-style: italic;">
+                        Homolytic cleavage of the Bi-H bond to generate Bi(II) radicals.
+                    </p>
+                </div>
             </div>
 
             <div class="card" style="margin-top: 2rem;">
-                <h4 style="color: var(--primary-teal);">Goal: Rational Catalyst Design</h4>
+                <h4 style="color: var(--primary-teal);">Challenge: Ligand Effect on Stability</h4>
                 <p>
-                    By clarifying how **ligands** (molecules bound to the bismuth center) affect the Bi-H bond and overall stability, the research aims to guide the **rational design** of organobismuth catalysts for applications like hydrogenation and radical polymerization.
+                    [cite_start]Mechanistic pathways and ligand effects on Bi-H bond stability remain underexplored[cite: 647]. [cite_start]Current literature suggests the Bi(III)/Bi(I) redox cycle, which involves homolytic cleavage, is primarily affected by the **ligand design**[cite: 651].
+                </p>
+                <p>
+                    [cite_start]<strong>Goal:</strong> By clarifying how **ligands** (molecules bound to the bismuth center) affect the Bi-H bond and overall stability, the research aims to guide the **rational design** of organobismuth catalysts for applications like hydrogenation and radical polymerization[cite: 503, 652].
                 </p>
             </div>
             
@@ -290,7 +284,7 @@
             <div class="method-step" data-step="1">
                 <h4 style="color: var(--primary-teal); margin-bottom: 1rem;">Geometry Optimization (Method #1)</h4>
                 <p>
-                    Molecular structures are optimized using **quantum mechanical methods (Hartree-Fock and Density Functional Theory, DFT)**. This confirms the **true local minima** on the Potential Energy Surface (PES) by running frequency calculations (checking for imaginary frequency values).
+                    [cite_start]Molecular structures are optimized using <strong>quantum mechanical methods (Hartree-Fock and DFT)</strong>[cite: 653]. [cite_start]This process is necessary to confirm **true local minima** on the Potential Energy Surface (PES) by running frequency calculations (checking for imaginary frequency values)[cite: 654].
                 </p>
                 <div class="research-image text-center">
                     <img src="image_UH/UH_Fig8_370.png" 
@@ -305,7 +299,7 @@
             <div class="method-step" data-step="2">
                 <h4 style="color: var(--primary-teal); margin-bottom: 1rem;">Quasi-Atomic Orbital (QUAO) Analysis (Method #2)</h4>
                 <p>
-                    Bonding is studied using **QUAO analysis**, which calculates **Kinetic Bond Order (KBO)** and **Density Bond Order (DBO)**. This provides intrinsic bonding information, including electron occupation and s/p-character, crucial for determining stability.
+                    [cite_start]Bonding is analyzed using <strong>QUAO analysis</strong>, focusing on **Kinetic Bond Order (KBO)**, **Density Bond Order (DBO)**, orbital occupation, and s/p-character[cite: 649, 656]. This provides intrinsic bonding information crucial for determining stability.
                 </p>
                 
                 <div class="research-image text-center">
@@ -321,12 +315,12 @@
             <div class="method-step" data-step="3">
                 <h4 style="color: var(--primary-teal); margin-bottom: 1rem;">Independent Variables and Ligand Design</h4>
                 <p>
-                    The stability is systematically studied across three **independent variables** related to **ligand design**:
+                    [cite_start]The stability is systematically studied across three **independent variables** related to **ligand design**[cite: 657, 658]:
                 </p>
                 <ul style="list-style: none; padding-left: 0; text-align: left; font-size: 1.0rem; color: var(--dark-gray);">
-                    <li><strong>1. Substituent Types:</strong> Varying electron-donating/withdrawing groups (-F, -NH2, -NO2, etc.) on the phenyl rings.</li>
-                    <li><strong>2. Substituent Positions:</strong> Comparing para vs. ortho positions on the phenyl rings.</li>
-                    <li><strong>3. Denticity:</strong> Exploring the effect of a sulfur bridge between phenyl groups (tetradentate ligand).</li>
+                    <li><strong>1. [cite_start]Substituent Types:</strong> Varying electron-donating/withdrawing groups (e.g., -F, -NH2, -OCH3, -NO2) on the phenyl rings[cite: 657].</li>
+                    <li><strong>2. [cite_start]Substituent Positions:</strong> Comparing para versus ortho positions on phenyl groups[cite: 658].</li>
+                    <li><strong>3. [cite_start]Denticity:</strong> Exploring the effect of a sulfur bridge between phenyl groups (e.g., tetradentate ligands)[cite: 658].</li>
                 </ul>
                 <div class="research-image text-center">
                     <img src="image_UH/UH_Fig9_670.png" 
@@ -347,7 +341,7 @@
             <div style="background: white; padding: 3rem; border-radius: 20px; box-shadow: var(--shadow-lg); text-align: center; margin-bottom: 3rem;">
                 <h3 style="color: var(--primary-teal); margin-bottom: 2rem;">Analyzing Bonding Orbitals</h3>
                 <p>
-                    By comparing the QUAO profiles and the calculated bond dissociation energies, we can identify which substituent types and positions lead to the most stable and efficient organobismuth catalysts.
+                    [cite_start]By comparing the QUAO profiles and the calculated bond dissociation energies across these variations, the research aims to identify which substituent leads to the most stable and efficient organobismuth catalysts[cite: 660].
                 </p>
                 
                 <div class="research-image text-center">
@@ -370,10 +364,10 @@
             <div style="background: var(--primary-navy); color: white; padding: 3rem; border-radius: 20px; margin: 3rem 0; text-align: center;">
                 <h3 style="color: white; margin-bottom: 2rem;">Impact: Greener, Safer Chemistry</h3>
                 <p style="font-size: 1.2rem; line-height: 1.6; color: rgba(255,255,255,0.9);">
-                    If successful, this research will clarify how to stabilize and tune Bi-H bonds, helping chemists design more efficient **organobismuth catalysts**. This provides a pathway to reduce reliance on **hazardous transition metals** and expands the toolkit for sustainable catalysis in hydrogenation, radical polymerization, and beyond.
+                    [cite_start]The insights gained will clarify how efficiently the catalyst can cycle between Bi(III) and Bi(II) oxidation states[cite: 652]. [cite_start]If successful, this research will help chemists design more efficient <strong>organobismuth catalysts</strong>, reducing reliance on **hazardous transition metals** and expanding the toolkit for sustainable catalysis[cite: 661].
                 </p>
                 <p style="font-size: 1.0rem; font-style: italic; color: rgba(255,255,255,0.8); margin-top: 1rem;">
-                    This is one step toward greener, safer, and more affordable chemistry.
+                    [cite_start]This is one step toward greener, safer, and more affordable chemistry[cite: 662].
                 </p>
             </div>
         </div>
@@ -381,16 +375,18 @@
 
     <footer style="background: var(--primary-navy); color: white; padding: 3rem 0;">
         <div class="container">
-            <h3 style="color: white; text-align: center; margin-bottom: 2rem;">Acknowledgments & Download</h3>
+            <h3 style="color: white; text-align: center; margin-bottom: 2rem;">Acknowledgments & Downloads</h3>
             
             <div class="text-center" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
                 <p style="color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;">
                     Mentors: Dr. Sattasathuchana and Dr. Hyvl. Resources provided by the Honors Independent Research Program.
                 </p>
-                <div style="margin-top: 2rem;">
-                    <a href="index.html" class="btn btn-secondary">← Back to Portfolio</a>
-                    <a href="HIR Research Flyer.pdf" class="btn btn-accent" target="_blank" style="margin-left: 1rem;">
+                <div class="download-button-group">
+                    <a href="HIR Research Flyer.pdf" class="btn btn-secondary" target="_blank">
                         📄 Download Research Flyer
+                    </a>
+                    <a href="HIR Min Shin - Elevator Speech Script.pdf" class="btn btn-secondary" target="_blank" style="margin-left: 1rem;">
+                        🎤 Download Speech Script
                     </a>
                 </div>
             </div>
