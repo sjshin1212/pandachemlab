@@ -1,1 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min Shin - UH Manoa Research: Organobismuth Hydrides</title>
+    <meta name="description" content="Computational analysis of Organobismuth Hydride complexes using DFT, Hartree-Fock, and Quasi Atomic Orbital (QUAO) analysis to improve catalyst stability and efficiency.">
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🐼</text></svg>">
+    
+    <link rel="stylesheet" href="style.css">
 
+    <link rel="canonical" href="https://engineershin.com/uh_research_detail.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="UH Manoa Research – Organobismuth Hydrides" />
+    <meta property="og:description" content="Computational Analysis of Organobismuth Hydride Complex via QUAO Analysis" />
+    <meta property="og:url" content="https://engineershin.com/uh_research_detail.html" />
+    
+    <style>
+        /* Shared Styles from independent_research_detail.html / ut_austin_research_detail.html */
+        .research-header-banner {
+            background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
+            color: white;
+            padding: 4rem 0 6rem 0;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .research-header-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path d="M0 0v100c166.7 0 166.7-66 333.3-66s166.7 66 333.3 66 166.7-66 333.3-66v-100z" fill="%23ffffff" opacity="0.1"/></svg>');
+            background-size: 100% 50px;
+            background-repeat: repeat-x;
+            animation: wave 15s infinite linear;
+        }
+        
+        .research-image img {
+            height: auto;
+            /* REMOVED: border-radius / box-shadow as per user request */
+            transition: var(--transition-normal);
+        }
+        
+        .molecule-visual {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            border: 3px solid var(--accent-coral);
+            border-radius: 50%;
+            position: relative;
+            animation: rotate 20s infinite linear;
+            margin: 2rem auto;
+        }
+        
+        .molecule-visual::before {
+            content: '⚛️';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+        }
+        
+        .method-step {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1rem 0;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--primary-teal);
+            position: relative;
+        }
+        
+        .method-step::before {
+            content: attr(data-step);
+            position: absolute;
+            left: -20px;
+            top: 20px;
+            background: var(--primary-teal);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .collaboration-highlight {
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .back-to-portfolio {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            background: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+            text-decoration: none;
+            color: var(--primary-navy);
+            font-size: 1.5rem;
+            z-index: 100;
+            transition: var(--transition-normal);
+        }
+        
+        .back-to-portfolio:hover {
+            transform: scale(1.1);
+            background: var(--primary-navy);
+            color: white;
+        }
+
+        /* Custom Styles for this Page */
+        .data-table-container {
+            margin: 2rem auto;
+        }
+        
+        .main-content-flow {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html#chemlab" class="back-to-portfolio" title="Back to Portfolio">
+        ←
+    </a>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🐼</div>
+                <span>Min's ChemLab</span>
+            </a>
+        </div>
+    </nav>
+
+    <section class="research-header-banner">
+        <div class="container">
+            <div class="text-center">
+                <div class="molecule-visual"></div>
+                <h1 style="color: white; margin-bottom: 1rem; -webkit-text-fill-color: white; background: none; font-size: clamp(2rem, 3.5vw, 3.5rem);">
+                    Computational Analysis of Organobismuth Hydrides
+                </h1>
+                <h2 style="color: rgba(255,255,255,0.9); font-size: 1.5rem; font-weight: 500;">
+                    Investigating Bi-H Bond Stability via QUAO Analysis
+                </h2>
+                
+                <div style="margin: 2rem 0;">
+                    <div class="research-status" style="background: rgba(255,255,255,0.2); color: white;">
+                        UH Manoa Collaboration • Honors Independent Research • Computational Chemistry
+                    </div>
+                </div>
+                
+                <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 2rem;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; font-weight: bold;">Bi-H Bond</div>
+                        <small style="opacity: 0.8;">Primary Focus</small>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; font-weight: bold;">DFT/HF</div>
+                        <small style="opacity: 0.8;">Optimization Methods</small>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; font-weight: bold;">QUAO</div>
+                        <small style="opacity: 0.8;">Bonding Analysis</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="collaboration-highlight">
+        <div class="container">
+            <h3 style="color: white; margin-bottom: 1rem;">Project Summary</h3>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; line-height: 1.6;">
+                Organobismuth compounds are emerging as promising alternatives to **traditional transition-metal catalysts** due to Bismuth's lower toxicity, affordability, and environmental friendliness. My research uses **quantum mechanical models (Hartree-Fock and DFT)** and **quasi atomic orbital (QUAO) analysis** to study how ligands affect the stability of the crucial Bismuth-Hydrogen (Bi-H) bond, guiding the design of safer, more efficient catalysts.
+            </p>
+            <div class="text-center" style="margin-top: 2rem;">
+                <a href="HIR Research Flyer.pdf" class="btn btn-secondary" target="_blank" style="background: white; color: var(--primary-navy);">
+                    📄 Download Research Flyer (PDF)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="benzene-bg" style="padding: 4rem 0;">
+        <div class="container main-content-flow">
+            
+            <h2 style="color: var(--primary-navy); margin-bottom: 2rem;">Problem & Motivation</h2>
+            
+            <div class="card" style="margin-bottom: 2rem;">
+                <h4 style="color: var(--primary-teal);">💸 Cost and Toxicity of Transition Metals</h4>
+                <p>
+                    Transition metals (like Platinum, Palladium, Rhodium) are essential for chemical reactions like hydrogenation and cross-coupling. However, they are **expensive**, **toxic**, and **environmentally hazardous**, limiting sustainable and large-scale applications.
+                </p>
+                
+                <div class="research-image text-center">
+                    <img src="image_UH/UH_Fig3_440.png" 
+                         alt="Transition Metal Catalyzed Reactions" 
+                         style="max-width: 450px; width: 100%; height: auto; margin: 2rem auto 1rem auto; display: block;">
+                    <p style="font-size: 0.9rem; color: var(--neutral-gray); margin-top: 0.5rem; font-style: italic;">
+                        Transition metals catalyze different reaction pathways such as hydrogenation and cross-coupling.
+                    </p>
+                </div>
+                <div class="research-image text-center">
+                    <img src="image_UH/UH_Fig21_600.png" 
+                         alt="Periodic Table of Elements" 
+                         style="max-width: 700px; width: 100%; height: auto; margin: 2rem auto 1rem auto; display: block;">
+                    <p style="font-size: 0.9rem; color: var(--neutral-gray); margin-top: 0.5rem; font-style: italic;">
+                        The majority of high-level chemistry often focuses on transition metals.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="card" style="margin-bottom: 2rem;">
+                <h4 style="color: var(--primary-teal);">✨ Bismuth as a Greener Alternative</h4>
+                <p>
+                    Bismuth, a main-group element, is **safer** (often used for medicinal purposes), **cheaper** (costing significantly less per kg than Pt, Pd, or Rh), and capable of mediating **redox catalysis** under mild conditions. Developing organobismuth catalysts can significantly improve sustainable chemistry.
+                </p>
+                
+                <h5 style="color: var(--primary-navy); margin-bottom: 1rem; margin-top: 1.5rem;">Bismuth Redox Catalysis Overview</h5>
+                <div class="research-image text-center">
+                    <img src="image_UH/UH_Fig10_830.png" 
+                         alt="General Scheme of Bismuth Redox Catalysis" 
+                         style="max-width: 600px; width: 100%; height: auto; margin: 2rem auto 1rem auto; display: block;">
+                    <p style="font-size: 0.9rem; color: var(--neutral-gray); margin-top: 0.5rem; font-style: italic;">
+                        General Scheme of Bismuth Redox Catalysis showing the Bi(III)/Bi(I) and Bi(III)/Bi(V) cycles.
+                    </p>
+                </div>
+            </div>
+            
+            <h2 style="color: var(--primary-navy); margin-bottom: 2rem; margin-top: 4rem;">Research Question & Goal</h2>
+            
+            <div class="card" style="background: var(--light-gray); padding: 2rem; margin-bottom: 2rem;">
+                <h3 style="color: var(--primary-navy); margin-bottom: 1rem; text-align: center;">How to minimize bond dissociation energy for homolytic cleavage of Bi-H?</h3>
+                <p style="text-align: center;">
+                    The instability of the bismuth-hydrogen (Bi-H) bond limits the use of organobismuth complexes. Homolytic cleavage of the Bi-H bond (breaking it into radicals) is essential for the catalyst to cycle efficiently between the Bi(III) and Bi(II) oxidation states.
+                </p>
+            </div>
+            
+            <div class="research-image text-center">
+                <img src="image_UH/UH_Fig17_380.png" 
+                     alt="Homolytic Cleavage Energy of Bi-H bond" 
+                     style="max-width: 400px; width: 100%; height: auto; margin: 1rem auto; display: block;">
+                <p style="font-size: 0.9rem; color: var(--neutral-gray); margin-top: 0.5rem; font-style: italic;">
+                    Homolytic cleavage of the Bi-H bond to generate Bi(II) radicals.
+                </p>
+            </div>
+
+            <div class="card" style="margin-top: 2rem;">
+                <h4 style="color: var(--primary-teal);">Goal: Rational Catalyst Design</h4>
+                <p>
+                    By clarifying how **ligands** (molecules bound to the bismuth center) affect the Bi-H bond and overall stability, the research aims to guide the **rational design** of organobismuth catalysts for applications like hydrogenation and radical polymerization.
+                </p>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="section-alt benzene-bg">
+        <div class="container main-content-flow">
+            <h2 class="text-center mb-4" style="color: var(--primary-navy);">Computational Methodology</h2>
+            
+            <div class="research-image text-center">
+                <img src="image_UH/UH_Fig19_560.png" 
+                     alt="Flow of Computational Analysis" 
+                     style="max-width: 580px; width: 100%; height: auto; margin: 1rem auto; display: block;">
+                <p style="font-size: 0.9rem; color: var(--neutral-gray); margin-top: 0.5rem; font-style: italic;">
+                    Flow chart of the computational analysis process.
+                </p>
+            </div>
+            
+            <div class="method-step" data-step="1">
+                <h4 style="color: var(--primary-teal); margin-bottom: 1rem;">Geometry Optimization (Method #1)</h4>
+                <p>
+                    Molecular structures are optimized using **quantum mechanical methods (Hartree-Fock and Density Functional Theory, DFT)**. This confirms the **true local minima** on the Potential Energy Surface (PES) by running frequency calculations (checking for imaginary frequency values).
+                </p>
+                <div class="research-image text-center">
+                    <img src="image_UH/UH_Fig8_370.png" 
+                         alt="Example of Frequency Calculation Output" 
+                         style="max-width: 400px; width: 100%; height: auto; margin: 1rem auto; display: block;">
+                    <p style="font-size: 0.9rem; color: var(--neutral-gray); margin-top: 0.5rem; font-style: italic;">
+                        Frequency calculation output: Imaginary modes indicate the optimized point is not a true local minimum.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="method-step" data-step="2">
+                <h4 style="color: var(--primary-teal); margin-bottom: 1rem;">Quasi-Atomic Orbital (QUAO) Analysis (Method #2)</h4>
+                <p>
+                    Bonding is studied using **QUAO analysis**, which calculates **Kinetic Bond Order (KBO)** and **Density Bond Order (DBO)**. This provides intrinsic bonding information, including electron occupation and s/p-character, crucial for determining stability.
+                </p>
+                
+                <div class="research-image text-center">
+                    <img src="image_UH/UH_Fig16_380.png" 
+                         alt="QUAO Equations for DBO and KBO" 
+                         style="max-width: 400px; width: 100%; height: auto; margin: 1rem auto; display: block;">
+                    <p style="font-size: 0.9rem; color: var(--neutral-gray); margin-top: 0.5rem; font-style: italic;">
+                        Density Bond Orders (DBO) and Kinetic Bond Orders (KBO) derived from QUAO.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="method-step" data-step="3">
+                <h4 style="color: var(--primary-teal); margin-bottom: 1rem;">Independent Variables and Ligand Design</h4>
+                <p>
+                    The stability is systematically studied across three **independent variables** related to **ligand design**:
+                </p>
+                <ul style="list-style: none; padding-left: 0; text-align: left; font-size: 1.0rem; color: var(--dark-gray);">
+                    <li><strong>1. Substituent Types:</strong> Varying electron-donating/withdrawing groups (-F, -NH2, -NO2, etc.) on the phenyl rings.</li>
+                    <li><strong>2. Substituent Positions:</strong> Comparing para vs. ortho positions on the phenyl rings.</li>
+                    <li><strong>3. Denticity:</strong> Exploring the effect of a sulfur bridge between phenyl groups (tetradentate ligand).</li>
+                </ul>
+                <div class="research-image text-center">
+                    <img src="image_UH/UH_Fig9_670.png" 
+                         alt="Organobismuth Hydride Structure with Substituents" 
+                         style="max-width: 700px; width: 100%; height: auto; margin: 1rem auto; display: block;">
+                    <p style="font-size: 0.9rem; color: var(--neutral-gray); margin-top: 0.5rem; font-style: italic;">
+                        Types and positions of substituents on the phenyl rings affect the bonding profiles of organobismuth hydrides.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benzene-bg">
+        <div class="container main-content-flow">
+            <h2 class="text-center mb-4" style="color: var(--primary-navy);">QUAO Bonding Analysis Sample</h2>
+            
+            <div style="background: white; padding: 3rem; border-radius: 20px; box-shadow: var(--shadow-lg); text-align: center; margin-bottom: 3rem;">
+                <h3 style="color: var(--primary-teal); margin-bottom: 2rem;">Analyzing Bonding Orbitals</h3>
+                <p>
+                    By comparing the QUAO profiles and the calculated bond dissociation energies, we can identify which substituent types and positions lead to the most stable and efficient organobismuth catalysts.
+                </p>
+                
+                <div class="research-image text-center">
+                    <img src="image_UH/UH_Fig20_1200.png" 
+                         alt="Sample QUAO Density Plot for Organobismuth Complex" 
+                         style="max-width: 700px; width: 100%; height: auto; margin: 2rem auto; display: block;">
+                    <p style="font-size: 0.9rem; color: var(--neutral-gray); margin-top: 0.5rem; font-style: italic;">
+                        Example of a QUAO density plot showing electron distribution around the active site.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section-alt benzene-bg">
+        <div class="container main-content-flow">
+            <h2 class="text-center mb-4" style="color: var(--primary-navy);">Conclusion & Impact</h2>
+            
+            <div style="background: var(--primary-navy); color: white; padding: 3rem; border-radius: 20px; margin: 3rem 0; text-align: center;">
+                <h3 style="color: white; margin-bottom: 2rem;">Impact: Greener, Safer Chemistry</h3>
+                <p style="font-size: 1.2rem; line-height: 1.6; color: rgba(255,255,255,0.9);">
+                    If successful, this research will clarify how to stabilize and tune Bi-H bonds, helping chemists design more efficient **organobismuth catalysts**. This provides a pathway to reduce reliance on **hazardous transition metals** and expands the toolkit for sustainable catalysis in hydrogenation, radical polymerization, and beyond.
+                </p>
+                <p style="font-size: 1.0rem; font-style: italic; color: rgba(255,255,255,0.8); margin-top: 1rem;">
+                    This is one step toward greener, safer, and more affordable chemistry.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: var(--primary-navy); color: white; padding: 3rem 0;">
+        <div class="container">
+            <h3 style="color: white; text-align: center; margin-bottom: 2rem;">Acknowledgments & Download</h3>
+            
+            <div class="text-center" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
+                <p style="color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;">
+                    Mentors: Dr. Sattasathuchana and Dr. Hyvl. Resources provided by the Honors Independent Research Program.
+                </p>
+                <div style="margin-top: 2rem;">
+                    <a href="index.html" class="btn btn-secondary">← Back to Portfolio</a>
+                    <a href="HIR Research Flyer.pdf" class="btn btn-accent" target="_blank" style="margin-left: 1rem;">
+                        📄 Download Research Flyer
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
