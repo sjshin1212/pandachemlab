@@ -784,3 +784,104 @@ section {
     scroll-behavior: auto !important;
   }
 }
+
+/* New CSS for the 6-section grid layout */
+    .activity-section-grid {
+        display: grid;
+        gap: var(--spacing-md);
+        margin: var(--spacing-lg) 0;
+        grid-template-columns: repeat(3, 1fr); /* Default: 3 columns for wider screens (3x2) */
+    }
+
+    /* Card styling remains the same as provided in style.css */
+    .activity-card-reconfig {
+        background: white;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        transition: var(--transition-normal);
+        display: flex; /* Flex container for content */
+        flex-direction: column;
+    }
+
+    .activity-card-reconfig:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-xl);
+    }
+
+    .card-header-icon {
+        height: 100px;
+        background: linear-gradient(135deg, var(--primary-teal), var(--accent-coral));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 3rem;
+    }
+    
+    .card-header-icon.chem { background: linear-gradient(135deg, #10b981, #065f46); } /* Green for Chemistry */
+    .card-header-icon.science { background: linear-gradient(135deg, #4f46e5, #4338ca); } /* Indigo for Science Teams */
+    .card-header-icon.math { background: linear-gradient(135deg, #f59e0b, #d97706); } /* Amber for Math */
+    .card-header-icon.impact { background: linear-gradient(135deg, #0891b2, #06b6d4); } /* Teal for Educational Impact */
+    .card-header-icon.civic { background: linear-gradient(135deg, #64748b, #475569); } /* Gray for Civic Engagement */
+
+    .activity-content-reconfig {
+        padding: var(--spacing-md);
+        flex-grow: 1; /* Allows content area to fill vertical space */
+    }
+
+    .activity-title-reconfig {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--primary-navy);
+        margin-bottom: var(--spacing-xs);
+        line-height: 1.3;
+    }
+    
+    .activity-stats-reconfig {
+        color: var(--accent-coral);
+        font-weight: 600;
+        font-size: 0.95rem;
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .activity-details-list {
+        list-style: none;
+        padding-left: 0;
+        margin-top: 1rem;
+        color: var(--neutral-gray);
+        font-size: 0.95rem;
+    }
+    
+    .activity-details-list li {
+        position: relative;
+        padding-left: 1rem;
+        margin-bottom: 0.4rem;
+        /* Enforced conciseness */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+    }
+    
+    .activity-details-list li::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: var(--primary-teal);
+        font-weight: bold;
+    }
+
+    /* Responsive adjustments for 2-column layout on medium screens (2x3) */
+    @media (max-width: 1024px) {
+        .activity-section-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    /* Responsive adjustments for 1-column layout on small screens */
+    @media (max-width: 640px) {
+        .activity-section-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
