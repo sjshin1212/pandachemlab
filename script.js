@@ -21,11 +21,14 @@ document.addEventListener('DOMContentLoaded', function() {
 // Navigation Management
 function initNavigation() {
     const navbar = document.getElementById('navbar');
-    const navLinks = document.querySelectorAll('.nav-link');
+    // --- IMPORTANT FIX: Select ALL elements meant for smooth scrolling ---
+    // This selects all 'nav-link' classes across the header, quick overview, and hero buttons.
+    const scrollLinks = document.querySelectorAll('.nav-link, a[href^="#"]'); 
+    
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navMenu = document.querySelector('.nav-menu');
 
-    // Navbar scroll effect
+    // Navbar scroll effect (KEEP EXISTING LOGIC)
     window.addEventListener('scroll', function() {
         if (window.scrollY > 100) {
             navbar.style.background = 'rgba(255, 255, 255, 0.98)';
@@ -36,32 +39,49 @@ function initNavigation() {
         }
     });
 
-    // Active navigation link highlighting
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
+    // Active navigation link highlighting and Smooth scrolling
+    scrollLinks.forEach(link => {
+        // Ensure the handler only runs if the link points to a section ID (starts with # and is not just #)
+        if (link.getAttribute('href').length > 1) {
             
-            // Remove active class from all links
-            navLinks.forEach(nav => nav.classList.remove('active'));
-            
-            // Add active class to clicked link
-            this.classList.add('active');
-            
-            // Smooth scroll to section
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        });
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // --- Logic to handle active link class for header menu items only ---
+                // (Only apply this to the actual nav menu items, not the large buttons)
+                const headerNavLinks = document.querySelectorAll('.nav-menu .nav-link');
+                headerNavLinks.forEach(nav => nav.classList.remove('active'));
+                
+                // If the clicked link is part of the header menu, set it active
+                if (link.closest('.nav-menu')) {
+                    link.classList.add('active');
+                }
+                // --- End active link logic ---
+                
+                // Smooth scroll to section
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    // Adjusted offset for fixed navbar
+                    const offsetTop = targetSection.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+
+                // Close mobile menu after clicking a link
+                if (navMenu.classList.contains('mobile-active')) {
+                     navMenu.classList.remove('mobile-active');
+                     mobileMenuBtn.innerHTML = '☰';
+                     mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
     });
 
-    // Mobile menu toggle
+    // Mobile menu toggle (KEEP EXISTING LOGIC)
     if (mobileMenuBtn) {
       mobileMenuBtn.addEventListener('click', function () {
         navMenu.classList.toggle('mobile-active');
@@ -70,7 +90,7 @@ function initNavigation() {
         this.setAttribute('aria-expanded', String(isOpen));
       });
     }
-    // Auto-highlight current section
+    // Auto-highlight current section (KEEP EXISTING LOGIC)
     window.addEventListener('scroll', updateActiveNavLink);
 }
 
