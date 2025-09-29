@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min Shin - Music Performance Gallery</title>
+    <meta name="description" content="A gallery showcasing Min Shin's trombone performance and musical leadership activities, including the Big Band Bash Festival.">
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🐼</text></svg>">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="canonical" href="https://engineershin.com/mylife_gallery.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Music Performance Gallery" />
+    <meta property="og:description" content="Trombone performance and musical leadership visuals." />
+    
+    <style>
+        /* Styles to ensure consistency with research detail pages */
+        .gallery-header-banner {
+            background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
+            color: white;
+            padding: 4rem 0 6rem 0;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .gallery-header-banner h1 {
+            color: white;
+            -webkit-text-fill-color: white;
+        }
+
+        .back-to-portfolio {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            background: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+            text-decoration: none;
+            color: var(--primary-navy);
+            font-size: 1.5rem;
+            z-index: 100;
+            transition: var(--transition-normal);
+        }
+
+        /* MOSAIC GRID DEFINITIONS */
+        .gallery-grid {
+            display: grid;
+            /* Base grid template: 4 equal columns for desktop/large view */
+            grid-template-columns: repeat(4, 1fr); 
+            grid-auto-rows: 250px; /* Base height for rows */
+            gap: 10px;
+            margin: 2rem 0;
+        }
+
+        .gallery-item {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            cursor: zoom-in;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            vertical-align: middle;
+        }
+        
+        /* Specific Spans to create the Mosaic */
+        .item-span-2-row {
+            grid-row: span 2;
+        }
+        .item-span-2-col {
+            grid-column: span 2;
+        }
+        
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-auto-rows: 300px;
+            }
+            .item-span-2-row, .item-span-2-col {
+                grid-row: span 1;
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html#mylife" class="back-to-portfolio" title="Back to My Life Section">
+        ←
+    </a>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🐼</div>
+                <span>Min's ChemLab</span>
+            </a>
+        </div>
+    </nav>
+
+    <section class="gallery-header-banner">
+        <div class="container">
+            <h1>Music & Performance Gallery 🎺</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem;">Lead Trombonist: Stage Band and Big Band Bash Festival</p>
+        </div>
+    </section>
+
+    <section class="benzene-bg">
+        <div class="container">
+            <h2 class="text-center mb-4" style="color: var(--primary-navy);">Performance Highlights</h2>
+            
+            <div class="gallery-grid">
+                
+                <div class="gallery-item item-span-2-col">
+                    <img src="images/gallery2/IMG_8506.jpg" alt="Lead Trombonist performing with the Iolani Stage Band" loading="lazy">
+                </div>
+
+                <div class="gallery-item item-span-2-row">
+                    <img src="images/gallery2/IMG_0445.png" alt="Close-up of Min Shin playing the trombone during performance" loading="lazy">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/gallery2/2025-09-28.png" alt="Iolani Stage Band performing at Big Band Bash" loading="lazy">
+                </div>
+                
+                <div class="gallery-item item-span-2-col">
+                    <img src="images/gallery2/IMG_5947.jpg" alt="Trombone section and rhythm section performing" loading="lazy">
+                </div>
+                
+                <div class="gallery-item item-span-2-row item-span-2-col">
+                    <img src="images/gallery2/IMG_0390.jpg" alt="Stage Band members including vocalist and horns performing" loading="lazy">
+                </div>
+                
+            </div>
+            
+            <div class="text-center mt-4">
+                <p style="font-style: italic; color: var(--neutral-gray);">Images represent performances from the Iolani Stage Band and annual Big Band Bash Festival.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: var(--primary-navy); color: white; padding: 3rem 0;">
+        <div class="container">
+            <div class="text-center" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
+                <p style="color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;">
+                    Thank you for viewing Min Shin's musical performance gallery.
+                </p>
+                <div style="margin-top: 2rem;">
+                    <a href="index.html#mylife" class="btn btn-secondary">← Back to My Life Section</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
