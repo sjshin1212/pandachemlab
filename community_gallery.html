@@ -84,6 +84,9 @@
         .item-span-2-col {
             grid-column: span 2;
         }
+        .item-span-4-row { /* New class for the 2x height request on IMG_8079 (already 2x) */
+            grid-row: span 4;
+        }
         
         /* Mobile Adjustments */
         @media (max-width: 600px) {
@@ -91,7 +94,7 @@
                 grid-template-columns: 1fr;
                 grid-auto-rows: 300px;
             }
-            .item-span-2-row, .item-span-2-col {
+            .item-span-2-row, .item-span-2-col, .item-span-4-row {
                 grid-row: span 1;
                 grid-column: span 1;
             }
@@ -125,23 +128,27 @@
             
             <div class="gallery-grid">
                 
+                <div class="gallery-item item-span-2-col item-span-4-row">
+                    <img src="gallery1/IMG_8079.JPG" alt="Science Team Group Photo with Medals" loading="lazy">
+                </div>
+
                 <div class="gallery-item">
                     <img src="gallery1/!Award-35.jpg" alt="Min Shin receiving an award or recognition" loading="lazy">
                 </div>
-
-                <div class="gallery-item item-span-2-row">
-                    <img src="gallery1/Material Science Min_Raphael.jpg" alt="Science Olympiad Material Science Team Photo" loading="lazy">
-                </div>
                 
                 <div class="gallery-item item-span-2-col">
-                    <img src="gallery1/IMG_8079.jpg" alt="Science Team Group Photo with Medals" loading="lazy">
+                    <img src="gallery1/EE9395A.jpg" alt="Science Bowl National Team Photo" loading="lazy">
+                </div>
+                
+                <div class="gallery-item item-span-2-row">
+                    <img src="gallery1/Material Science Min_Raphael.jpg" alt="Science Olympiad Material Science Team Photo" loading="lazy">
                 </div>
 
                 <div class="gallery-item">
                     <img src="gallery1/1190B3DC.jpg" alt="Science Bowl Team in Washington DC" loading="lazy">
                 </div>
 
-                <div class="gallery-item">
+                <div class="gallery-item item-span-2-row">
                     <img src="gallery1/2024_01_SciOly__50.jpg" alt="Science Olympiad Chemistry Lab Event" loading="lazy">
                 </div>
 
