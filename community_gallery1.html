@@ -51,15 +51,19 @@
             transition: var(--transition-normal);
         }
 
+
         .gallery-grid {
-            /* Modified for 4-column layout matching the screenshot visually */
+            /* (기존 속성 유지) */
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: 200px; /* Base height for rows */
+            grid-auto-rows: 200px; 
             gap: 10px;
-            margin: 2rem 0;
+            grid-auto-flow: dense; 
         }
 
+
+
+        
         .gallery-item {
             width: 100%;
             height: 100%;
@@ -279,4 +283,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
