@@ -53,7 +53,7 @@ body {
   line-height: 1.6;
   color: var(--dark-gray);
   background-color: var(--pure-white);
-  overflow-x: hidden;
+  overflow-x: hidden; /* X축 오버플로우 방지 */
 }
 
 /* Benzene Ring Background Pattern */
@@ -136,7 +136,8 @@ nav {
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: var(--spacing-sm) var(--spacing-md);
+  /* 데스크탑: 좌우 여백 md */
+  padding: var(--spacing-sm) var(--spacing-md); 
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -272,6 +273,7 @@ nav {
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  /* 데스크탑: 좌우 여백 md */
   padding: 0 var(--spacing-md);
 }
 
@@ -298,8 +300,8 @@ section {
 }
 
 .section-hero {
-  /* Fixed: min-height adjusted for mobile/overlap issues */
-  min-height: 70vh; 
+  /* 섹션 오버랩 문제 해결을 위한 조정 */
+  min-height: 85vh; /* 충분한 공간 확보 */
   display: flex;
   align-items: center;
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
