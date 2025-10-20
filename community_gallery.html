@@ -55,7 +55,7 @@
             /* Modified for 4-column layout matching the screenshot visually */
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: 200px; 
+            grid-auto-rows: 200px; /* Base height for rows */
             gap: 10px;
             margin: 2rem 0;
         }
@@ -78,7 +78,7 @@
             vertical-align: middle;
         }
         
-        /* Specific Spans based on the requested screenshot */
+        /* Specific Spans to create the Mosaic */
         .item-span-2-row {
             grid-row: span 2;
         }
@@ -234,11 +234,25 @@
             
             <div class="video-container" style="margin-top: 5rem; text-align: center;">
                 <h3 style="color: var(--primary-navy); margin-bottom: 1.5rem;">Community Teams Highlight</h3>
-                <div style="max-width: 800px; margin: 0 auto; aspect-ratio: 16 / 9; box-shadow: var(--shadow-lg);">
+                <div style="max-width: 800px; margin: 0 auto 2rem auto; aspect-ratio: 16 / 9; box-shadow: var(--shadow-lg);">
                     <iframe 
                         width="100%" 
                         height="100%" 
                         src="https://www.youtube.com/embed/iCKV4A-SW4A" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen
+                        style="border-radius: 12px;"
+                    ></iframe>
+                </div>
+                
+                <h3 style="color: var(--primary-navy); margin-bottom: 1.5rem;">Science Teams Summary</h3>
+                <div style="max-width: 800px; margin: 0 auto; aspect-ratio: 16 / 9; box-shadow: var(--shadow-lg);">
+                    <iframe 
+                        width="100%" 
+                        height="100%" 
+                        src="https://www.youtube.com/embed/r-O_5KOIKnI" 
                         title="YouTube video player" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
