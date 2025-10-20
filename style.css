@@ -298,8 +298,8 @@ section {
 }
 
 .section-hero {
-  /* min-height: 100vh;  원래 100vh */
-  min-height: 80vh; /* min-height를 80vh로 줄여서 오버랩 위험 감소 */
+  /* Fixed: min-height adjusted for mobile/overlap issues */
+  min-height: 70vh; 
   display: flex;
   align-items: center;
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
@@ -610,6 +610,11 @@ section {
     display: block;
   }
   
+  /* Fixed: nav-container 패딩을 좁혀 버튼이 튀어나가지 않도록 함 */
+  .nav-container {
+    padding: var(--spacing-sm) var(--spacing-sm);
+  }
+  
   .container {
     padding: 0 var(--spacing-sm);
   }
@@ -643,7 +648,8 @@ section {
   }
   
   .section-hero {
-    min-height: 80vh;
+    /* Fixed: 모바일에서 오버랩 방지를 위해 min-height 조정 */
+    min-height: 70vh;
     padding-top: 80px;
   }
 }
@@ -658,7 +664,7 @@ section {
   }
   
  .nav-container {
-    padding: var(--spacing-sm) var(--spacing-sm); /* md 대신 sm 사용 */
+    padding: var(--spacing-sm) var(--spacing-sm);
   }
   .container {
     padding: 0 var(--spacing-sm);
@@ -889,4 +895,3 @@ section {
             grid-template-columns: 1fr;
         }
     }
-
