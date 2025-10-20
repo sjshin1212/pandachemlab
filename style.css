@@ -298,12 +298,14 @@ section {
 }
 
 .section-hero {
-  min-height: 100vh;
+  /* min-height: 100vh;  원래 100vh */
+  min-height: 80vh; /* min-height를 80vh로 줄여서 오버랩 위험 감소 */
   display: flex;
   align-items: center;
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   position: relative;
 }
+
 
 .section-alt {
   background: var(--light-gray);
@@ -655,8 +657,11 @@ section {
     grid-template-columns: 1fr;
   }
   
-  .nav-container {
-    padding: var(--spacing-xs) var(--spacing-sm);
+ .nav-container {
+    padding: var(--spacing-sm) var(--spacing-sm); /* md 대신 sm 사용 */
+  }
+  .container {
+    padding: 0 var(--spacing-sm);
   }
 }
 
