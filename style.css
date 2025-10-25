@@ -898,28 +898,27 @@ section {
         }
     }
 
-/* 0) 네비게이션 높이(추정치) 변수화 */
+/* A) 네비게이션 높이 변수: (중복 정의가 있다면 '이 블록'만 남기고 위쪽/아래쪽 다른 정의는 제거하세요) */
 :root {
-  --nav-height: 72px;
+  --nav-height: 80px; /* 데스크탑 네비 실제 높이에 맞춰 조정하세요. 72~88px 범위에서 맞춤 */
 }
 
-/* 1) 고정 네비게이션로 가려지는 문제 방지: 앵커 스크롤 오프셋 */
+/* B) 고정 네비게이션 아래로 본문을 내려 겹침 원천 차단 */
+body {
+  padding-top: var(--nav-height);
+}
+
+/* C) 해시 앵커 스크롤 보정(이미 있으나, 없으면 유지) */
 section[id] {
   scroll-margin-top: calc(var(--nav-height) + 12px);
 }
 
-/* 2) #home(히어로)에서 inline 스타일(min-height:auto; padding-top:100px) 상쇄 */
-#home.section-hero {
-  /* inline을 이기기 위해 !important 사용 (HTML 정리 전 임시 조치) */
-  min-height: 85vh !important;   /* 원래 의도대로 충분한 높이 확보 */
-  padding-top: 0 !important;     /* 불필요한 상단 패딩 제거 */
-  display: flex;                  /* 레이아웃 유지 */
-  align-items: center;
+/* D) 히어로 섹션은 추가 상단 패딩을 넣지 않음(중복 여백 방지) */
+.section-hero {
+  padding-top: 0;
 }
 
-/* 3) 다음 섹션(#current-focus)와의 간격 명시적 확보 */
-#current-focus {
-  /* 위에서 충분한 간격 확보(중복 여백을 피하려면 원하는 값으로 조절) */
-  margin-top: 24px;
-  /* 섹션 진입 시 고정 네비게이션에 덮이지 않도록 스크롤 오프셋은 이미 section[id]에 일괄 적용됨 */
+/* E) 모바일에서 네비가 더 낮으면 변수만 줄여서 자연스러운 보정 */
+@media (max-width: 768px) {
+  :root { --nav-height: 64px; }
 }
