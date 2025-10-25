@@ -1,599 +1,341 @@
-// Panda Min's ChemLab - Interactive JavaScript
-// Professional portfolio interactions and animations
+/* Panda Min's ChemLab - Professional Portfolio (CLEAN) */
+/* Brand Colors: Navy Blue (#1e3a8a), Teal (#0891b2), Coral (#f97316), Gray (#64748b) */
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Navigation functionality
-    initNavigation();
-    
-    // Smooth scrolling and animations
-    initScrollAnimations();
-    
-    // Interactive elements
-    initInteractiveElements();
-    
-    // Typing animation for hero text
-    initTypingAnimation();
-    
-    // Benzene ring animations
-    initMolecularAnimations();
-});
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
-// Navigation Management
-function initNavigation() {
-    const navbar = document.getElementById('navbar');
-    // --- IMPORTANT FIX: Select ALL elements meant for smooth scrolling ---
-    // This selects all 'nav-link' classes across the header, quick overview, and hero buttons.
-    const scrollLinks = document.querySelectorAll('.nav-link, a[href^="#"]'); 
-    
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const navMenu = document.querySelector('.nav-menu');
+/* ===== Root / Theme Vars ===== */
+:root {
+  /* Brand Colors */
+  --primary-navy: #1e3a8a;
+  --primary-teal: #0891b2;
+  --accent-coral: #f97316;
+  --neutral-gray: #64748b;
+  --pure-white: #ffffff;
+  --light-gray: #f8fafc;
+  --dark-gray: #334155;
 
-    // Navbar scroll effect (KEEP EXISTING LOGIC)
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-        } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.boxShadow = 'none';
-        }
-    });
+  /* Typography */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 
-    // Active navigation link highlighting and Smooth scrolling
-    scrollLinks.forEach(link => {
-        // Ensure the handler only runs if the link points to a section ID (starts with # and is not just #)
-        if (link.getAttribute('href').length > 1) {
-            
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // --- Logic to handle active link class for header menu items only ---
-                // (Only apply this to the actual nav menu items, not the large buttons)
-                const headerNavLinks = document.querySelectorAll('.nav-menu .nav-link');
-                headerNavLinks.forEach(nav => nav.classList.remove('active'));
-                
-                // If the clicked link is part of the header menu, set it active
-                if (link.closest('.nav-menu')) {
-                    link.classList.add('active');
-                }
-                // --- End active link logic ---
-                
-                // Smooth scroll to section
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                
-                if (targetSection) {
-                    // Adjusted offset for fixed navbar
-                    const offsetTop = targetSection.offsetTop - 80;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 3rem;
+  --spacing-xl: 4rem;
 
-                // Close mobile menu after clicking a link
-                if (navMenu.classList.contains('mobile-active')) {
-                     navMenu.classList.remove('mobile-active');
-                     mobileMenuBtn.innerHTML = '☰';
-                     mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                }
-            });
-        }
-    });
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 
-    // Mobile menu toggle (KEEP EXISTING LOGIC)
-    if (mobileMenuBtn) {
-      mobileMenuBtn.addEventListener('click', function () {
-        navMenu.classList.toggle('mobile-active');
-        const isOpen = navMenu.classList.contains('mobile-active');
-        this.innerHTML = isOpen ? '✕' : '☰';
-        this.setAttribute('aria-expanded', String(isOpen));
-      });
-    }
-    // Auto-highlight current section (KEEP EXISTING LOGIC)
-    window.addEventListener('scroll', updateActiveNavLink);
+  /* Transitions */
+  --transition-fast: all 0.15s ease;
+  --transition-normal: all 0.3s ease;
+  --transition-slow: all 0.5s ease;
+
+  /* Fixed nav height (single source of truth) */
+  --nav-height: 80px;
 }
 
-function updateActiveNavLink() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.clientHeight;
-        
-        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
+/* ===== Reset / Base ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  color: var(--dark-gray);
+  background-color: var(--pure-white);
+  overflow-x: hidden;
+  /* Fixed nav compensation – prevents overlap at the very top */
+  padding-top: var(--nav-height);
 }
 
-// Scroll Animations
-function initScrollAnimations() {
-    // Intersection Observer for fade-in animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                
-                // Add stagger delay for grid items
-                if (entry.target.parentElement && entry.target.parentElement.classList.contains('grid')) {
-                    const siblings = Array.from(entry.target.parentElement.children);
-                    const index = siblings.indexOf(entry.target);
-                    entry.target.style.transitionDelay = `${index * 0.1}s`;
-                }
-            }
-        });
-    }, observerOptions);
-
-    // Observe all animated elements
-    const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .card, .research-card, .activity-card');
-    
-    animatedElements.forEach(el => {
-        // Set initial state
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.6s ease-out';
-        
-        observer.observe(el);
-    });
-
-    // Parallax effect for hero section
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const heroSection = document.querySelector('.section-hero');
-        
-        if (heroSection && scrolled < heroSection.offsetHeight) {
-            heroSection.style.transform = `translateY(${scrolled * 0.3}px)`;
-        }
-    });
+/* Anchor scroll compensation so sections don't hide behind fixed nav */
+section[id] {
+  scroll-margin-top: calc(var(--nav-height) + 12px);
 }
 
-// Interactive Elements
-function initInteractiveElements() {
-    // Card hover effects
-    const cards = document.querySelectorAll('.card, .research-card, .activity-card');
-    
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-8px) scale(1.02)';
-            this.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.15)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-            this.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-        });
-    });
-
-    // Button hover effects
-    const buttons = document.querySelectorAll('.btn');
-    
-    buttons.forEach(button => {
-        button.addEventListener('mouseenter', function() {
-            if (this.classList.contains('btn-primary')) {
-                this.style.background = 'linear-gradient(135deg, #1e40af, #0ea5e9)';
-            }
-        });
-        
-        button.addEventListener('mouseleave', function() {
-            if (this.classList.contains('btn-primary')) {
-                this.style.background = 'linear-gradient(135deg, #1e3a8a, #0891b2)';
-            }
-        });
-    });
-
-    // Stats counter animation
-    initStatsCounter();
-    
-    // Timeline interaction
-    initTimelineInteraction();
+/* ===== Background micro-patterns ===== */
+.benzene-bg { position: relative; }
+.benzene-bg::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(30, 58, 138, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(8, 145, 178, 0.03) 0%, transparent 50%);
+  background-size: 200px 200px, 300px 300px;
+  background-position: 0 0, 100px 100px;
+  pointer-events: none;
+  z-index: -1;
 }
 
-// Stats Counter Animation
-function initStatsCounter() {
-    const statNumbers = document.querySelectorAll('.stat-number');
-    
-    const statsObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const target = entry.target;
-                const finalNumber = target.textContent;
-                
-                // Extract number from text
-                const numberMatch = finalNumber.match(/\d+/);
-                if (numberMatch) {
-                    const number = parseInt(numberMatch[0]);
-                    animateNumber(target, 0, number, 2000, finalNumber);
-                }
-                
-                statsObserver.unobserve(target);
-            }
-        });
-    });
-    
-    statNumbers.forEach(stat => {
-        statsObserver.observe(stat);
-    });
+/* ===== Typography ===== */
+h1, h2, h3, h4, h5, h6 { font-weight: 600; line-height: 1.3; margin-bottom: var(--spacing-sm); }
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-teal) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+h2 { font-size: clamp(2rem, 4vw, 3rem); color: var(--primary-navy); }
+h3 { font-size: clamp(1.5rem, 3vw, 2rem); color: var(--primary-teal); }
+h4 { font-size: 1.25rem; color: var(--dark-gray); }
+
+p { font-size: 1.1rem; line-height: 1.7; margin-bottom: var(--spacing-sm); color: var(--neutral-gray); }
+.lead-text { font-size: 1.3rem; font-weight: 500; color: var(--primary-navy); }
+
+/* ===== Navigation (fixed) ===== */
+nav {
+  position: fixed; top: 0; width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(30, 58, 138, 0.1);
+  z-index: 1000;
+  transition: var(--transition-normal);
 }
 
-function animateNumber(element, start, end, duration, finalText) {
-    const range = end - start;
-    const increment = range / (duration / 16);
-    let current = start;
-    
-    const timer = setInterval(function() {
-        current += increment;
-        
-        if (current >= end) {
-            element.textContent = finalText;
-            clearInterval(timer);
-        } else {
-            const displayNumber = Math.floor(current);
-            element.textContent = finalText.replace(/\d+/, displayNumber);
-        }
-    }, 16);
+.nav-container {
+  max-width: 1200px; margin: 0 auto;
+  padding: var(--spacing-sm) var(--spacing-md);
+  display: flex; justify-content: space-between; align-items: center;
 }
 
-// Timeline Interaction
-function initTimelineInteraction() {
-  const timelineItems = document.querySelectorAll('.timeline-item');
-  timelineItems.forEach(item => {
-    item.addEventListener('click', function (e) {
-      this.classList.toggle('expanded');
-      createRipple(this, e); // ← event -> e 로 명시 전달
-    });
-  });
+.logo { display: flex; align-items: center; gap: var(--spacing-xs); font-weight: 700; font-size: 1.25rem; color: var(--primary-navy); text-decoration: none; }
+.logo-icon {
+  width: 32px; height: 32px;
+  background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
+  border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;
 }
 
-// [저모션 환경] 모션 최소화
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-function animateNumber(element, start, end, duration, finalText) {
-  if (reduceMotion) { element.textContent = finalText; return; }
-  // (나머지 기존 로직 그대로)
+.nav-menu { display: flex; list-style: none; gap: var(--spacing-md); }
+
+.nav-link {
+  text-decoration: none; color: var(--dark-gray); font-weight: 500;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 8px; transition: var(--transition-fast); position: relative;
+}
+.nav-link:hover, .nav-link.active { color: var(--primary-navy); background: rgba(30, 58, 138, 0.05); }
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-flex; align-items: center; gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md); border: none; border-radius: 12px;
+  font-family: var(--font-primary); font-weight: 600; text-decoration: none; cursor: pointer;
+  transition: var(--transition-fast); font-size: 1rem;
+}
+.btn-primary { background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal)); color: white; box-shadow: var(--shadow-md); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.btn-secondary { background: white; color: var(--primary-navy); border: 2px solid var(--primary-navy); }
+.btn-secondary:hover { background: var(--primary-navy); color: white; }
+.btn-accent { background: var(--accent-coral); color: white; }
+.btn-accent:hover { background: #ea580c; transform: translateY(-1px); }
+
+/* ===== Cards ===== */
+.card {
+  background: white; border-radius: 16px; padding: var(--spacing-md);
+  box-shadow: var(--shadow-md); transition: var(--transition-normal);
+  border: 1px solid rgba(30, 58, 138, 0.1);
+}
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); }
+.card-header { display: flex; align-items: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-sm); }
+.card-icon {
+  width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; background: linear-gradient(135deg, var(--primary-teal), var(--accent-coral)); color: white;
 }
 
-function createRipple(element, event) {
-    const ripple = document.createElement('span');
-    const rect = element.getBoundingClientRect();
-    const size = Math.max(rect.width, rect.height);
-    const x = event.clientX - rect.left - size / 2;
-    const y = event.clientY - rect.top - size / 2;
-    
-    ripple.style.cssText = `
-        position: absolute;
-        width: ${size}px;
-        height: ${size}px;
-        left: ${x}px;
-        top: ${y}px;
-        background: radial-gradient(circle, rgba(30, 58, 138, 0.3) 0%, transparent 70%);
-        border-radius: 50%;
-        transform: scale(0);
-        animation: ripple 0.6s ease-out;
-        pointer-events: none;
-        z-index: 1;
-    `;
-    
-    element.style.position = 'relative';
-    element.appendChild(ripple);
-    
-    // Remove ripple after animation
-    setTimeout(() => {
-        ripple.remove();
-    }, 600);
+/* ===== Grid System ===== */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 var(--spacing-md); }
+.grid { display: grid; gap: var(--spacing-md); }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.grid-4 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+
+/* ===== Sections ===== */
+section { padding: var(--spacing-xl) 0; }
+
+.section-hero {
+  min-height: 85vh; /* enough space – prevents visual collision */
+  display: flex; align-items: center;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  position: relative;
+}
+.section-alt { background: var(--light-gray); }
+
+/* ===== Stats ===== */
+.stats-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md); margin: var(--spacing-lg) 0;
+}
+.stat-item {
+  text-align: center; padding: var(--spacing-md);
+  background: white; border-radius: 16px; box-shadow: var(--shadow-sm);
+  border: 2px solid transparent; transition: var(--transition-normal);
+}
+.stat-item:hover { border-color: var(--primary-teal); transform: translateY(-2px); }
+.stat-number {
+  font-size: 2.5rem; font-weight: 800;
+  background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: block;
+}
+.stat-label { color: var(--neutral-gray); font-weight: 500; margin-top: var(--spacing-xs); }
+
+/* ===== Timeline ===== */
+.timeline { position: relative; padding: var(--spacing-md) 0; }
+.timeline::before {
+  content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 3px;
+  background: linear-gradient(180deg, var(--primary-navy), var(--primary-teal)); transform: translateX(-50%);
+}
+.timeline-item { display: flex; margin-bottom: var(--spacing-lg); position: relative; }
+.timeline-content {
+  background: white; padding: var(--spacing-md); border-radius: 16px; box-shadow: var(--shadow-md);
+  width: 45%; position: relative;
+}
+.timeline-item:nth-child(even) .timeline-content { margin-left: auto; }
+.timeline-dot {
+  position: absolute; left: 50%; top: 20px; width: 16px; height: 16px;
+  background: var(--accent-coral); border-radius: 50%; transform: translateX(-50%);
+  border: 4px solid white; box-shadow: var(--shadow-md);
 }
 
-// Typing Animation
-function initTypingAnimation() {
-    const typingElements = document.querySelectorAll('[data-type]');
-    
-    typingElements.forEach(element => {
-        const text = element.dataset.type;
-        element.textContent = '';
-        
-        let i = 0;
-        const typeInterval = setInterval(function() {
-            element.textContent += text.charAt(i);
-            i++;
-            
-            if (i > text.length) {
-                clearInterval(typeInterval);
-            }
-        }, 100);
-    });
+/* ===== Research Cards ===== */
+.research-card {
+  background: white; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-lg);
+  transition: var(--transition-normal); border: 1px solid rgba(30, 58, 138, 0.1);
+}
+.research-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl); }
+.research-header { background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal)); color: white; padding: var(--spacing-md); text-align: center; }
+.research-body { padding: var(--spacing-md); }
+.research-status {
+  display: inline-block; padding: var(--spacing-xs) var(--spacing-sm);
+  background: rgba(249, 115, 22, 0.1); color: var(--accent-coral);
+  border-radius: 20px; font-size: 0.9rem; font-weight: 600; margin-bottom: var(--spacing-sm);
 }
 
-// Molecular Animations
-function initMolecularAnimations() {
-    // Benzene ring rotation
-    const benzeneRings = document.querySelectorAll('.benzene-ring');
-    
-    benzeneRings.forEach(ring => {
-        // Add dynamic rotation speed based on scroll
-        window.addEventListener('scroll', function() {
-            const scrollSpeed = Math.abs(window.pageYOffset - (window.lastScrollTop || 0));
-            window.lastScrollTop = window.pageYOffset;
-            
-            const rotationSpeed = Math.min(scrollSpeed / 10, 5);
-            ring.style.animationDuration = `${Math.max(5 - rotationSpeed, 1)}s`;
-        });
-    });
+/* ===== Activity Grid (6 아이템 레이아웃) ===== */
+.activity-section-grid {
+  display: grid; gap: var(--spacing-md); margin: var(--spacing-lg) 0;
+  grid-template-columns: repeat(3, 1fr);
+}
+.activity-card-reconfig {
+  background: white; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-md);
+  transition: var(--transition-normal); display: flex; flex-direction: column;
+}
+.activity-card-reconfig:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); }
+.card-header-icon {
+  height: 100px; background: linear-gradient(135deg, var(--primary-teal), var(--accent-coral));
+  display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;
+}
+.card-header-icon.chem{background:linear-gradient(135deg,#10b981,#065f46);}
+.card-header-icon.science{background:linear-gradient(135deg,#4f46e5,#4338ca);}
+.card-header-icon.math{background:linear-gradient(135deg,#f59e0b,#d97706);}
+.card-header-icon.impact{background:linear-gradient(135deg,#0891b2,#06b6d4);}
+.card-header-icon.civic{background:linear-gradient(135deg,#64748b,#475569);}
+.activity-content-reconfig { padding: var(--spacing-md); flex-grow: 1; }
+.activity-title-reconfig { font-size: 1.25rem; font-weight: 700; color: var(--primary-navy); margin-bottom: var(--spacing-xs); line-height: 1.3; }
+.activity-stats-reconfig { color: var(--accent-coral); font-weight: 600; font-size: 0.95rem; margin-bottom: var(--spacing-sm); }
+.activity-details-list { list-style: none; padding-left: 0; margin-top: 1rem; color: var(--neutral-gray); font-size: 0.95rem; }
+.activity-details-list li { position: relative; padding-left: 1rem; margin-bottom: 0.4rem; overflow: hidden; text-overflow: ellipsis; white-space: normal; }
+.activity-details-list li::before { content: '•'; position: absolute; left: 0; color: var(--primary-teal); font-weight: bold; }
 
-    // Molecular background animation
-    createFloatingMolecules();
+/* ===== Hawaii / Life ===== */
+.hawaii-section {
+  background: linear-gradient(135deg, #0891b2, #06b6d4); color: white; border-radius: 24px;
+  padding: var(--spacing-xl); margin: var(--spacing-lg) 0; position: relative; overflow: hidden;
+}
+.hawaii-section::before {
+  content: ''; position: absolute; inset: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path d="M0 0v100c166.7 0 166.7-66 333.3-66s166.7 66 333.3 66 166.7-66 333.3-66v-100z" fill="%23ffffff" opacity="0.1"/></svg>');
+  background-size: 100% 50px; background-repeat: repeat-x; animation: wave 10s infinite linear;
+}
+@keyframes wave { 0%{transform:translateX(0);} 100%{transform:translateX(-100px);} }
+
+/* ===== Appear Animations ===== */
+@keyframes fadeInUp { from{opacity:0; transform:translateY(30px);} to{opacity:1; transform:translateY(0);} }
+@keyframes fadeInLeft { from{opacity:0; transform:translateX(-30px);} to{opacity:1; transform:translateX(0);} }
+@keyframes fadeInRight{ from{opacity:0; transform:translateX(30px);} to{opacity:1; transform:translateX(0);} }
+.fade-in-up{ animation: fadeInUp 0.6s ease-out; }
+.fade-in-left{ animation: fadeInLeft 0.6s ease-out; }
+.fade-in-right{ animation: fadeInRight 0.6s ease-out; }
+
+/* ===== Molecular Icon ===== */
+.benzene-ring {
+  width: 200px; height: 200px; position: relative; margin: 0 auto;
+  background-image: url('images/molecule_structure_icon.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center;
+}
+.benzene-ring::before, .benzene-ring::after { display: none; }
+
+/* ===== Mobile Menu Button ===== */
+.mobile-menu-btn {
+  display: none; background: none; border: none; font-size: 1.5rem; color: var(--primary-navy); cursor: pointer;
 }
 
-function createFloatingMolecules() {
-    const benzeneBackgrounds = document.querySelectorAll('.benzene-bg');
-    
-    benzeneBackgrounds.forEach(bg => {
-        // Create floating molecular structures
-        for (let i = 0; i < 3; i++) {
-            const molecule = document.createElement('div');
-            molecule.className = 'floating-molecule';
-            molecule.innerHTML = '⬢';
-            
-            molecule.style.cssText = `
-                position: absolute;
-                font-size: ${Math.random() * 20 + 10}px;
-                color: rgba(30, 58, 138, 0.05);
-                left: ${Math.random() * 100}%;
-                top: ${Math.random() * 100}%;
-                animation: float ${Math.random() * 10 + 10}s ease-in-out infinite;
-                pointer-events: none;
-                z-index: 0;
-            `;
-            
-            bg.appendChild(molecule);
-        }
-    });
+/* ===== Utility ===== */
+.text-center{text-align:center;} .text-left{text-align:left;} .text-right{text-align:right;}
+.mb-1{margin-bottom:var(--spacing-xs);} .mb-2{margin-bottom:var(--spacing-sm);} .mb-3{margin-bottom:var(--spacing-md);} .mb-4{margin-bottom:var(--spacing-lg);}
+.mt-1{margin-top:var(--spacing-xs);} .mt-2{margin-top:var(--spacing-sm);} .mt-3{margin-top:var(--spacing-md);} .mt-4{margin-top:var(--spacing-lg);}
+.hidden{display:none;} .visible{display:block;}
+:focus-visible{ outline: 3px solid var(--accent-coral); outline-offset: 3px; border-radius: 8px; }
+
+/* ===== Print ===== */
+@media print {
+  nav, .btn, .mobile-menu-btn { display: none !important; }
+  * { background: white !important; color: black !important; box-shadow: none !important; }
 }
 
-// Video Modal Functions
-function openVideoModal() {
-    const modal = document.getElementById('videoModal');
-    if (modal) {
-        modal.style.display = 'flex';
-        modal.style.animation = 'fadeIn 0.3s ease-out';
-        document.body.style.overflow = 'hidden';
-    }
+/* ===== Hero Stats: responsive columns ===== */
+.hero-stats-grid { display: grid; gap: 1rem; margin: 2rem 0; }
+@media (max-width: 480px) { .hero-stats-grid{ grid-template-columns: 1fr; } }
+@media (min-width: 481px) and (max-width: 768px) { .hero-stats-grid{ grid-template-columns: repeat(2,1fr);} }
+@media (min-width: 769px) { .hero-stats-grid{ grid-template-columns: repeat(4,1fr);} }
+
+/* ===== Current Focus ===== */
+.current-focus-container { width: 100%; margin: 2rem 0; }
+.current-focus-card {
+  background: linear-gradient(135deg, #1e3a8a, #0891b2); color: white; padding: 2rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.focus-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+@media (min-width: 768px) { .focus-grid { grid-template-columns: repeat(3, 1fr); } }
+.focus-item { background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; text-align: center; }
+
+/* ===== Hero Buttons: responsive ===== */
+.hero-buttons-container { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+@media (min-width: 768px) { .hero-buttons-container { grid-template-columns: repeat(3,1fr);} }
+@media (max-width: 480px) { .hero-buttons-container { grid-template-columns: 1fr; } }
+
+/* ===== Reduced Motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
 }
 
-function closeVideoModal() {
-    const modal = document.getElementById('videoModal');
-    if (modal) {
-        modal.style.animation = 'fadeOut 0.3s ease-out';
-        setTimeout(() => {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }, 300);
-    }
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .activity-section-grid { grid-template-columns: repeat(2, 1fr); }
 }
+@media (max-width: 768px) {
+  .nav-menu { display: none; }
+  .mobile-menu-btn { display: block; }
+  .nav-container { padding: var(--spacing-sm) var(--spacing-sm); }
+  .container { padding: 0 var(--spacing-sm); }
+  .timeline::before { left: 30px; }
+  .timeline-content { width: calc(100% - 60px); margin-left: 60px !important; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: var(--spacing-sm); }
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
 
-// Keyboard Navigation
-document.addEventListener('keydown', function(event) {
-    // ESC key to close modal
-    if (event.key === 'Escape') {
-        closeVideoModal();
-    }
-    
-    // Arrow keys for section navigation
-    if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
-        const sections = document.querySelectorAll('section[id]');
-        const currentSection = getCurrentSection();
-        
-        if (currentSection) {
-            const currentIndex = Array.from(sections).findIndex(s => s.id === currentSection);
-            let targetIndex;
-            
-            if (event.key === 'ArrowDown' && currentIndex < sections.length - 1) {
-                targetIndex = currentIndex + 1;
-            } else if (event.key === 'ArrowUp' && currentIndex > 0) {
-                targetIndex = currentIndex - 1;
-            }
-            
-            if (targetIndex !== undefined) {
-                sections[targetIndex].scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    }
-});
-
-function getCurrentSection() {
-    const sections = document.querySelectorAll('section[id]');
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.clientHeight;
-        
-        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    return current;
+  /* IMPORTANT: 모바일에서 히어로 상단 padding 추가 금지 (겹침 인상 방지) */
+  .section-hero { min-height: 70vh; /* padding-top: 0 유지 */ }
 }
-
-// Performance optimizations
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
+@media (max-width: 640px) {
+  .activity-section-grid { grid-template-columns: 1fr; }
 }
-
-// Debounced scroll handler
-window.addEventListener('scroll', debounce(function() {
-    updateActiveNavLink();
-}, 10));
-
-// Smooth page transitions
-function initPageTransitions() {
-    const links = document.querySelectorAll('a[href^="#"]');
-    
-    links.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                // Add loading animation
-                document.body.style.cursor = 'wait';
-                
-                setTimeout(() => {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    
-                    document.body.style.cursor = 'default';
-                }, 100);
-            }
-        });
-    });
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .activity-grid { grid-template-columns: 1fr; }
+  .nav-container { padding: var(--spacing-sm) var(--spacing-sm); }
+  .container { padding: 0 var(--spacing-sm); }
 }
-
-// Initialize page transitions
-initPageTransitions();
-
-// Add custom CSS animations
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-    
-    @keyframes fadeOut {
-        from { opacity: 1; }
-        to { opacity: 0; }
-    }
-    
-    @keyframes ripple {
-        to {
-            transform: scale(2);
-            opacity: 0;
-        }
-    }
-    
-    @keyframes float {
-        0%, 100% { transform: translateY(0px) rotate(0deg); }
-        25% { transform: translateY(-10px) rotate(90deg); }
-        50% { transform: translateY(-20px) rotate(180deg); }
-        75% { transform: translateY(-10px) rotate(270deg); }
-    }
-    
-    .mobile-active {
-        display: flex !important;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: white;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        padding: 1rem;
-        border-radius: 0 0 12px 12px;
-    }
-    
-    .timeline-item.expanded .timeline-content {
-        transform: scale(1.05);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    }
-    
-    .floating-molecule {
-        animation: float 15s ease-in-out infinite;
-    }
-    
-    /* Improved mobile menu */
-    @media (max-width: 768px) {
-        .nav-menu {
-            display: none;
-        }
-        
-        .nav-menu.mobile-active {
-            display: flex;
-        }
-        
-        .nav-menu.mobile-active .nav-link {
-            padding: 1rem;
-            border-bottom: 1px solid rgba(30, 58, 138, 0.1);
-        }
-        
-        .nav-menu.mobile-active .nav-link:last-child {
-            border-bottom: none;
-        }
-    }
-`;
-
-document.head.appendChild(style);
-
-// Loading animation
-window.addEventListener('load', function() {
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.5s ease-in-out';
-    
-    setTimeout(() => {
-        document.body.style.opacity = '1';
-    }, 100);
-});
-
-// Print optimization
-window.addEventListener('beforeprint', function() {
-    // Expand all collapsed sections for printing
-    document.querySelectorAll('.timeline-item').forEach(item => {
-        item.classList.add('expanded');
-    });
-});
-
-window.addEventListener('afterprint', function() {
-    // Restore collapsed state after printing
-    document.querySelectorAll('.timeline-item').forEach(item => {
-        item.classList.remove('expanded');
-    });
-});
-
-// Accessibility improvements
-document.addEventListener('keydown', function(event) {
-    // Tab navigation enhancement
-    if (event.key === 'Tab') {
-        document.body.classList.add('keyboard-navigation');
-    }
-});
-
-document.addEventListener('mousedown', function() {
-    document.body.classList.remove('keyboard-navigation');
-});
-
-// Add keyboard navigation styles
-const keyboardStyle = document.createElement('style');
-keyboardStyle.textContent = `
-    .keyboard-navigation *:focus {
-        outline: 3px solid var(--primary-teal);
-        outline-offset: 2px;
-    }
-`;
-document.head.appendChild(keyboardStyle);
