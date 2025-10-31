@@ -922,3 +922,26 @@ section {
   .hero-stats-grid { grid-template-columns: 1fr; }
 }
 
+/* ===== Hero safe text area ===== */
+.hero-with-bg .grid.grid-2 {
+  /* 왼쪽 컬럼은 고정 범위, 오른쪽은 남은 영역 */
+  grid-template-columns: minmax(420px, 680px) 1fr;
+}
+
+/* 왼쪽 박스 내부 여백(텍스트가 이미지에 닿지 않도록) */
+.hero-left { padding-right: 12px; }
+
+/* 제목/리드 줄 길이 제한 */
+.hero-left h1 { max-width: 16ch; }        /* 대형 헤드라인: 15–18ch 권장 */
+.hero-left .lead-text { max-width: 60ch; } /* 본문: ~60–70ch 권장 */
+
+/* 버튼 줄바꿈 방지용(폭이 좁을 때만 스택) */
+@media (max-width: 980px){
+  .hero-with-bg .grid.grid-2 { grid-template-columns: 1fr; }
+  .hero-left h1 { max-width: 20ch; }
+  .hero-left .lead-text { max-width: 65ch; }
+}
+@media (max-width: 560px){
+  .hero-left h1 { max-width: 22ch; }
+  .hero-left .lead-text { max-width: 100%; }
+}
