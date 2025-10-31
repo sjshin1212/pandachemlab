@@ -1,386 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Min Shin - Independent Research: Biodegradable Plastics</title>
-    <meta name="description" content="A discussion on different techniques to enhance the mechanical and thermal properties of biodegradable plastics, focusing on copolymerization and structural modification.">
-    
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🐼</text></svg>">
-    
-    <link rel="stylesheet" href="style.css">
-
-    <link rel="canonical" href="https://engineershin.com/independent_research_detail.html" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Independent Research – Biodegradable Plastics Enhancement" />
-    <meta property="og:description" content="Enhancing mechanical and thermal properties of biodegradable plastics using copolymerization and structural modification." />
-    <meta property="og:url" content="https://engineershin.com/independent_research_detail.html" />
-    
-    <style>
-        /* Shared Styles from ut_austin_research_detail.html */
-        .research-header-banner {
-            background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
-            color: white;
-            padding: 4rem 0 6rem 0;
-            margin-top: 80px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .research-header-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path d="M0 0v100c166.7 0 166.7-66 333.3-66s166.7 66 333.3 66 166.7-66 333.3-66v-100z" fill="%23ffffff" opacity="0.1"/></svg>');
-            background-size: 100% 50px;
-            background-repeat: repeat-x;
-            animation: wave 15s infinite linear;
-        }
-        
-        .research-image img {
-            /* max-width is now handled inline for precision */
-            height: auto;
-            /* REMOVED: border-radius: 12px; */
-            transition: var(--transition-normal);
-        }
-        
-        .molecule-visual {
-            display: inline-block;
-            width: 100px;
-            height: 100px;
-            border: 3px solid var(--accent-coral);
-            border-radius: 50%;
-            position: relative;
-            animation: rotate 20s infinite linear;
-            margin: 2rem auto;
-        }
-        
-        .molecule-visual::before {
-            content: '🌱';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 2rem;
-        }
-        
-        .method-step {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 1rem 0;
-            box-shadow: var(--shadow-sm);
-            border-left: 4px solid var(--primary-teal);
-            position: relative;
-        }
-        
-        .method-step::before {
-            content: attr(data-step);
-            position: absolute;
-            left: -20px;
-            top: 20px;
-            background: var(--primary-teal);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-        
-        .collaboration-highlight {
-            background: linear-gradient(135deg, #f97316, #ea580c);
-            color: white;
-            padding: 3rem;
-            border-radius: 20px;
-            text-align: center;
-            margin: 3rem 0;
-        }
-        
-        .back-to-portfolio {
-            position: fixed;
-            top: 100px;
-            left: 20px;
-            background: white;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--shadow-lg);
-            text-decoration: none;
-            color: var(--primary-navy);
-            font-size: 1.5rem;
-            z-index: 100;
-            transition: var(--transition-normal);
-        }
-        
-        .back-to-portfolio:hover {
-            transform: scale(1.1);
-            background: var(--primary-navy);
-            color: white;
-        }
-
-        /* Custom Styles for this Page */
-        .data-table-container {
-            margin: 2rem auto;
-        }
-    </style>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Independent – PLA-PHB Biodegradable Polymer Design</title>
+  <meta name="description" content="Balancing toughness and crystallinity in PLA-PHB blends; practical composition/processing heuristics."/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="canonical" href="https://engineershin.com/independent_research_detail.html"/>
 </head>
 <body>
-    <a href="index.html#chemlab" class="back-to-portfolio" title="Back to Portfolio">
-        ←
-    </a>
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo"><div class="logo-icon">🐼</div><span>Min's ChemLab</span></a>
+    </div>
+  </nav>
 
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <div class="logo-icon">🐼</div>
-                <span>Min's ChemLab</span>
-            </a>
+  <a href="#" onclick="goBack();return false;" class="back-to-portfolio" title="Back">←</a>
+
+  <section class="research-header-banner" style="background:linear-gradient(135deg,var(--primary-navy),var(--primary-teal));color:#fff;padding:4rem 0 6rem;margin-top:80px;">
+    <div class="container text-center">
+      <h1 style="color:#fff;margin-bottom:.5rem">PLA-PHB Biodegradable Polymer Design</h1>
+      <h2 style="color:rgba(255,255,255,.9);font-size:1.1rem;font-weight:500">
+        Composition/processing heuristics to balance crystallinity, toughness, and degradability
+      </h2>
+      <div class="hero-stats-grid" style="margin-top:1.5rem">
+        <div class="stat-item"><span class="stat-number">PLA · PHB</span><div class="stat-label">Blend system</div></div>
+        <div class="stat-item"><span class="stat-number">Property maps</span><div class="stat-label">Crystallinity vs. toughness</div></div>
+        <div class="stat-item"><span class="stat-number">Guidelines</span><div class="stat-label">Processing & comp.</div></div>
+        <div class="stat-item"><span class="stat-number">Whitepaper</span><div class="stat-label">Summary (PDF)</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="benzene-bg" style="padding:3rem 0">
+    <div class="container grid grid-2" style="gap:3rem;align-items:start">
+      <div class="prose">
+        <h2 style="color:var(--primary-navy)">Background</h2>
+        <p>
+          PLA-PHB blends offer biodegradability with tunable mechanics. However, increased crystallinity
+          often trades off with toughness and processing ease. We synthesize literature insights to
+          provide practical design heuristics for target applications.
+        </p>
+
+        <h2 style="color:var(--primary-navy)">Approach</h2>
+        <ul>
+          <li>Literature mining and normalization of reported properties across compositions.</li>
+          <li>Simple mapping of crystallinity vs. tensile metrics with processing notes.</li>
+          <li>Heuristic recommendations for application-oriented targets.</li>
+        </ul>
+
+        <h2 style="color:var(--primary-navy)">Key Takeaways</h2>
+        <ul>
+          <li>Moderate PHB fraction improves crystallinity while maintaining workable toughness ranges.</li>
+          <li>Nucleation/annealing protocols materially shift property windows; processing discipline matters.</li>
+          <li>Provide shortlists of blend windows for packaging vs. durable biodegradable goods.</li>
+        </ul>
+
+        <h2 style="color:var(--primary-navy)">Docs</h2>
+        <p>Detailed tables/figures and practical checklists are consolidated in the whitepaper below.</p>
+        <div class="hero-buttons-container">
+          <a class="btn btn-accent" href="Lumiere.pdf" target="_blank" rel="noopener">Whitepaper (PDF)</a>
         </div>
-    </nav>
+      </div>
 
-    <section class="research-header-banner">
-        <div class="container">
-            <div class="text-center">
-                <div class="molecule-visual"></div>
-                <h1 style="color: white; margin-bottom: 1rem; -webkit-text-fill-color: white; background: none; font-size: clamp(2rem, 3.5vw, 3.5rem);">
-                    Enhancing Biodegradable Plastics
-                </h1>
-                <h2 style="color: rgba(255,255,255,0.9); font-size: 1.5rem; font-weight: 500;">
-                    A Discussion on Techniques to Enhance Mechanical and Thermal Properties
-                </h2>
-                
-                <div style="margin: 2rem 0;">
-                    <div class="research-status" style="background: rgba(255,255,255,0.2); color: white;">
-                        Independent Research • Lumiere Research Program • Sustainable Materials
-                    </div>
-                </div>
-                
-                <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 2rem;">
-                    <div style="text-align: center;">
-                        <div style="font-size: 2rem; font-weight: bold;">PLA-PHB</div>
-                        <small style="opacity: 0.8;">Copolymer Focus</small>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 2rem; font-weight: bold;">Crystallinity</div>
-                        <small style="opacity: 0.8;">Key Structural Factor</small>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 2rem; font-weight: bold;">3</div>
-                        <small style="opacity: 0.8;">Technique Areas</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+      <div>
+        <figure class="research-image">
+          <img src="images/pla_phb_map.png" loading="lazy" alt="Property mapping for PLA-PHB blends" style="border-radius:12px;max-width:100%"/>
+          <figcaption style="color:var(--neutral-gray);font-style:italic;margin-top:.5rem">
+            Example property map: crystallinity vs. tensile performance across blend windows.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 
-    <section class="collaboration-highlight">
-        <div class="container">
-            <h3 style="color: white; margin-bottom: 1rem;">Research Overview (Abstract)</h3>
-            <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; line-height: 1.6;">
-                The mechanical properties of biodegradable plastics often fall short compared to traditional plastics, presenting significant challenges in balancing biodegradability with performance. While traditional plastics like polyethylene (PE) and polyethylene terephthalate (PET) offer superior mechanical and thermal properties, many biodegradable alternatives struggle to match these attributes. Copolymer blends, such as PLA-PHB, offer a promising approach to reconcile this trade-off. This exploration underscores the ongoing challenge of balancing environmental sustainability with the need for high-performance materials.
-            </p>
-            <div class="text-center" style="margin-top: 2rem;">
-                <a href="Lumiere.pdf" class="btn btn-secondary" target="_blank" style="background: white; color: var(--primary-navy);">
-                    📄 Download Full PDF Document
-                </a>
-            </div>
-        </div>
-    </section>
+  <footer style="background:var(--primary-navy);color:#fff;padding:2.5rem 0">
+    <div class="container text-center">
+      <a href="index.html#chemlab" class="btn btn-secondary">← Back to Research Hub</a>
+    </div>
+  </footer>
 
-    <section class="benzene-bg" style="padding: 4rem 0;">
-        <div class="container">
-            
-            <h2 style="color: var(--primary-navy); margin-bottom: 2rem;">Problem Background</h2>
-            
-            <div class="card" style="margin-bottom: 2rem;">
-                <h4 style="color: var(--primary-teal);">🎯 The Chronic Problem with Plastics</h4>
-                <p>
-                    Petroleum-based plastics like PE and PET do not degrade naturally, leading to a global crisis of persistent plastic waste in marine and soil ecosystems. The issues stem from the inherent structure of the polymer chains, which resist degradation regardless of whether they are biobased or petroleum-based.
-                </p>
-            </div>
-            
-            <div class="card" style="margin-bottom: 2rem;">
-                <h4 style="color: var(--primary-teal);">⚖️ The Biodegradable Trade-Off</h4>
-                <p>
-                    Biodegradable plastics face a critical trade-off between performance and degradation. For example, <strong>Poly(lactic acid) (PLA)</strong> has favorable properties but <strong>slow degradation</strong>. Conversely, <strong>Polyhydroxybutyrate (PHB)</strong> offers <strong>excellent biodegradability but poor mechanical performance</strong>.
-                </p>
-            </div>
-            <h2 style="color: var(--primary-navy); margin-bottom: 2rem; margin-top: 4rem;">Decomposition Overview</h2> 
-            
-            <div style="background: white; padding: 3rem; border-radius: 20px; box-shadow: var(--shadow-lg); text-align: center; margin-bottom: 2rem;">
-                <h3 style="color: var(--primary-navy); margin-bottom: 2rem;">
-                    Biodegradability Across Environments
-                </h3>
-                <p style="color: var(--neutral-gray); margin-bottom: 2rem;">
-                    The effectiveness of biodegradation varies significantly by polymer and environmental condition (soil, marine, composting).
-                </p>
-                
-                <div class="research-image text-center">
-                    <img src="images/Lumiere_Fig1.png" 
-                         alt="Biodegradability of plastics in different environments" 
-                         style="max-width: 380px; width: 100%; height: auto; margin: 2rem auto; display: block;">
-                    <p style="font-size: 0.9rem; color: var(--neutral-gray); margin-top: 1rem; font-style: italic;">
-                        Figure 1: Degradability of biodegradable plastics in different environments
-                    </p>
-                </div>
-                
-                <h4 style="color: var(--primary-teal); margin-top: 2rem;">Key Degradation Steps</h4>
-                <ul style="list-style: none; padding-left: 0; text-align: left; font-size: 0.95rem; color: var(--dark-gray);">
-                    <li><strong>Abiotic:</strong> Industrial process (e.g., photolysis, photothermal) to break long chains into oligomers.</li>
-                    <li><strong>Biotic:</strong> Microbial enzymes break down polymers into smaller molecules (oligomers, dimers, monomers), followed by assimilation and mineralization.</li>
-                </ul>
-            </div>
-            </div>
-    </section>
-
-    <section class="section-alt benzene-bg">
-        <div class="container">
-            <h2 class="text-center mb-4" style="color: var(--primary-navy);">Structural Characteristics & Properties</h2>
-            
-            <div class="method-step" data-step="1">
-                <h4 style="color: var(--primary-teal); margin-bottom: 1rem;">Crystallinity vs. Degradability</h4>
-                <p>
-                    The degree of <strong>crystallinity</strong> is a critical factor determining a plastic's properties. Increasing crystallization enhances mechanical and thermal properties (e.g., stabilization of specific volume change). However, high crystallinity significantly <strong>hinders</strong> both microbial and industrial depolymerization processes, thus decreasing biodegradability.
-                </p>
-                
-                <div class="research-image text-center" style="margin: 2rem 0;">
-                    <img src="images/Lumiere_Fig2.png" 
-                         alt="Effects of degree of crystallization on specific volume" 
-                         style="max-width: 350px; width: 100%; height: auto; margin: 1rem auto; display: block;">
-                    <p style="font-size: 0.85rem; color: var(--neutral-gray); margin-top: 0.5rem; font-style: italic;">
-                        Figure 2: Effects of degree of crystallization on specific volume
-                    </p>
-                </div>
-            </div>
-            
-            <div class="method-step" data-step="2">
-                <h4 style="color: var(--primary-teal); margin-bottom: 1rem;">Molecular Structures & Thermal Properties</h4>
-                <p>
-                    <strong>Molecular structure</strong> (monomer unit structure) determines durability and resistance to thermal deformation. Presence of <strong>bulky groups</strong> or aromatic rings strengthens the intermolecular force. For biodegradable plastics, functional groups like <strong>ketone, ether, or ester</strong> induce stronger intermolecular forces.
-                </p>
-                <p>
-                    The methyl groups ($\text{CH}_3$) in the backbone of PLA and PHB increase steric hindrance, reducing chain mobility and contributing to better mechanical/thermal properties.
-                </p>
-
-                <div class="research-image text-center" style="margin: 2rem 0;">
-                    <img src="images/Lumiere_Fig3.png" 
-                         alt="Structures of monomer units of PLA and PHB" 
-                         style="max-width: 600px; width: 100%; height: auto; margin: 1rem auto; display: block;">
-                    <p style="font-size: 0.85rem; color: var(--neutral-gray); margin-top: 0.5rem; font-style: italic;">
-                        Figure 3: Structures of monomer units of PLA and PHB
-                    </p>
-                </div>
-                
-                <div class="data-table-container" style="max-width: 600px; margin: 2rem auto;">
-                    <h5 style="color: var(--primary-navy); margin-bottom: 1rem;">Mechanical and Thermal Properties Comparison:</h5>
-                    <div class="research-image">
-                        <img src="images/Lumiere_Table1.png" 
-                             alt="Table 1: Mechanical and Thermal Properties of Biodegradable Plastics" 
-                             style="width: 100%; height: auto;">
-                        <p style="font-size: 0.85rem; color: var(--neutral-gray); margin-top: 0.5rem; font-style: italic;">
-                            Table 1: Mechanical and Thermal Properties of Biodegradable Plastics
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="benzene-bg">
-        <div class="container">
-            <h2 class="text-center mb-4" style="color: var(--primary-navy);">Unlocking Constraints: Enhancement Techniques</h2>
-            
-            <div style="display: flex; flex-direction: column; gap: 2rem; max-width: 800px; margin: 0 auto;"> 
-                
-                <div class="card fade-in-up">
-                    <div class="card-header">
-                        <div class="card-icon" style="background: linear-gradient(135deg, #4f46e5, #4338ca);">🧪</div>
-                        <div>
-                            <h4>Chemical Additives</h4>
-                        </div>
-                    </div>
-                    <p>
-                        The most desirable properties are <strong>stiffness, brittleness, high glass transition temperature ($T_g$), and high melting temperature ($T_m$)</strong>. Additives like <strong>cyclic aliphatic or aryl groups</strong> are effective in increasing structural rigidity, which enhances $T_g$.
-                    </p>
-                    
-                    <div class="research-image" style="margin-top: 1rem; text-align: center;">
-                        <img src="images/Lumiere_Fig4.png" 
-                             alt="Effects of substituent groups on glass transition temperature of PLA" 
-                             style="max-width: 550px; width: 100%; height: auto; margin: 0 auto; display: block;">
-                        <p style="font-size: 0.85rem; color: var(--neutral-gray); margin-top: 0.5rem; font-style: italic;">
-                            Figure 4: Effects of substituent groups on $T_g$ of PLA
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="card fade-in-up" style="animation-delay: 0.1s;">
-                    <div class="card-header">
-                        <div class="card-icon" style="background: linear-gradient(135deg, #10b981, #059669);">🌿</div>
-                        <div>
-                            <h4>Natural Fiber Composites</h4>
-                        </div>
-                    </div>
-                    <p>
-                        Forming composites is a viable way to reinforce strength, focusing on <strong>natural fibers and biobased plastics</strong> for biodegradability. The cellulose in natural fibers contains hydroxyl groups that form hydrogen bonds to strengthen the composite structure.
-                    </p>
-                    <p>
-                        <strong>Hemp fabric/PHB composite</strong> is an example, showing comparable strength and stiffness to structural lumber while maintaining a decent level of biodegradability.
-                    </p>
-                </div>
-                
-                <div class="card fade-in-up" style="animation-delay: 0.2s;">
-                    <div class="card-header">
-                        <div class="card-icon" style="background: linear-gradient(135deg, var(--accent-coral), #ea580c);">🔗</div>
-                        <div>
-                            <h4>Copolymer Technique</h4>
-                        </div>
-                    </div>
-                    <p>
-                        <strong>PLA-PHB blends</strong> are a notable solution to reinforce the flaws of both polymers. PHB crystals act as a <strong>nucleating agent in PLA</strong>, significantly enhancing the mechanical properties of PLA while successfully maintaining biodegradability.
-                    </p>
-                    <p>
-                        This technique directly addresses the quintessential challenge of balancing performance (PLA's strength) with environmental benefit (PHB's biodegradability).
-                    </p>
-                </div>
-            </div>
-            
-            <div style="background: var(--primary-navy); color: white; padding: 3rem; border-radius: 20px; margin: 3rem 0; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
-                <h3 style="color: white; margin-bottom: 2rem;">Potential Future Research</h3>
-                <p style="font-size: 1.2rem; line-height: 1.6; color: rgba(255,255,255,0.9);">
-                    Future research should focus on optimizing these techniques and integrating <strong>biomaterials</strong> such as <strong>starch</strong>. The goal is to enhance biodegradability further while devising effective methods to maintain the favorable mechanical and thermal properties achieved by structural modifications.
-                </p>
-            </div>
-        </div>
-    </section>
-
-
-    <footer style="background: var(--primary-navy); color: white; padding: 3rem 0;">
-        <div class="container">
-            <h3 style="color: white; text-align: center; margin-bottom: 2rem;">Acknowledgments & Download</h3>
-            
-            <div class="text-center" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
-                <p style="color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;">
-                    This research was conducted as part of the Lumiere Research Program, exploring solutions for sustainable material science.
-                </p>
-                <div style="margin-top: 2rem;">
-                    <a href="index.html" class="btn btn-secondary">← Back to Portfolio</a>
-                    <a href="Lumiere.pdf" class="btn btn-accent" target="_blank" style="margin-left: 1rem;">
-                        📄 Download Research PDF
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
+  <script>
+    function goBack(){
+      if(document.referrer && document.referrer.indexOf(location.host)!==-1){ history.back(); }
+      else { location.href='index.html#chemlab'; }
+    }
+  </script>
 </body>
 </html>
