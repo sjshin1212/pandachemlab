@@ -565,11 +565,11 @@ section {
 
 /* Molecular Animation */
 .benzene-ring {
-  width: 200px;
-  height: 200px;
+  width: 700px;
+  height: 700px;
   position: relative;
   margin: 0 auto;
-  background-image: url('images/molecule_structure_icon.jpg');
+  background-image: url('images/Title_back.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -828,3 +828,6 @@ section {
 
 .backline { margin-top: 1.25rem; }
 .backline a { text-decoration: underline; color: var(--primary-teal); }
+
+.hero-buttons-container { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media (max-width: 640px) { .hero-buttons-container { grid-template-columns: 1fr; } }
