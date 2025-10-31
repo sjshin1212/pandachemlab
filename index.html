@@ -117,7 +117,7 @@
             <p class="mb-2"><strong>1-line Abstract:</strong> Correlating Bi–H cleavage energetics with ligand π-acceptor capacity to guide low-toxicity catalyst design.</p>
             <p class="mb-2"><strong>Methods:</strong> DFT (M06L/def2-TZVP) · QUAO · CPCM</p>
             <p class="mb-2"><strong>Outcome:</strong> Design heuristics for main-group catalysis (intermediate results consolidated in docs)</p>
-            <a class="btn btn-primary mt-1" href="UH_research_detail.html">View Details</a>
+            <a class="btn btn-primary mt-1" href="#proj-uh">View Details</a>
             </div>
         </article>
 
@@ -131,7 +131,7 @@
             <p class="mb-2"><strong>1-line Abstract:</strong> PtSn alloys raise barriers for unwanted C–C scission while enabling selective carbonyl hydrogenation.</p>
             <p class="mb-2"><strong>Methods:</strong> VASP · NEB · Surface comparison (Pt(111) vs PtSn)</p>
             <p class="mb-2"><strong>Outcome:</strong> ~2 eV barriers suppress byproducts; mechanistic basis for selectivity</p>
-            <a class="btn btn-primary mt-1" href="ut_austin_research_detail.html">View Details</a>
+            <a class="btn btn-primary mt-1" href="#proj-ut">View Details</a>
             </div>
         </article>
 
@@ -145,7 +145,7 @@
             <p class="mb-2"><strong>1-line Abstract:</strong> Balancing toughness vs. crystallinity in PLA-PHB blends via composition/processing heuristics.</p>
             <p class="mb-2"><strong>Methods:</strong> Literature mining · Simple modeling · Property mapping</p>
             <p class="mb-2"><strong>Outcome:</strong> Practical guidelines summarized (Lumiere brief)</p>
-            <a class="btn btn-primary mt-1" href="independent_research_detail.html">View Details</a>
+            <a class="btn btn-primary mt-1" href="#proj-pla">View Details</a>
             </div>
         </article>
         </div>
@@ -188,6 +188,172 @@
         </div>
     </div>
     </section>
+
+    <!-- ===== Research Details (In-page) ===== -->
+    <section id="research-details" class="section-alt">
+    <div class="container">
+
+        <!-- Slim TOC -->
+        <nav class="pill-nav mb-3">
+        <a href="#proj-uh" class="pill">UH Mānoa</a>
+        <a href="#proj-ut" class="pill">UT Austin (HSRA)</a>
+        <a href="#proj-pla" class="pill">Independent (PLA-PHB)</a>
+        </nav>
+
+        <!-- UH Mānoa -->
+        <article id="proj-uh" class="research-section">
+        <h2 class="section-title">Organobismuth Hydride Cleavage (DFT)</h2>
+        <p class="section-subtitle">
+            Correlating Bi–H cleavage energetics with ligand π-acceptor capacity to guide low-toxicity catalyst design.
+        </p>
+
+        <div class="hero-stats-grid">
+            <div class="stat-item"><span class="stat-number">DFT (M06L/def2-TZVP)</span><div class="stat-label">Level of theory</div></div>
+            <div class="stat-item"><span class="stat-number">QUAO · CPCM</span><div class="stat-label">Descriptors & solvation</div></div>
+            <div class="stat-item"><span class="stat-number">Ligand sweep</span><div class="stat-label">π-acceptor/σ-donor</div></div>
+            <div class="stat-item"><span class="stat-number">Design heuristics</span><div class="stat-label">Main-group catalysis</div></div>
+        </div>
+
+        <div class="grid grid-2 mt-2" style="gap:2rem;align-items:start">
+            <div class="prose">
+            <h3>Background</h3>
+            <p>We examine how ligand architecture modulates homolytic Bi–H bond cleavage in molecular bismuth systems to derive practical rules for greener main-group catalysis.</p>
+
+            <h3>Methods</h3>
+            <ul>
+                <li><b>DFT:</b> M06L/def2-TZVP with CPCM.</li>
+                <li><b>Orbital descriptors:</b> QUAO to probe π-acceptor/σ-donor effects.</li>
+                <li><b>Substituent series:</b> –F, –OCH<sub>3</sub>, –CH<sub>3</sub>, –NO<sub>2</sub> …</li>
+            </ul>
+
+            <h3>Key Results (in progress)</h3>
+            <ul>
+                <li>Early trend: stronger π-acceptor ligands lower effective Bi–H cleavage barrier.</li>
+                <li>QUAO descriptor tracks with computed BDEs → candidates surfaced for refinement.</li>
+            </ul>
+
+            <h3>Impact</h3>
+            <p>Quick screening heuristics to reduce trial-and-error in low-toxicity catalyst design.</p>
+
+            <div class="hero-buttons-container mt-2">
+                <a class="btn btn-secondary" href="HIR Min Shin - Elevator Speech.pdf" target="_blank" rel="noopener">Elevator Speech (PDF)</a>
+                <a class="btn btn-secondary" href="HIR Research Flyer.pdf" target="_blank" rel="noopener">Research Flyer (PDF)</a>
+                <a class="btn btn-accent" href="Research Proposal - Computational Investigation of Effects of Ligand Architecture on Homolytic Bond Cleavage and Electronic Structure of Molecular Bismuth Compounds (Min Shin).pdf" target="_blank" rel="noopener">Proposal (PDF)</a>
+            </div>
+            </div>
+
+            <div>
+            <figure class="research-image">
+                <img src="images/bismuth_mo.png" loading="lazy" alt="Representative orbital/geometry for Bi–H system" style="border-radius:12px;max-width:100%"/>
+                <figcaption class="figcap">Representative geometry/orbital snapshot used to compare ligand effects.</figcaption>
+            </figure>
+            </div>
+        </div>
+
+        <div class="backline"><a href="#chemlab">← Back to Research Hub</a></div>
+        </article>
+
+        <!-- UT Austin -->
+        <article id="proj-ut" class="research-section">
+        <h2 class="section-title">Computational Analysis of Byproduct Formation – Furfural Hydrogenation</h2>
+        <p class="section-subtitle">VASP/NEB pathways; Pt vs PtSn selectivity for greener biomass upgrading.</p>
+
+        <div class="hero-stats-grid">
+            <div class="stat-item"><span class="stat-number">VASP · NEB</span><div class="stat-label">DFT & pathways</div></div>
+            <div class="stat-item"><span class="stat-number">Pt vs PtSn</span><div class="stat-label">Surface comparison</div></div>
+            <div class="stat-item"><span class="stat-number">~2 eV</span><div class="stat-label">Barrier (unwanted C–C)</div></div>
+            <div class="stat-item"><span class="stat-number">Poster</span><div class="stat-label">HSRA/UT Austin</div></div>
+        </div>
+
+        <div class="grid grid-2 mt-2" style="gap:2rem;align-items:start">
+            <div class="prose">
+            <h3>Background</h3>
+            <p>Hydrogenation of furfural can divert into <em>undesired</em> furan/THF routes via C–C scission. We probe atomic-scale mechanisms to explain selectivity differences between Pt(111) and PtSn alloy surfaces.</p>
+
+            <h3>Methods</h3>
+            <ul>
+                <li><b>VASP DFT</b> for initial/final state relaxations.</li>
+                <li><b>NEB</b> for activation profiles and kinetically feasible routes.</li>
+                <li><b>Surface models:</b> Pt(111) vs PtSn with distinct H binding characteristics.</li>
+            </ul>
+
+            <h3>Key Results</h3>
+            <ul>
+                <li>Pt(111): strong H binding → C–C scission routes accessible → byproducts.</li>
+                <li>PtSn: Sn donation weakens local H binding and raises barriers (~2 eV) for unwanted routes, while keeping carbonyl hydrogenation favorable/selective.</li>
+            </ul>
+
+            <h3>Impact</h3>
+            <p>Mechanistic basis for alloy-driven selectivity; informs catalyst design for greener processes.</p>
+
+            <div class="hero-buttons-container mt-2">
+                <a class="btn btn-accent" href="HSRA Poster.pdf" target="_blank" rel="noopener">Poster (PDF)</a>
+            </div>
+            </div>
+
+            <div>
+            <figure class="research-image">
+                <img src="images/Desirable-Undesirable-Pathway.png" loading="lazy" alt="Desirable vs Undesirable pathways" style="border-radius:12px;max-width:100%"/>
+                <figcaption class="figcap">Desirable (furfuryl alcohol) vs. undesired (furan/THF) routes.</figcaption>
+            </figure>
+            </div>
+        </div>
+
+        <div class="backline"><a href="#chemlab">← Back to Research Hub</a></div>
+        </article>
+
+        <!-- Independent PLA-PHB -->
+        <article id="proj-pla" class="research-section">
+        <h2 class="section-title">PLA-PHB Biodegradable Polymer Design</h2>
+        <p class="section-subtitle">Balancing crystallinity and toughness via composition/processing heuristics.</p>
+
+        <div class="hero-stats-grid">
+            <div class="stat-item"><span class="stat-number">PLA · PHB</span><div class="stat-label">Blend system</div></div>
+            <div class="stat-item"><span class="stat-number">Property maps</span><div class="stat-label">Crystallinity vs. toughness</div></div>
+            <div class="stat-item"><span class="stat-number">Guidelines</span><div class="stat-label">Processing & comp.</div></div>
+            <div class="stat-item"><span class="stat-number">Whitepaper</span><div class="stat-label">Summary (PDF)</div></div>
+        </div>
+
+        <div class="grid grid-2 mt-2" style="gap:2rem;align-items:start">
+            <div class="prose">
+            <h3>Background</h3>
+            <p>PLA-PHB blends offer biodegradability with tunable mechanics, but increased crystallinity often trades off with toughness and processing ease.</p>
+
+            <h3>Approach</h3>
+            <ul>
+                <li>Literature mining & normalization of reported properties across compositions.</li>
+                <li>Simple mapping of crystallinity vs. tensile metrics with processing notes.</li>
+                <li>Heuristic recommendations for application-oriented targets.</li>
+            </ul>
+
+            <h3>Key Takeaways</h3>
+            <ul>
+                <li>Moderate PHB fraction improves crystallinity while maintaining workable toughness ranges.</li>
+                <li>Nucleation/annealing protocols shift property windows → processing discipline matters.</li>
+                <li>Shortlists of blend windows for packaging vs. durable biodegradable goods.</li>
+            </ul>
+
+            <div class="hero-buttons-container mt-2">
+                <a class="btn btn-accent" href="Lumiere.pdf" target="_blank" rel="noopener">Whitepaper (PDF)</a>
+            </div>
+            </div>
+
+            <div>
+            <figure class="research-image">
+                <img src="images/pla_phb_map.png" loading="lazy" alt="Property mapping for PLA-PHB blends" style="border-radius:12px;max-width:100%"/>
+                <figcaption class="figcap">Example property map: crystallinity vs. tensile performance across blend windows.</figcaption>
+            </figure>
+            </div>
+        </div>
+
+        <div class="backline"><a href="#chemlab">← Back to Research Hub</a></div>
+        </article>
+
+    </div>
+    </section>
+
+
+
 
     <!-- Community -->
     <section id="community" class="section-alt">
