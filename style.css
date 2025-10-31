@@ -600,7 +600,7 @@ section {
   .grid-4 {
     grid-template-columns: 1fr;
   }
-  
+}
  
 /* Utility Classes */
 .text-center { text-align: center; }
