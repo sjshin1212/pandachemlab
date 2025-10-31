@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initTypingAnimation();
     
     // Benzene ring animations
-    initMolecularAnimations();
+    //initMolecularAnimations();
 });
 
 // Navigation Management
@@ -133,14 +133,14 @@ function initScrollAnimations() {
     });
 
     // Parallax effect for hero section
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const heroSection = document.querySelector('.section-hero');
-        
-        if (heroSection && scrolled < heroSection.offsetHeight) {
-            heroSection.style.transform = `translateY(${scrolled * 0.3}px)`;
-        }
-    });
+    //window.addEventListener('scroll', function() {
+    //    const scrolled = window.pageYOffset;
+    //    const heroSection = document.querySelector('.section-hero');
+    //    
+    //    if (heroSection && scrolled < heroSection.offsetHeight) {
+    //        heroSection.style.transform = `translateY(${scrolled * 0.3}px)`;
+    //    }
+    //});
 }
 
 // Interactive Elements
@@ -295,23 +295,23 @@ function initTypingAnimation() {
 }
 
 // Molecular Animations
-function initMolecularAnimations() {
-    // Benzene ring rotation
-    const benzeneRings = document.querySelectorAll('.benzene-ring');
+//function initMolecularAnimations() {
+//    // Benzene ring rotation
+//    const benzeneRings = document.querySelectorAll('.benzene-ring');
     
-    benzeneRings.forEach(ring => {
-        // Add dynamic rotation speed based on scroll
-        window.addEventListener('scroll', function() {
-            const scrollSpeed = Math.abs(window.pageYOffset - (window.lastScrollTop || 0));
-            window.lastScrollTop = window.pageYOffset;
-            
-            const rotationSpeed = Math.min(scrollSpeed / 10, 5);
-            ring.style.animationDuration = `${Math.max(5 - rotationSpeed, 1)}s`;
-        });
-    });
+//    benzeneRings.forEach(ring => {
+//        // Add dynamic rotation speed based on scroll
+//        window.addEventListener('scroll', function() {
+//            const scrollSpeed = Math.abs(window.pageYOffset - (window.lastScrollTop || 0));
+//            window.lastScrollTop = window.pageYOffset;
+//            
+//            const rotationSpeed = Math.min(scrollSpeed / 10, 5);
+//            ring.style.animationDuration = `${Math.max(5 - rotationSpeed, 1)}s`;
+//        });
+//    });
 
     // Molecular background animation
-    createFloatingMolecules();
+//    createFloatingMolecules();
 }
 
 function createFloatingMolecules() {
