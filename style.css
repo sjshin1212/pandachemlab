@@ -831,3 +831,57 @@ section {
 
 .hero-buttons-container { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 @media (max-width: 640px) { .hero-buttons-container { grid-template-columns: 1fr; } }
+
+/* ===== Hero background image (Title_background.png) ===== */
+.hero-with-bg {
+  position: relative;
+  overflow: hidden;
+  background: #f6f8fc; /* 페이지 배경과 동일톤 */
+}
+
+/* 실제 배경이미지 + 좌→우 그라데이션을 한 번에 입힘 */
+.hero-with-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* 왼쪽은 글자가 잘 보이도록 단단한 배경(#f6f8fc) → 오른쪽은 투명 */
+  background-image:
+    linear-gradient(to right,
+      #f6f8fc 0%,
+      rgba(246,248,252,0.95) 28%,
+      rgba(246,248,252,0.75) 45%,
+      rgba(246,248,252,0.35) 62%,
+      rgba(246,248,252,0.00) 78%),
+    url("images/Title_background.png"); /* <- 업로드한 경로 */
+  background-repeat: no-repeat, no-repeat;
+  /* 이미지 크기: 화면 너비에 맞춰 자연스러운 비율, 너무 커지지 않게 상한 */
+  background-size: cover, min(56vw, 780px) auto;
+  /* 이미지 위치: 오른쪽에 살짝 띄워 텍스트와 겹치지 않게 */
+  background-position: center, right 6% center;
+  z-index: 0;
+}
+
+/* Hero 안 텍스트/버튼이 이미지보다 위에 보이도록 */
+.hero-with-bg > .container { position: relative; z-index: 1; }
+
+/* 작은 화면 최적화 */
+@media (max-width: 980px) {
+  .hero-with-bg::before {
+    background-size: cover, 88vw auto;
+    background-position: center, right -8% top 28%;
+  }
+}
+@media (max-width: 640px) {
+  .hero-with-bg { padding-top: 2.5rem; }
+  .hero-with-bg::before {
+    /* 모바일에서는 투명도 조금 더 올려 텍스트 가독성 확보 */
+    background-image:
+      linear-gradient(to bottom,
+        #f6f8fc 0%,
+        rgba(246,248,252,0.95) 35%,
+        rgba(246,248,252,0.00) 70%),
+      url("images/Title_background.png");
+    background-size: cover, 105vw auto;
+    background-position: top center, center top 20%;
+  }
+}
