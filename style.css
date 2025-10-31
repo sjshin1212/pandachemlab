@@ -773,3 +773,38 @@ section {
 #docs .hero-buttons-container { grid-template-columns: 1fr 1fr; }
 #docs .card .btn { width: 100%; justify-content: center; }
 @media (max-width:768px){ #docs .hero-buttons-container{ grid-template-columns:1fr; } }
+
+/* ===== Accordion (Community) ===== */
+.accordion { max-width: 920px; margin: 0 auto; }
+.acc-item + .acc-item { margin-top: 12px; }
+
+.acc-button {
+  width: 100%; display: flex; align-items: center; justify-content: space-between;
+  background: #fff; color: var(--primary-navy);
+  border: 1px solid #e5e7eb; border-radius: 14px; padding: 14px 16px;
+  font-weight: 600; cursor: pointer; box-shadow: var(--shadow-sm);
+  transition: background .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.acc-button:hover { background: #f9fafb; box-shadow: var(--shadow-md); }
+.acc-button:focus { outline: 2px solid var(--primary-teal); outline-offset: 2px; }
+
+.acc-title { pointer-events: none; }
+.acc-indicator { font-size: 1.25rem; line-height: 1; transform: translateY(-1px); transition: transform .2s ease; }
+
+.acc-panel {
+  overflow: hidden; max-height: 0; padding: 0 16px;
+  background: #fff; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 14px 14px;
+  transition: max-height .25s ease, padding .2s ease, border-color .2s ease;
+}
+.acc-panel.open { padding: 12px 16px 16px; border-color: #d1d5db; }
+
+.acc-button[aria-expanded="true"] + .acc-panel { max-height: 800px; }
+.acc-button[aria-expanded="true"] .acc-indicator { transform: rotate(45deg); } /* + → × 느낌 */
+
+.acc-list { margin: 8px 0 0; padding-left: 18px; color: var(--neutral-gray); line-height: 1.65; }
+.acc-list li + li { margin-top: 6px; }
+
+/* Motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .acc-panel, .acc-indicator { transition: none; }
+}
