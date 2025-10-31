@@ -309,13 +309,6 @@ section {
   background: var(--light-gray);
 }
 
-/* Stats Display */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--spacing-md);
-  margin: var(--spacing-lg) 0;
-}
 
 .stat-item {
   text-align: center;
@@ -563,25 +556,6 @@ section {
   animation: fadeInRight 0.6s ease-out;
 }
 
-/* Molecular Animation */
-.benzene-ring {
-  width: 700px;
-  height: 700px;
-  position: relative;
-  margin: 0 auto;
-  background-image: url('images/Title_back.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.benzene-ring::before {
-  display: none;
-}
-
-.benzene-ring::after {
-  display: none;
-}
 
 @keyframes rotate {
   from { transform: rotate(0deg); }
@@ -627,39 +601,7 @@ section {
     grid-template-columns: 1fr;
   }
   
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-sm);
-  }
-  
-  h1 {
-    font-size: 2.5rem;
-  }
-  
-  h2 {
-    font-size: 2rem;
-  }
-  
-  .section-hero {
-    min-height: 80vh;
-    padding-top: 80px;
-  }
-}
-
-@media (max-width: 480px) {
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .activity-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .nav-container {
-    padding: var(--spacing-xs) var(--spacing-sm);
-  }
-}
-
+ 
 /* Utility Classes */
 .text-center { text-align: center; }
 .text-left { text-align: left; }
@@ -749,30 +691,6 @@ section {
     border-radius: 8px;
     text-align: center;
 }
-
-/* Hero Buttons Responsive */
-.hero-buttons-container {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 1fr;
-}
-
-@media (min-width: 768px) {
-    .hero-buttons-container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-buttons-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Docs cards 작은 보강 (선택) */
-#docs .hero-buttons-container { grid-template-columns: 1fr 1fr; }
-#docs .card .btn { width: 100%; justify-content: center; }
-@media (max-width:768px){ #docs .hero-buttons-container{ grid-template-columns:1fr; } }
 
 /* ===== Accordion (Community) ===== */
 .accordion { max-width: 920px; margin: 0 auto; }
@@ -871,7 +789,7 @@ section {
     background-position: center, right -8% top 28%;
   }
 }
-@media (max-width: 640px) {
+@media (max-width: 560px) {
   .hero-with-bg { padding-top: 2.5rem; }
   .hero-with-bg::before {
     /* 모바일에서는 투명도 조금 더 올려 텍스트 가독성 확보 */
