@@ -45,7 +45,7 @@
             
             <ul class="nav-menu" id="primary-navigation">
             <li><a class="nav-link" href="#chemlab">Research</a></li>
-            <li><a class="nav-link" href="#docs">Doc</a></li>
+            <!--li><a class="nav-link" href="#docs">Doc</a></li-->
             <li><a class="nav-link" href="#community">Community</a></li>
             <li><a class="nav-link" href="#about">About me</a></li>
             </ul>
@@ -71,21 +71,21 @@
             <!-- 한눈에 파악되는 스냅샷 3~4칸 -->
             <div class="hero-stats-grid">
             <div class="stat-item">
-                <span class="stat-number">DFT/ORCA/GAMESS</span>
-                <div class="stat-label">Main-group catalysis</div>
+                <div class="stat-label">Recent Research</div>
+                <span class="stat-number">Computational Investigation of Organobismuth Catalysts</span>
             </div>
             <div class="stat-item">
-                <span class="stat-number">VASP + NEB</span>
-                <div class="stat-label">Furfural pathways</div>
+                <div class="stat-label">STEM Community + Music</div>
+                <span class="stat-number">What I Like</span>
             </div>
             <div class="stat-item">
-                <span class="stat-number">PLA-PHB</span>
-                <div class="stat-label">Crystallinity trade-offs</div>
+                <div class="stat-label">Resume</div>
+                <span class="stat-number">Who I am</span>
             </div>
-            <div class="stat-item">
+            <!--div class="stat-item">
                 <span class="stat-number">Docs Hub</span>
                 <div class="stat-label">Poster · Flyer · Proposal</div>
-            </div>
+            </div-->
             </div>
         </div>
 
@@ -117,7 +117,11 @@
             <p class="mb-2"><strong>1-line Abstract:</strong> Correlating Bi–H cleavage energetics with ligand π-acceptor capacity to guide low-toxicity catalyst design.</p>
             <p class="mb-2"><strong>Methods:</strong> DFT (M06L/def2-TZVP) · QUAO · CPCM</p>
             <p class="mb-2"><strong>Outcome:</strong> Design heuristics for main-group catalysis (intermediate results consolidated in docs)</p>
-            <a class="btn btn-primary mt-1" href="#proj-uh">View Details</a>
+
+            <div class="hero-buttons-container mt-1">
+                <a class="btn btn-primary" href="#proj-uh">View Details</a>
+                <a class="btn btn-secondary" href="Research Proposal - Computational Investigation of Effects of Ligand Architecture on Homolytic Bond Cleavage and Electronic Structure of Molecular Bismuth Compounds (Min Shin).pdf" target="_blank" rel="noopener">DOC</a>
+            </div>
             </div>
         </article>
 
@@ -131,11 +135,16 @@
             <p class="mb-2"><strong>1-line Abstract:</strong> PtSn alloys raise barriers for unwanted C–C scission while enabling selective carbonyl hydrogenation.</p>
             <p class="mb-2"><strong>Methods:</strong> VASP · NEB · Surface comparison (Pt(111) vs PtSn)</p>
             <p class="mb-2"><strong>Outcome:</strong> ~2 eV barriers suppress byproducts; mechanistic basis for selectivity</p>
-            <a class="btn btn-primary mt-1" href="#proj-ut">View Details</a>
+
+            <div class="hero-buttons-container mt-1">
+                <a class="btn btn-primary" href="#proj-ut">View Details</a>
+                <!-- 파일명이 실제로는 "HSRA Poster.pdf"라면 링크명을 맞춰주세요 -->
+                <a class="btn btn-secondary" href="HSRA_Poster.pdf" target="_blank" rel="noopener">DOC</a>
+            </div>
             </div>
         </article>
 
-        <!-- Independent (Lumiere) -->
+        <!-- Independent (PLA-PHB) -->
         <article class="research-card">
             <div class="research-header">
             <h3>PLA-PHB Biodegradable Polymer Design</h3>
@@ -145,49 +154,17 @@
             <p class="mb-2"><strong>1-line Abstract:</strong> Balancing toughness vs. crystallinity in PLA-PHB blends via composition/processing heuristics.</p>
             <p class="mb-2"><strong>Methods:</strong> Literature mining · Simple modeling · Property mapping</p>
             <p class="mb-2"><strong>Outcome:</strong> Practical guidelines summarized (Lumiere brief)</p>
-            <a class="btn btn-primary mt-1" href="#proj-pla">View Details</a>
+
+            <div class="hero-buttons-container mt-1">
+                <a class="btn btn-primary" href="#proj-pla">View Details</a>
+                <a class="btn btn-secondary" href="Lumiere.pdf" target="_blank" rel="noopener">DOC</a>
+            </div>
             </div>
         </article>
         </div>
     </div>
     </section>
-
-    <!-- Doc -->
-    <section id="docs" class="benzene-bg">
-    <div class="container">
-        <h2 class="text-center mb-3">Publications & Docs</h2>
-        <div class="grid grid-3">
-        <!-- UH set -->
-        <div class="card">
-            <h4 class="mb-1">UH Mānoa – Bismuth</h4>
-            <p class="mb-2">Background, elevator pitch, and proposal for main-group catalysis project.</p>
-            <div class="hero-buttons-container">
-            <a class="btn btn-secondary" href="HIR Min Shin - Elevator Speech.pdf" target="_blank" rel="noopener">Elevator Speech (PDF)</a>
-            <a class="btn btn-secondary" href="HIR Research Flyer.pdf" target="_blank" rel="noopener">Research Flyer (PDF)</a>
-            <a class="btn btn-accent" href="Research Proposal.pdf" target="_blank" rel="noopener">Proposal (PDF)</a>
-            </div>
-        </div>
-
-        <!-- UT set -->
-        <div class="card">
-            <h4 class="mb-1">UT Austin – Furfural (HSRA)</h4>
-            <p class="mb-2">Poster summarizing computational pathways and alloy selectivity.</p>
-            <div class="hero-buttons-container">
-            <a class="btn btn-accent" href="HSRA_Poster.pdf" target="_blank" rel="noopener">Poster (PDF)</a>
-            </div>
-        </div>
-
-        <!-- Independent set -->
-        <div class="card">
-            <h4 class="mb-1">Independent – PLA-PHB</h4>
-            <p class="mb-2">Short whitepaper on trade-offs and practical design heuristics.</p>
-            <div class="hero-buttons-container">
-            <a class="btn btn-accent" href="Lumiere.pdf" target="_blank" rel="noopener">Whitepaper (PDF)</a>
-            </div>
-        </div>
-        </div>
-    </div>
-    </section>
+    
 
     <!-- ===== Research Details (In-page) ===== -->
     <section id="research-details" class="section-alt">
