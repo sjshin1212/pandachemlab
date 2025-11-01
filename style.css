@@ -1,1097 +1,322 @@
-/* Panda Min's ChemLab - Professional Portfolio */
-/* Brand Colors: Navy Blue (#1e3a8a), Teal (#0891b2), Coral (#f97316), Gray (#64748b) */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
-
-:root {
-  /* Brand Colors */
-  --primary-navy: #1e3a8a;
-  --primary-teal: #0891b2;
-  --accent-coral: #f97316;
-  --neutral-gray: #64748b;
-  --pure-white: #ffffff;
-  --light-gray: #f8fafc;
-  --dark-gray: #334155;
-  
-  /* Typography */
-  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-  
-  /* Spacing */
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 2rem;
-  --spacing-lg: 3rem;
-  --spacing-xl: 4rem;
-  
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  
-  /* Transitions */
-  --transition-fast: all 0.15s ease;
-  --transition-normal: all 0.3s ease;
-  --transition-slow: all 0.5s ease;
-}
-
-/* Reset and Base Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-}
-
-body {
-  font-family: var(--font-primary);
-  line-height: 1.6;
-  color: var(--dark-gray);
-  background-color: var(--pure-white);
-  overflow-x: hidden;
-}
-
-/* Benzene Ring Background Pattern */
-.benzene-bg {
-  position: relative;
-}
-
-.benzene-bg::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    radial-gradient(circle at 20% 20%, rgba(30, 58, 138, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(8, 145, 178, 0.03) 0%, transparent 50%);
-  background-size: 200px 200px, 300px 300px;
-  background-position: 0 0, 100px 100px;
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-  line-height: 1.3;
-  margin-bottom: var(--spacing-sm);
-}
-
-h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 800;
-  background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-teal) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  color: var(--primary-navy);
-}
-
-h3 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  color: var(--primary-teal);
-}
-
-h4 {
-  font-size: 1.25rem;
-  color: var(--dark-gray);
-}
-
-p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  margin-bottom: var(--spacing-sm);
-  color: var(--neutral-gray);
-}
-
-.lead-text {
-  font-size: 1.3rem;
-  font-weight: 500;
-  color: var(--primary-navy);
-}
-
-/* Navigation */
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(30, 58, 138, 0.1);
-  z-index: 1000;
-  transition: var(--transition-normal);
-}
-
-.nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: var(--spacing-sm) var(--spacing-md);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-xs);
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: var(--primary-navy);
-  text-decoration: none;
-}
-
-.logo-icon {
-  width: 32px;
-  height: 32px;
-  background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: bold;
-}
-
-.nav-menu {
-  display: flex;
-  list-style: none;
-  gap: var(--spacing-md);
-}
-
-.nav-link {
-  text-decoration: none;
-  color: var(--dark-gray);
-  font-weight: 500;
-  padding: var(--spacing-xs) var(--spacing-sm);
-  border-radius: 8px;
-  transition: var(--transition-fast);
-  position: relative;
-}
-
-.nav-link:hover,
-.nav-link.active {
-  color: var(--primary-navy);
-  background: rgba(30, 58, 138, 0.05);
-}
-
-/* Buttons */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--spacing-xs);
-  padding: var(--spacing-sm) var(--spacing-md);
-  border: none;
-  border-radius: 12px;
-  font-family: var(--font-primary);
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-  transition: var(--transition-fast);
-  font-size: 1rem;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
-  color: white;
-  box-shadow: var(--shadow-md);
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-}
-
-.btn-secondary {
-  background: white;
-  color: var(--primary-navy);
-  border: 2px solid var(--primary-navy);
-}
-
-.btn-secondary:hover {
-  background: var(--primary-navy);
-  color: white;
-}
-
-.btn-accent {
-  background: var(--accent-coral);
-  color: white;
-}
-
-.btn-accent:hover {
-  background: #ea580c;
-  transform: translateY(-1px);
-}
-
-/* Cards */
-.card {
-  background: white;
-  border-radius: 16px;
-  padding: var(--spacing-md);
-  box-shadow: var(--shadow-md);
-  transition: var(--transition-normal);
-  border: 1px solid rgba(30, 58, 138, 0.1);
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-}
-
-.card-header {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  margin-bottom: var(--spacing-sm);
-}
-
-.card-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  background: linear-gradient(135deg, var(--primary-teal), var(--accent-coral));
-  color: white;
-}
-
-/* Grid Systems */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--spacing-md);
-}
-
-.grid {
-  display: grid;
-  gap: var(--spacing-md);
-}
-
-.grid-2 {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
-
-.grid-3 {
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
-
-.grid-4 {
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-}
-
-/* Sections */
-section {
-  padding: var(--spacing-xl) 0;
-}
-
-.section-hero {
-  padding: 112px 0 20px;
-  min-height: clamp(520px, 62vh, 720px);
-  display: flex;
-  align-items: center;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  position: relative;
-}
-
-.section-alt {
-  background: var(--light-gray);
-}
-
-
-.stat-item {
-  text-align: center;
-  padding: var(--spacing-md);
-  background: white;
-  border-radius: 16px;
-  box-shadow: var(--shadow-sm);
-  border: 2px solid transparent;
-  transition: var(--transition-normal);
-}
-
-.stat-item:hover {
-  border-color: var(--primary-teal);
-  transform: translateY(-2px);
-}
-
-.stat-number {
-  font-size: 2.5rem;
-  font-weight: 800;
-  background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  display: block;
-}
-
-.stat-label {
-  color: var(--neutral-gray);
-  font-weight: 500;
-  margin-top: var(--spacing-xs);
-}
-
-/* Timeline */
-.timeline {
-  position: relative;
-  padding: var(--spacing-md) 0;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: linear-gradient(180deg, var(--primary-navy), var(--primary-teal));
-  transform: translateX(-50%);
-}
-
-.timeline-item {
-  display: flex;
-  margin-bottom: var(--spacing-lg);
-  position: relative;
-}
-
-.timeline-content {
-  background: white;
-  padding: var(--spacing-md);
-  border-radius: 16px;
-  box-shadow: var(--shadow-md);
-  width: 45%;
-  position: relative;
-}
-
-.timeline-item:nth-child(even) .timeline-content {
-  margin-left: auto;
-}
-
-.timeline-dot {
-  position: absolute;
-  left: 50%;
-  top: 20px;
-  width: 16px;
-  height: 16px;
-  background: var(--accent-coral);
-  border-radius: 50%;
-  transform: translateX(-50%);
-  border: 4px solid white;
-  box-shadow: var(--shadow-md);
-}
-
-/* Research Project Cards */
-.research-card {
-  background: white;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  transition: var(--transition-normal);
-  border: 1px solid rgba(30, 58, 138, 0.1);
-}
-
-.research-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-xl);
-}
-
-.research-header {
-  background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
-  color: white;
-  padding: var(--spacing-md);
-  text-align: center;
-}
-
-.research-body {
-  padding: var(--spacing-md);
-}
-
-.research-status {
-  display: inline-block;
-  padding: var(--spacing-xs) var(--spacing-sm);
-  background: rgba(249, 115, 22, 0.1);
-  color: var(--accent-coral);
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: var(--spacing-sm);
-}
-
-/* Activity Grid */
-.activity-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--spacing-md);
-  margin: var(--spacing-lg) 0;
-}
-
-@media (max-width: 768px) {
-  .activity-grid {
-    grid-template-columns: 1fr;
-  }
-}
-.activity-card {
-  background: white;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-  transition: var(--transition-normal);
-  cursor: pointer;
-}
-
-.activity-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-}
-
-.activity-image {
-  height: 200px;
-  background: linear-gradient(135deg, var(--primary-teal), var(--accent-coral));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 3rem;
-}
-
-.activity-content {
-  padding: var(--spacing-md);
-}
-
-.activity-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--primary-navy);
-  margin-bottom: var(--spacing-xs);
-}
-
-.activity-stats {
-  color: var(--accent-coral);
-  font-weight: 600;
-  margin-bottom: var(--spacing-sm);
-}
-
-/* Hawaii/Life Theme */
-.hawaii-section {
-  background: linear-gradient(135deg, #0891b2, #06b6d4);
-  color: white;
-  border-radius: 24px;
-  padding: var(--spacing-xl);
-  margin: var(--spacing-lg) 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.hawaii-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path d="M0 0v100c166.7 0 166.7-66 333.3-66s166.7 66 333.3 66 166.7-66 333.3-66v-100z" fill="%23ffffff" opacity="0.1"/></svg>');
-  background-size: 100% 50px;
-  background-repeat: repeat-x;
-  animation: wave 10s infinite linear;
-}
-
-@keyframes wave {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100px); }
-}
-
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
-}
-
-.fade-in-left {
-  animation: fadeInLeft 0.6s ease-out;
-}
-
-.fade-in-right {
-  animation: fadeInRight 0.6s ease-out;
-}
-
-
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* Mobile Menu */
-.mobile-menu-btn {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: var(--primary-navy);
-  cursor: pointer;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .nav-menu {
-    display: none;
-  }
-  
-  .mobile-menu-btn {
-    display: block;
-  }
-  
-  .container {
-    padding: 0 var(--spacing-sm);
-  }
-  
-  .timeline::before {
-    left: 30px;
-  }
-  
-  .timeline-content {
-    width: calc(100% - 60px);
-    margin-left: 60px !important;
-  }
-  
-  .grid-2,
-  .grid-3,
-  .grid-4 {
-    grid-template-columns: 1fr;
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min Shin - Panda Min's ChemLab | Chemistry Research Portfolio</title>
+    <meta name="description" content="Min Shin's professional chemistry research portfolio. USNCO Top 150, Science Bowl Top 12, research at UH Manoa and UT Austin. Academic excellence and scientific leadership.">
+    <meta name="keywords" content="Min Shin, Chemistry, Research, Science Bowl, USNCO, Hawaii, College Portfolio">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🐼</text></svg>">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Min Shin - Panda Min's ChemLab">
+    <meta property="og:description" content="Chemistry research portfolio of Min Shin - USNCO Top 150, Science Bowl National Champion">
+    <meta property="og:url" content="https://pandaminschemlab.com">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Min Shin",
+      "description": "Chemistry researcher and student leader from Hawaii",
+      "url": "https://pandaminschemlab.com",
+      "sameAs": [
+        "https://linkedin.com/in/minshin",
+        "https://github.com/minshin"
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <div class="logo-icon">🐼</div>
+                <span>Min's ChemLab</span>
+            </a>
+            
+            <ul class="nav-menu" id="primary-navigation">
+            <li><a class="nav-link" href="#chemlab">Research</a></li>
+            <!--li><a class="nav-link" href="#docs">Doc</a></li-->
+            <li><a class="nav-link" href="#community">Community</a></li>
+            <li><a class="nav-link" href="#about">About me</a></li>
+            </ul>
+            <button id="mobileMenuBtn" class="mobile-menu-btn" aria-expanded="false" aria-controls="primary-navigation">☰</button>
+
+        </div>
+    </nav>
+
+    <!-- Hero  -->
+    <section class="section-hero benzene-bg hero-with-bg" id="home">
+    <div class="container">
+        <div class="grid grid-2" style="align-items:center; gap:3rem;">
+        <div class="hero-left">
+            <p class="hero-subtitle">Research In Progress</p>
+            <h1>Computational Chemistry for Sustainable Catalysis</h1> <!--&amp; Materials.</h1-->
+            <p class="lead-text mt-2">
+            DFT, ML, and experimental insights across organobismuth catalysis, biomass upgrading, and biodegradable polymers.
+            </p>
+            <div class="hero-buttons-container mt-2">
+            <a class="btn btn-primary" href="#chemlab">Explore Research</a>
+            <a class="btn btn-secondary" href="#chemlab">View Docs</a>
+            </div>
+        </div>
+        </div>
+
+        <!-- 한눈에 파악되는 스냅샷 3~4칸 -->
+        <div class="hero-stats-grid mt-2">
+        <div class="stat-item">
+            <span class="stat-number">Green Chemistry</span>
+            <div class="stat-label">Sustainable catalysis</div>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">Bismuth complex</span>
+            <div class="stat-label">Non-toxic metal system</div>
+        </div>
+        <div class="stat-item">
+            <Span class="stat-number">Computational</span>
+            <div class="stat-label">DFT Model</div>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">Ligand Design</span>
+            <div class="stat-label">Molecular architecture</div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+
+    <!-- Research Hub -->    
+    <section id="chemlab" class="section-alt">
+    <div class="container">
+        <h2 class="text-center mb-3">Research Hub</h2>
+        <p class="text-center mb-3" style="max-width:70ch;margin:10px;">
+        Three projects spanning organobismuth hydride cleavage, selective hydrogenation of biomass-derived molecules,
+        and biodegradable polymer property optimization.      
+        </p>
+        <p></p>
+        <p></p>
+
+        <div class="grid grid-3">
+        <!-- UH Mānoa -->
+        <article class="research-card">
+            <div class="research-header">
+            <h3>Organobismuth Hydride Cleavage (DFT)</h3>
+            </div>
+            <div class="research-body">
+            <span class="research-status">In progress</span>
+            <p class="mb-2"><strong>1-line Abstract:</strong> Correlating Bi–H cleavage energetics with ligand π-acceptor capacity to guide low-toxicity catalyst design.</p>
+            <p class="mb-2"><strong>Methods:</strong> DFT (M06L/def2-TZVP) · QUAO · CPCM</p>
+            <p class="mb-2"><strong>Outcome:</strong> Design heuristics for main-group catalysis (intermediate results consolidated in docs)</p>
+
+            <div class="hero-buttons-container mt-1">
+                <a class="btn btn-primary" href="UH_research_detail.html">View Details</a> <!--"#proj-uh"-->
+                <a class="btn btn-secondary" href="Research Proposal.pdf" target="_blank" rel="noopener">DOC</a>
+            </div>
+            </div>
+        </article>
+
+        <!-- UT Austin (HSRA) -->
+        <article class="research-card">
+            <div class="research-header">
+            <h3>Furfural Hydrogenation Pathways (VASP)</h3>
+            </div>
+            <div class="research-body">
+            <span class="research-status">Poster</span>
+            <p class="mb-2"><strong>1-line Abstract:</strong> PtSn alloys raise barriers for unwanted C–C scission while enabling selective carbonyl hydrogenation.</p>
+            <p class="mb-2"><strong>Methods:</strong> VASP · NEB · Surface comparison (Pt(111) vs PtSn)</p>
+            <p class="mb-2"><strong>Outcome:</strong> ~2 eV barriers suppress byproducts; mechanistic basis for selectivity</p>
+
+            <div class="hero-buttons-container mt-1">
+                <a class="btn btn-primary" href="ut_austin_research_detail.html">View Details</a> <!--"#proj-ut"-->
+                <a class="btn btn-secondary" href="HSRA_Poster.pdf" target="_blank" rel="noopener">DOC</a>
+            </div>
+            </div>
+        </article>
+
+        <!-- Independent (PLA-PHB) -->
+        <article class="research-card">
+            <div class="research-header">
+            <h3>PLA-PHB Biodegradable Polymer Design</h3>
+            </div>
+            <div class="research-body">
+            <span class="research-status">Whitepaper</span>
+            <p class="mb-2"><strong>1-line Abstract:</strong> Balancing toughness vs. crystallinity in PLA-PHB blends via composition/processing heuristics.</p>
+            <p class="mb-2"><strong>Methods:</strong> Literature mining · Simple modeling · Property mapping</p>
+            <p class="mb-2"><strong>Outcome:</strong> Practical guidelines summarized (Lumiere brief)</p>
+
+            <div class="hero-buttons-container mt-1">
+                <a class="btn btn-primary" href="independent_research_detail.html">View Details</a> <!--#proj-pla-->
+                <a class="btn btn-secondary" href="Lumiere.pdf" target="_blank" rel="noopener">DOC</a>
+            </div>
+            </div>
+        </article>
+        </div>
+    </div>
+    </section>
  
-/* Utility Classes */
-.text-center { text-align: center; }
-.text-left { text-align: left; }
-.text-right { text-align: right; }
-
-.mb-1 { margin-bottom: var(--spacing-xs); }
-.mb-2 { margin-bottom: var(--spacing-sm); }
-.mb-3 { margin-bottom: var(--spacing-md); }
-.mb-4 { margin-bottom: var(--spacing-lg); }
-
-.mt-1 { margin-top: var(--spacing-xs); }
-.mt-2 { margin-top: var(--spacing-sm); }
-.mt-3 { margin-top: var(--spacing-md); }
-.mt-4 { margin-top: var(--spacing-lg); }
-
-.hidden { display: none; }
-.visible { display: block; }
-
-/* Print Styles */
-@media print {
-  nav, .btn, .mobile-menu-btn {
-    display: none !important;
-  }
-  
-  * {
-    background: white !important;
-    color: black !important;
-    box-shadow: none !important;
-  }
-}
-
-/* Hero Section Responsive Layouts */
-.hero-stats-grid {
-    display: grid;
-    gap: 1rem;
-    margin: 2rem 0;
-}
-
-/* Stats Grid: Mobile (1 column) → Tablet (2x2) → Desktop (4x1) */
-@media (max-width: 480px) {
-    .hero-stats-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (min-width: 481px) and (max-width: 768px) {
-    .hero-stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (min-width: 769px) {
-    .hero-stats-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-/* Current Focus - Full Width Responsive */
-.current-focus-container {
-    width: 100%;
-    margin: 2rem 0;
-}
-
-.current-focus-card {
-    background: linear-gradient(135deg, #1e3a8a, #0891b2);
-    color: white;
-    padding: 2rem;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.focus-grid {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 1fr;
-}
-
-@media (min-width: 768px) {
-    .focus-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-.focus-item {
-    background: rgba(255,255,255,0.1);
-    padding: 1rem;
-    border-radius: 8px;
-    text-align: center;
-}
-
-/* ===== Accordion (Community) ===== */
-.accordion { max-width: 920px; margin: 0 auto; }
-.acc-item + .acc-item { margin-top: 12px; }
-
-.acc-button {
-  width: 100%; display: flex; align-items: center; justify-content: space-between;
-  background: #fff; color: var(--primary-navy);
-  border: 1px solid #e5e7eb; border-radius: 14px; padding: 14px 16px;
-  font-weight: 600; cursor: pointer; box-shadow: var(--shadow-sm);
-  transition: background .2s ease, box-shadow .2s ease, border-color .2s ease;
-}
-.acc-button:hover { background: #f9fafb; box-shadow: var(--shadow-md); }
-.acc-button:focus { outline: 2px solid var(--primary-teal); outline-offset: 2px; }
-
-.acc-title { pointer-events: none; }
-.acc-indicator { font-size: 1.25rem; line-height: 1; transform: translateY(-1px); transition: transform .2s ease; }
-
-.acc-panel {
-  overflow: hidden; max-height: 0; padding: 0 16px;
-  background: #fff; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 14px 14px;
-  transition: max-height .25s ease, padding .2s ease, border-color .2s ease;
-}
-.acc-panel.open { padding: 12px 16px 16px; border-color: #d1d5db; }
-
-.acc-button[aria-expanded="true"] + .acc-panel { max-height: 800px; }
-.acc-button[aria-expanded="true"] .acc-indicator { transform: rotate(45deg); } /* + → × 느낌 */
-
-.acc-list { margin: 8px 0 0; padding-left: 18px; color: var(--neutral-gray); line-height: 1.65; }
-.acc-list li + li { margin-top: 6px; }
-
-/* Motion preference */
-@media (prefers-reduced-motion: reduce) {
-  .acc-panel, .acc-indicator { transition: none; }
-}
-
-/* Research Details (in-page) */
-.research-section { padding: 48px 0; border-top: 1px solid #eef0f3; }
-.research-section:first-of-type { border-top: 0; }
-.section-title { margin-bottom: .25rem; }
-.section-subtitle { color: var(--neutral-gray); max-width: 70ch; }
-
-.prose { line-height: 1.7; max-width: 70ch; }
-.prose h3 { margin: 1.25rem 0 .5rem; color: var(--primary-navy); }
-.figcap { color: var(--neutral-gray); font-style: italic; margin-top: .5rem; }
-
-.pill-nav { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
-.pill-nav .pill {
-  display: inline-block; padding: 8px 12px; border-radius: 999px;
-  border: 1px solid #e5e7eb; background: #fff; color: var(--primary-navy);
-}
-.pill-nav .pill:hover { background: #f9fafb; }
-
-.backline { margin-top: 1.25rem; }
-.backline a { text-decoration: underline; color: var(--primary-teal); }
-
-.hero-buttons-container { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-@media (max-width: 640px) { .hero-buttons-container { grid-template-columns: 1fr; } }
-
-/* ===== Hero background image (Title_background.png) ===== */
-.hero-with-bg {
-  position: relative;
-  overflow: hidden;
-  background: #f6f8fc; /* 페이지 배경과 동일톤 */
-}
-
-/* 실제 배경이미지 + 좌→우 그라데이션을 한 번에 입힘 */
-.hero-with-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  /* 왼쪽은 글자가 잘 보이도록 단단한 배경(#f6f8fc) → 오른쪽은 투명 */
-  background-image:
-    linear-gradient(to right,
-      #f6f8fc 0%,
-      rgba(246,248,252,0.95) 28%,
-      rgba(246,248,252,0.75) 45%,
-      rgba(246,248,252,0.35) 62%,
-      rgba(246,248,252,0.00) 78%),
-    url("images/Title_background.png"); /* <- 업로드한 경로 */
-  background-repeat: no-repeat, no-repeat;
-  /* 이미지 크기: 화면 너비에 맞춰 자연스러운 비율, 너무 커지지 않게 상한 */
-  background-size: cover, min(54vw, 760px) auto;
-  /* 이미지 위치: 오른쪽에 살짝 띄워 텍스트와 겹치지 않게 */
-  background-position: center, right 18% center;
-  z-index: 0;
-}
-
-/* Hero 안 텍스트/버튼이 이미지보다 위에 보이도록 */
-.hero-with-bg > .container { position: relative; z-index: 1; }
-
-/* 작은 화면 최적화 */
-@media (max-width: 1280px) {
-  .hero-with-bg::before {
-    background-size: cover, 88vw auto;
-    background-position: center, right 14% top 28%;
-  }
-}
-@media (max-width: 980px) {
-  .hero-with-bg { padding-top: 2.5rem; }
-  .hero-with-bg::before {
-    /* 모바일에서는 투명도 조금 더 올려 텍스트 가독성 확보 */
-    background-image:
-      linear-gradient(to bottom,
-        #f6f8fc 0%,
-        rgba(246,248,252,0.95) 35%,
-        rgba(246,248,252,0.00) 70%),
-      url("images/Title_background.png");
-    background-size: cover, 105vw auto;
-    background-position: top center, center top 18%;
-  }
-}
-
-/* 오버레이 위에 보이도록 */
-.hero-with-bg .hero-stats-grid { 
-  position: relative; 
-  z-index: 1; 
-}
-
-/* 스냅샷 카드 가독성(배경 살짝 밝게, 테두리/그림자) */
-.hero-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(180px,1fr));
-  gap: 14px;
-  margin-top: 24px;
-}
-.hero-stats-grid .stat-item {
-  background: rgba(255,255,255,0.78);
-  backdrop-filter: saturate(120%) blur(2px);
-  border: 1px solid #e6ebf1;
-  border-radius: 14px;
-  padding: 14px 16px;
-  box-shadow: 0 6px 18px rgba(0,0,0,.04);
-}
-.hero-stats-grid .stat-number { 
-  display:block; font-weight: 700; color: var(--primary-navy); 
-}
-.hero-stats-grid .stat-label  { 
-  color: var(--neutral-gray); font-size: .9rem; margin-bottom: 6px; 
-}
-
-/* 반응형 */
-@media (max-width: 980px){
-  .hero-stats-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 560px){
-  .hero-stats-grid { grid-template-columns: 1fr; }
-}
-
-/* ===== Hero safe text area ===== */
-.hero-with-bg .grid.grid-2 {
-  /* 왼쪽 컬럼은 고정 범위, 오른쪽은 남은 영역 */
-  grid-template-columns: minmax(420px, 680px) 1fr;
-}
-
-/* 왼쪽 박스 내부 여백(텍스트가 이미지에 닿지 않도록) */
-.hero-left { padding-right: 12px; }
-
-/* 제목/리드 줄 길이 제한 */
-.hero-left h1 { max-width: 16ch; }        /* 대형 헤드라인: 15–18ch 권장 */
-.hero-left .lead-text { max-width: 60ch; } /* 본문: ~60–70ch 권장 */
-
-/* 버튼 줄바꿈 방지용(폭이 좁을 때만 스택) */
-@media (max-width: 980px){
-  .hero-with-bg .grid.grid-2 { grid-template-columns: 1fr; }
-  .hero-left h1 { max-width: 20ch; }
-  .hero-left .lead-text { max-width: 65ch; }
-}
-@media (max-width: 560px){
-  .hero-left h1 { max-width: 22ch; }
-  .hero-left .lead-text { max-width: 100%; }
-}
-
-/* ===== HERO SAFE LAYOUT ===== */
-.section-hero .grid.grid-2 {
-  /* 왼쪽(텍스트) 컬럼은 고정 범위, 오른쪽은 남은 영역 */
-  grid-template-columns: minmax(440px, 660px) 1fr;
-}
-
-.hero-left h1 { max-width: 16ch; }      /* 큰 헤드라인 줄 길이 */
-.hero-left .lead-text { max-width: 60ch; }  /* 본문 줄 길이 */
-
-@media (max-width: 980px){
-  .section-hero .grid.grid-2 { grid-template-columns: 1fr; }
-  .hero-left h1 { max-width: 20ch; }
-  .hero-left .lead-text { max-width: 65ch; }
-}
-@media (max-width: 560px){
-  .hero-left h1 { max-width: 22ch; }
-  .hero-left .lead-text { max-width: 100%; }
-}
-
-/* ===== HERO BUTTONS (FIX) ===== */
-.hero-buttons-container {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-.hero-buttons-container .btn {
-  width: auto;
-  white-space: nowrap;  /* 버튼 텍스트 줄바꿈 방지 */
-}
-
-@media (max-width: 640px){
-  /* 모바일에서는 한 줄로 꽉 차게 */
-  .hero-buttons-container {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ===== HERO SNAPSHOTS ON TOP ===== */
-.hero-with-bg .hero-stats-grid {
-  position: relative;
-  z-index: 1;
-}
-
-/* (이미 쓰는 카드 스타일은 유지) 필요시 배경을 조금 더 밝게 */
-.hero-stats-grid .stat-item {
-  background: rgba(255,255,255,0.78);
-  backdrop-filter: saturate(120%) blur(2px);
-}
-
-.hero-subtitle {
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #0c4a6e;
-  background: rgba(14,165,233,0.08);
-  border: 1px solid rgba(14,165,233,0.2);
-  padding: 4px 10px;
-  border-radius: 6px;
-  display: inline-block;
-  margin-bottom: 12px;
-}
-
-.benzene-ring,
-.floating-molecule {
-  display: none !important;
-  animation: none !important;
-}
-
-.email-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255,255,255,0.12);
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 500;
-  padding: 8px 14px;
-  border-radius: 8px;
-  transition: background 0.25s ease;
-}
-
-.email-button:hover {
-  background: rgba(255,255,255,0.25);
-}
-
-/* ===== Community cards ===== */
-.section-community{ padding: 48px 0; }
-.community-grid{
-  display:grid; gap:16px;
-  grid-template-columns: 1.2fr 1fr 1fr;   /* 좌측(리더십) 더 넓게 */
-}
-.community-card{
-  background:#fff; border:1px solid #e5ecf4; border-radius:16px;
-  box-shadow: var(--shadow-sm); padding:16px; display:flex; flex-direction:column;
-}
-.community-card.tall{ min-height: 420px; } /* 가운데 2:3 이미지 높이와 균형 */
-.card-head h3{ margin:4px 0 2px; color:#0b3f73; }
-.card-sub{ margin:0 0 8px; color:#64748b; font-size:.95rem; }
-.card-points{ margin:0; padding-left:18px; color:#334155; line-height:1.55; }
-.card-points li{ margin:6px 0; }
-.card-footer{ margin-top:auto; padding-top:12px; display:flex; justify-content:flex-end; }
-
-/* 2:3 portrait image box for the middle card */
-.community-thumb{
-  width:100%; aspect-ratio: 2 / 3; overflow:hidden; border-radius:12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,.06); margin:4px 0 12px;
-}
-.community-thumb img{ width:100%; height:100%; object-fit:cover; }
-
-/* Responsive */
-@media (max-width: 1024px){
-  .community-grid{ grid-template-columns: 1fr; }
-  .community-card.tall{ min-height:auto; }
-}
-
-/* ===== Community two-row grid (요청 배치) ===== */
-:root{ --comm-row1: 520px; } /* 위 줄(STEM & Photo) 고정 높이—필요시 480~560px로 조절 */
-
-.section-community{ padding: 48px 0; }
-
-.community-grid-areas{
-  display: grid;
-  gap: 16px;
-  grid-template-columns: 1fr 1fr;              /* 2열 */
-  grid-template-rows: var(--comm-row1) auto;   /* 1행: 고정, 2행: 내용 높이 */
-  grid-template-areas:
-    "stem  photo"
-    "serv  music";
-}
-
-/* 그리드 영역 매핑 */
-.area-stem  { grid-area: stem; }
-.area-photo { grid-area: photo; }
-.area-service{ grid-area: serv; }
-.area-music { grid-area: music; }
-
-/* 카드 공통 */
-.community-card{
-  background:#fff; border:1px solid #e5ecf4; border-radius:16px;
-  box-shadow: 0 6px 18px rgba(0,0,0,.06);
-  padding:16px; display:flex; flex-direction:column;
-}
-.card-head h3{ margin:4px 0 2px; color:#0b3f73; }
-.card-sub{ margin:0 0 10px; color:#64748b; font-size:.95rem; }
-.card-points{ margin:0; padding-left:18px; color:#334155; line-height:1.58; }
-.card-points li{ margin:6px 0; }
-.card-footer{ margin-top:auto; padding-top:12px; display:flex; justify-content:flex-end; }
-
-/* 사진 타일: 2:3 비율 + 1행 고정높이 채움 */
-.community-photo{
-  margin:0; border-radius:16px; overflow:hidden; position:relative;
-  background:#eaf2f8;      /* 로딩 중 배경 */
-  box-shadow: 0 6px 18px rgba(0,0,0,.06);
-  height: var(--comm-row1);
-}
-.community-photo img{
-  position:absolute; inset:0;
-  width:100%; height:100%;
-  object-fit: cover;      /* 2:3 이미지가 영역을 꽉 채우도록 */
-  aspect-ratio: 2 / 3;    /* 원 비율 힌트 */
-  transform: translateZ(0);
-}
-
-/* 반응형: 태블릿 이하에서 1열 스택 */
-@media (max-width: 980px){
-  .community-grid-areas{
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    grid-template-areas:
-      "stem"
-      "photo"
-      "serv"
-      "music";
-  }
-  :root{ --comm-row1: 420px; }
-  .community-photo{ height: var(--comm-row1); }
-}
-
-/* ===== Unify Community cards to Research Hub look ===== */
-
-/* Research Hub와 동일한 카드 베이스 */
-.community-card{
-  background:#fff;
-  border:1px solid #e7ecf2;              /* 동일 보더 */
-  border-radius:16px;                     /* 동일 라운딩 */
-  box-shadow:0 8px 24px rgba(0,0,0,.08);  /* 동일 그림자(허리 강화) */
-  padding:18px;                           /* 동일 패딩 */
-  display:flex; flex-direction:column;
-}
-
-/* 카드 헤더 타이틀 (Research Hub 헤더 색상 톤 맞춤) */
-.community-card .card-head h3{
-  margin:.25rem 0 10px;
-  color:#0b3f73;                          /* research header와 같은 네이비 톤 */
-  font-weight:800;
-}
-
-/* 소제목은 사용하지 않음(혹시 남아있으면 숨김) */
-.community-card .card-sub{ display:none !important; }
-
-/* 본문 글자 크기/줄간격 — Research Hub 본문과 동일 */
-:root{
-  --body-size: 0.95rem;   /* Research Hub 본문과 동일한 기준 */
-  --body-line: 1.58;
-}
-.community-card .card-points{
-  margin:0; padding-left:18px;
-  color:#334155;
-  font-size: var(--body-size);
-  line-height: var(--body-line);
-}
-.community-card .card-points li{ margin:6px 0; }
-
-/* 카드 하단 버튼 영역 통일 */
-.community-card .card-footer{
-  margin-top:auto; padding-top:12px;
-  display:flex; justify-content:flex-end;
-}
-
-/* 좌측 ‘STEM Leadership’(tall) 카드도 동일한 외형 유지 */
-.community-card.card--tall{ min-height:unset; }
-
-/* 가운데 사진 타일도 Research Hub 카드와 어울리게 그림자/보더 정리 */
-.community-photo{
-  margin:0; border-radius:16px; overflow:hidden;
-  border:1px solid #e7ecf2;
-  box-shadow:0 8px 24px rgba(0,0,0,.08);
-}
+    <!-- Community -->
+    <section id="community" class="section-community benzene-bg">
+    <div class="container">
+        <h2 class="text-center" style="color:#1e3a8a;margin-bottom:10px;">Community</h2>
+        <p class="section-subtitle text-center" style="max-width:760px;margin:0 auto 28px; color:#64748b;">
+        Outreach, club leadership, and events — condensed so research can stay front-and-center.
+        Expand via each gallery.
+        </p>
+
+        <!-- ★ 2열 격자: 위 줄은 STEM(좌) + 사진(우), 아래 줄은 Community Service(좌) + Life of Music(우) -->
+        <div class="community-grid-areas">
+        <!-- STEM Leadership (좌, 위줄 / 텍스트 풍부, 우측 사진과 높이 동일) -->
+        <article class="community-card card--tall area-stem">
+            <header class="card-head">
+            <h3>STEM Leadership</h3>
+            <!--p class="card-sub">SciOly · Science Bowl · Math Team · Chemistry Club</p-->
+            </header>
+            <ul class="card-points">
+            <li><strong>Science Olympiad Captain:</strong> Led team to Top-12 at 2025 Nationals; 1st in Chemistry Lab & Materials at State; built positive, high-accountability culture.</li>
+            <li><strong>Science Bowl Captain:</strong> Guided team to Top-12 at Nationals; organized 3+ tournaments & weekly practices; department award secured.</li>
+            <li><strong>Math Team Captain:</strong> Helped sustain the school’s 32-year State Championship streak; 6× Perfect Score honors; mentored 20+ teammates.</li>
+            <li><strong>Chemistry Club Founder:</strong> Labs & USNCO training; USNCO Honors (Top-150 nationwide); weekly hands-on sessions.</li>
+            </ul>
+            <div class="card-footer">
+            <a class="btn btn-secondary" href="STEM_leadership_gallery.html">Gallery</a>
+            </div>
+        </article>
+
+        <!-- 사진(우, 위줄) — 2:3 비율, STEM과 동일 높이 -->
+        <figure class="community-photo area-photo" aria-label="Community Highlight Photo">
+            <img src="gallery3/A1.jpg" alt="National Science Bowl team in Washington, DC">
+        </figure>
+
+        <!-- Community Service (좌, 아래줄) -->
+        <article class="community-card area-service">
+            <header class="card-head">
+            <h3>Community Service</h3>
+            <!--p class="card-sub">Civic engagement · Math Center · Beach cleanups</p-->
+            </header>
+            <ul class="card-points">
+            <li><strong>Rep. Sam Kong Office:</strong> Environmental policy support; hearings & committee work.</li>
+            <li><strong>Math Center Head Tutor:</strong> Programs & training; supported 200+ students; outreach videos.</li>
+            <li><strong>Hawaii Foodbank & Cleanups:</strong> 5,000+ food packages; regular coastal stewardship.</li>
+            </ul>
+            <div class="card-footer">
+            <a class="btn btn-secondary" href="community_service_gallery.html">Gallery</a>
+            </div>
+        </article>
+
+        <!-- Life of Music (우, 아래줄) -->
+        <article class="community-card area-music">
+            <header class="card-head">
+            <h3>Life of Music</h3>
+            <!--p class="card-sub">Lead Trombonist · Stage Band · Big Band Bash</p-->
+            </header>
+            <ul class="card-points">
+            <li>Lead trombone, section mentoring, and featured solos with the Stage Band.</li>
+            <li>Festival logistics & cross-school collaboration for the Big Band Bash.</li>
+            <li>Performance highlights documented in the music gallery.</li>
+            </ul>
+            <div class="card-footer">
+            <a class="btn btn-secondary" href="mylife_gallery.html">Gallery</a>
+            </div>
+        </article>
+        </div>
+    </div>
+    </section>
+ 
+
+
+
+    <!-- About -->
+    <section id="about">
+    <div class="container">
+        <h2 class="text-center mb-3">About me</h2>
+        <div class="grid grid-3">
+        <div class="card">
+            <h4>Academics</h4>
+            <p>Selected coursework and GPA (brief). Full resume below.</p>
+        </div>
+        <div class="card">
+            <h4>Honors & Awards</h4>
+            <p>Top highlights only; full list in resume.</p>
+        </div>
+        <div class="card">
+            <h4>Resume</h4>
+            <a class="btn btn-secondary" href="Min_Shin_Resume.pdf">Download Resume</a>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Contact/Footer -->
+    <footer style="background: var(--primary-navy); color: white; padding: 3rem 0;">
+        <div class="container">
+            <div class="grid grid-3" style="gap: 3rem;">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="font-size: 2rem;">🐼</div>
+                        <h4 style="color: white;">Min Shin</h4>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.8);">
+                        Chemistry Research & Academic Excellence<br>
+                        Transforming challenges into discoveries
+                    </p>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Get In Touch</h4>
+                    <a href="mailto:minshin362@gmail.com" class="email-button" aria-label="Contact via Emai">
+                      <span>📧 Email Me</span>
+                    </a>
+                    <p>📍 Honolulu, Hawaii</p>
+                </div>
+                
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">Quick Links</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <a href="#about" style="color: rgba(255,255,255,0.8); text-decoration: none;">About Me</a>
+                        <a href="#chemlab" style="color: rgba(255,255,255,0.8); text-decoration: none;">Research Portfolio</a>
+                        <a href="#community" style="color: rgba(255,255,255,0.8); text-decoration: none;">Community Impact</a>
+                        <a href="/resume.pdf" style="color: rgba(255,255,255,0.8); text-decoration: none;" target="_blank">Download Resume</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid rgba(255,255,255,0.2); margin-top: 2rem; padding-top: 2rem; text-align: center; color: rgba(255,255,255,0.6);">
+                <p>&copy; 2025 Min Shin - Panda Min's ChemLab. Built with curiosity and dedication.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div id="videoModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; align-items: center; justify-content: center;">
+        <div style="background: white; padding: 2rem; border-radius: 16px; max-width: 600px; width: 90%;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <h3>My Story (Coming Soon)</h3>
+                <button onclick="closeVideoModal()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+            </div>
+            <div style="aspect-ratio: 16/9; background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal)); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; margin-bottom: 1rem;">
+                <div style="text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎬</div>
+                    <p>Video coming soon with AI animation!</p>
+                    <p style="font-size: 0.9rem; opacity: 0.8;">Featuring Min Shin's academic and research journey</p>
+                </div>
+            </div>
+            <p style="text-align: center; color: var(--neutral-gray);">
+                This video will showcase my personal journey through animated storytelling, 
+                combining real footage with animated storytelling elements.
+            </p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
