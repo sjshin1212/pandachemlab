@@ -298,7 +298,8 @@ section {
 }
 
 .section-hero {
-  min-height: 100vh;
+  padding: 112px 0 20px
+  min-height: clamp(520px, 62vh, 720px);
   display: flex;
   align-items: center;
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
@@ -309,6 +310,13 @@ section {
   background: var(--light-gray);
 }
 
+/* Stats Display */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+}
 
 .stat-item {
   text-align: center;
@@ -557,11 +565,6 @@ section {
 }
 
 
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 /* Mobile Menu */
 .mobile-menu-btn {
   display: none;
@@ -600,8 +603,10 @@ section {
   .grid-4 {
     grid-template-columns: 1fr;
   }
-}
- 
+  
+  
+
+
 /* Utility Classes */
 .text-center { text-align: center; }
 .text-left { text-align: left; }
@@ -747,9 +752,6 @@ section {
 .backline { margin-top: 1.25rem; }
 .backline a { text-decoration: underline; color: var(--primary-teal); }
 
-.hero-buttons-container { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-@media (max-width: 640px) { .hero-buttons-container { grid-template-columns: 1fr; } }
-
 /* ===== Hero background image (Title_background.png) ===== */
 .hero-with-bg {
   position: relative;
@@ -782,6 +784,9 @@ section {
 /* Hero 안 텍스트/버튼이 이미지보다 위에 보이도록 */
 .hero-with-bg > .container { position: relative; z-index: 1; }
 
+/* 4) 스냅샷(4칸)도 항상 위로 */
+.hero-with-bg .hero-stats-grid{ position:relative; z-index:1; }
+
 /* 작은 화면 최적화 */
 @media (max-width: 980px) {
   .hero-with-bg::before {
@@ -790,8 +795,7 @@ section {
   }
 }
 @media (max-width: 560px) {
-  .hero-with-bg { padding-top: 2.5rem; }
-  .hero-with-bg::before {
+   .hero-with-bg::before {
     /* 모바일에서는 투명도 조금 더 올려 텍스트 가독성 확보 */
     background-image:
       linear-gradient(to bottom,
@@ -883,6 +887,7 @@ section {
   .hero-left .lead-text { max-width: 100%; }
 }
 
+
 /* ===== HERO BUTTONS (FIX) ===== */
 .hero-buttons-container {
   display: flex;
@@ -902,6 +907,7 @@ section {
   }
 }
 
+
 /* ===== HERO SNAPSHOTS ON TOP ===== */
 .hero-with-bg .hero-stats-grid {
   position: relative;
@@ -914,16 +920,8 @@ section {
   backdrop-filter: saturate(120%) blur(2px);
 }
 
-.hero-subtitle {
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #0c4a6e;
-  background: rgba(14,165,233,0.08);
-  border: 1px solid rgba(14,165,233,0.2);
-  padding: 4px 10px;
-  border-radius: 6px;
-  display: inline-block;
-  margin-bottom: 12px;
+.benzene-ring,
+.floating-molecule {
+  display: none !important;
+  animation: none !important;
 }
