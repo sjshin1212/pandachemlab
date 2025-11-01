@@ -816,24 +816,23 @@ section {
   background: rgba(255,255,255,0.25);
 }
 
+
+
 /* =========================================================
-   COMMUNITY (FINAL — MATCHING RESEARCH STYLE + 2:3 PHOTO RATIO)
-   - Row 1: [STEM | Photo] 자동 높이 (2:3 비율 기준)
-   - Row 2: [Service | Music] 자연 높이
-   - Headers: 텍스트만 (Research 카드와 동일 폰트)
+   COMMUNITY — Research 카드와 동일한 헤더 구조/스타일
+   Row1: [STEM | Photo] (Photo는 2:3 비율, STEM은 자동 높이)
+   Row2: [Service | Music]
    ========================================================= */
 
-/* Section padding */
-.section-community {
-  padding: 48px 0;
-}
+/* 영역 여백 */
+.section-community { padding: 48px 0; }
 
-/* Grid layout: 2x2 */
-.community-grid-areas {
+/* 2x2 그리드 */
+.community-grid-areas{
   display: grid;
   gap: 16px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto; /* 사진 비율에 맞게 자동 높이 */
+  grid-template-rows: auto auto;  /* 사진 비율에 맞춰 자동 */
   grid-template-areas:
     "stem  photo"
     "serv  music";
@@ -843,92 +842,85 @@ section {
 .area-service{ grid-area: serv; }
 .area-music  { grid-area: music; }
 
-/* Unified card base (same as Research) */
-.community-card {
-  background: #fff;
-  border-radius: 20px;
+/* 카드 베이스 — Research 카드와 동일 룩 */
+.community-card{
+  background:#fff;
+  border-radius:20px;
+  overflow:hidden;                               /* ⬅︎ 헤더 라운드와 일체감 */
   box-shadow: var(--shadow-lg);
-  border: 1px solid rgba(30,58,138,0.10);
+  border:1px solid rgba(30,58,138,0.10);
   padding: var(--spacing-md);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  display:flex; flex-direction:column;
 }
 
-/* Header: no color bar, text only */
-.community-card .card-head {
-  margin-bottom: 10px;
-  border: 0;
-  padding: 0;
+/* ── 헤더: Research의 .research-header와 동일 ── */
+/* (카드에 padding이 있으므로 full-bleed를 위해 margin 보정) */
+.community-card .research-header{
+  background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
+  color:#fff;
+  text-align:center;
+  padding: var(--spacing-md);
+  margin: calc(-1 * var(--spacing-md)) calc(-1 * var(--spacing-md)) var(--spacing-sm);
+  border-top-left-radius:20px;
+  border-top-right-radius:20px;
 }
-.community-card .card-head h3 {
-  margin: 0;
-  color: #0b3f73;
-  font-weight: 800;
-  font-size: 1.25rem;
-  line-height: 1.25;
+.community-card .research-header h3{
+  margin:0;
+  font-weight:800;
 }
 
-/* Body text (identical to Research <p>) */
-.community-card .card-body p {
-  font-size: 1.1rem;
-  line-height: 1.7;
+/* 본문: Research의 p 스타일과 동일 */
+.community-card .card-body p{
+  font-size:1.1rem;
+  line-height:1.7;
   margin-bottom: var(--spacing-sm);
   color: var(--neutral-gray);
 }
-.community-card .card-body p strong {
+.community-card .card-body p strong{
   color: var(--primary-navy);
-  font-weight: 600;
+  font-weight:600;
 }
 
-/* Footer (Gallery button row) */
-.community-card .card-footer {
-  margin-top: auto;
-  padding-top: 12px;
-  display: flex;
-  justify-content: flex-end;
+/* 푸터(버튼) */
+.community-card .card-footer{
+  margin-top:auto; padding-top:12px;
+  display:flex; justify-content:flex-end;
 }
 
-/* Photo tile (2:3 aspect ratio) */
-.community-photo {
-  margin: 0;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid rgba(30,58,138,0.10);
+/* 사진 타일 — 2:3 비율 유지 */
+.community-photo{
+  margin:0;
+  border-radius:20px;
+  overflow:hidden;
+  border:1px solid rgba(30,58,138,0.10);
   box-shadow: var(--shadow-lg);
-  position: relative;
-  background: #eaf2f8;
-  aspect-ratio: 2 / 3; /* ⬅️ 비율 고정 */
+  position:relative;
+  background:#eaf2f8;
+  aspect-ratio: 2 / 3;          /* ⬅︎ 비율 고정 */
 }
-.community-photo img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.community-photo img{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
   transform: translateZ(0);
 }
 
-/* STEM 카드 높이 — 이미지 비율에 맞춰 균형 */
-.area-stem .community-card {
-  height: auto;
-  min-height: clamp(440px, 55vw, 520px); /* 화면 크기에 따라 자연스럽게 조정 */
+/* STEM 카드 높이: 사진과 균형 (너비에 따라 자연 조정) */
+.area-stem .community-card{
+  height:auto;
+  min-height: clamp(440px, 55vw, 560px);
 }
 
-/* Responsive (tablet & below) */
-@media (max-width: 980px) {
-  .community-grid-areas {
-    grid-template-columns: 1fr;
+/* 반응형 */
+@media (max-width: 980px){
+  .community-grid-areas{
+    grid-template-columns:1fr;
     grid-template-areas:
       "stem"
       "photo"
       "serv"
       "music";
   }
-  .area-stem .community-card {
-    min-height: auto;
-  }
-  .community-photo {
-    aspect-ratio: 2 / 3;
-  }
+  .area-stem .community-card{ min-height:auto; }
+  .community-photo{ aspect-ratio: 2 / 3; }
 }
