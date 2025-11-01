@@ -934,3 +934,50 @@ section {
   display: none !important;
   animation: none !important;
 }
+
+.email-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.12);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background 0.25s ease;
+}
+
+.email-button:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* ===== Community cards ===== */
+.section-community{ padding: 48px 0; }
+.community-grid{
+  display:grid; gap:16px;
+  grid-template-columns: 1.2fr 1fr 1fr;   /* 좌측(리더십) 더 넓게 */
+}
+.community-card{
+  background:#fff; border:1px solid #e5ecf4; border-radius:16px;
+  box-shadow: var(--shadow-sm); padding:16px; display:flex; flex-direction:column;
+}
+.community-card.tall{ min-height: 420px; } /* 가운데 2:3 이미지 높이와 균형 */
+.card-head h3{ margin:4px 0 2px; color:#0b3f73; }
+.card-sub{ margin:0 0 8px; color:#64748b; font-size:.95rem; }
+.card-points{ margin:0; padding-left:18px; color:#334155; line-height:1.55; }
+.card-points li{ margin:6px 0; }
+.card-footer{ margin-top:auto; padding-top:12px; display:flex; justify-content:flex-end; }
+
+/* 2:3 portrait image box for the middle card */
+.community-thumb{
+  width:100%; aspect-ratio: 2 / 3; overflow:hidden; border-radius:12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.06); margin:4px 0 12px;
+}
+.community-thumb img{ width:100%; height:100%; object-fit:cover; }
+
+/* Responsive */
+@media (max-width: 1024px){
+  .community-grid{ grid-template-columns: 1fr; }
+  .community-card.tall{ min-height:auto; }
+}
