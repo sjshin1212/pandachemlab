@@ -1044,3 +1044,54 @@ section {
   :root{ --comm-row1: 420px; }
   .community-photo{ height: var(--comm-row1); }
 }
+
+/* ===== Unify Community cards to Research Hub look ===== */
+
+/* Research Hub와 동일한 카드 베이스 */
+.community-card{
+  background:#fff;
+  border:1px solid #e7ecf2;              /* 동일 보더 */
+  border-radius:16px;                     /* 동일 라운딩 */
+  box-shadow:0 8px 24px rgba(0,0,0,.08);  /* 동일 그림자(허리 강화) */
+  padding:18px;                           /* 동일 패딩 */
+  display:flex; flex-direction:column;
+}
+
+/* 카드 헤더 타이틀 (Research Hub 헤더 색상 톤 맞춤) */
+.community-card .card-head h3{
+  margin:.25rem 0 10px;
+  color:#0b3f73;                          /* research header와 같은 네이비 톤 */
+  font-weight:800;
+}
+
+/* 소제목은 사용하지 않음(혹시 남아있으면 숨김) */
+.community-card .card-sub{ display:none !important; }
+
+/* 본문 글자 크기/줄간격 — Research Hub 본문과 동일 */
+:root{
+  --body-size: 0.95rem;   /* Research Hub 본문과 동일한 기준 */
+  --body-line: 1.58;
+}
+.community-card .card-points{
+  margin:0; padding-left:18px;
+  color:#334155;
+  font-size: var(--body-size);
+  line-height: var(--body-line);
+}
+.community-card .card-points li{ margin:6px 0; }
+
+/* 카드 하단 버튼 영역 통일 */
+.community-card .card-footer{
+  margin-top:auto; padding-top:12px;
+  display:flex; justify-content:flex-end;
+}
+
+/* 좌측 ‘STEM Leadership’(tall) 카드도 동일한 외형 유지 */
+.community-card.card--tall{ min-height:unset; }
+
+/* 가운데 사진 타일도 Research Hub 카드와 어울리게 그림자/보더 정리 */
+.community-photo{
+  margin:0; border-radius:16px; overflow:hidden;
+  border:1px solid #e7ecf2;
+  box-shadow:0 8px 24px rgba(0,0,0,.08);
+}
