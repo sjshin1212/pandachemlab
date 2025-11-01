@@ -981,3 +981,66 @@ section {
   .community-grid{ grid-template-columns: 1fr; }
   .community-card.tall{ min-height:auto; }
 }
+
+/* ===== Community two-row grid (요청 배치) ===== */
+:root{ --comm-row1: 520px; } /* 위 줄(STEM & Photo) 고정 높이—필요시 480~560px로 조절 */
+
+.section-community{ padding: 48px 0; }
+
+.community-grid-areas{
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;              /* 2열 */
+  grid-template-rows: var(--comm-row1) auto;   /* 1행: 고정, 2행: 내용 높이 */
+  grid-template-areas:
+    "stem  photo"
+    "serv  music";
+}
+
+/* 그리드 영역 매핑 */
+.area-stem  { grid-area: stem; }
+.area-photo { grid-area: photo; }
+.area-service{ grid-area: serv; }
+.area-music { grid-area: music; }
+
+/* 카드 공통 */
+.community-card{
+  background:#fff; border:1px solid #e5ecf4; border-radius:16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+  padding:16px; display:flex; flex-direction:column;
+}
+.card-head h3{ margin:4px 0 2px; color:#0b3f73; }
+.card-sub{ margin:0 0 10px; color:#64748b; font-size:.95rem; }
+.card-points{ margin:0; padding-left:18px; color:#334155; line-height:1.58; }
+.card-points li{ margin:6px 0; }
+.card-footer{ margin-top:auto; padding-top:12px; display:flex; justify-content:flex-end; }
+
+/* 사진 타일: 2:3 비율 + 1행 고정높이 채움 */
+.community-photo{
+  margin:0; border-radius:16px; overflow:hidden; position:relative;
+  background:#eaf2f8;      /* 로딩 중 배경 */
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+  height: var(--comm-row1);
+}
+.community-photo img{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit: cover;      /* 2:3 이미지가 영역을 꽉 채우도록 */
+  aspect-ratio: 2 / 3;    /* 원 비율 힌트 */
+  transform: translateZ(0);
+}
+
+/* 반응형: 태블릿 이하에서 1열 스택 */
+@media (max-width: 980px){
+  .community-grid-areas{
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "stem"
+      "photo"
+      "serv"
+      "music";
+  }
+  :root{ --comm-row1: 420px; }
+  .community-photo{ height: var(--comm-row1); }
+}
