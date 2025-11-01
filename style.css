@@ -816,63 +816,60 @@ section {
   background: rgba(255,255,255,0.25);
 }
 
-
 /* =========================================================
-   COMMUNITY (FINAL P-BASED VERSION)
-   - 2x2 grid: [STEM | Photo] on row 1, [Service | Music] on row 2
-   - Unified with Research Hub typography & button styling
+   COMMUNITY (FINAL — MATCHING RESEARCH STYLE + 2:3 PHOTO RATIO)
+   - Row 1: [STEM | Photo] 자동 높이 (2:3 비율 기준)
+   - Row 2: [Service | Music] 자연 높이
+   - Headers: 텍스트만 (Research 카드와 동일 폰트)
    ========================================================= */
 
-:root {
-  --comm-row1: 520px; /* 위 줄(STEM & Photo) 고정 높이—필요시 480~560px로 조절 */
-}
-
-/* Section */
+/* Section padding */
 .section-community {
   padding: 48px 0;
 }
 
-/* Grid Layout */
+/* Grid layout: 2x2 */
 .community-grid-areas {
   display: grid;
   gap: 16px;
-  grid-template-columns: 1fr 1fr;              /* 2열 */
-  grid-template-rows: var(--comm-row1) auto;   /* 1행: 고정, 2행: 내용 높이 */
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto; /* 사진 비율에 맞게 자동 높이 */
   grid-template-areas:
     "stem  photo"
     "serv  music";
 }
+.area-stem   { grid-area: stem; }
+.area-photo  { grid-area: photo; }
+.area-service{ grid-area: serv; }
+.area-music  { grid-area: music; }
 
-/* Grid Area Mapping */
-.area-stem { grid-area: stem; }
-.area-photo { grid-area: photo; }
-.area-service { grid-area: serv; }
-.area-music { grid-area: music; }
-
-/* === Card Base (Research Hub Unified) === */
+/* Unified card base (same as Research) */
 .community-card {
   background: #fff;
   border-radius: 20px;
   box-shadow: var(--shadow-lg);
-  border: 1px solid rgba(30, 58, 138, 0.10);
+  border: 1px solid rgba(30,58,138,0.10);
   padding: var(--spacing-md);
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 }
 
-/* Header */
+/* Header: no color bar, text only */
 .community-card .card-head {
   margin-bottom: 10px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid rgba(30, 58, 138, 0.10);
+  border: 0;
+  padding: 0;
 }
 .community-card .card-head h3 {
+  margin: 0;
   color: #0b3f73;
   font-weight: 800;
-  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.25;
 }
 
-/* Body: now uses <p> just like Research Hub */
+/* Body text (identical to Research <p>) */
 .community-card .card-body p {
   font-size: 1.1rem;
   line-height: 1.7;
@@ -884,7 +881,7 @@ section {
   font-weight: 600;
 }
 
-/* Footer (Button Row) */
+/* Footer (Gallery button row) */
 .community-card .card-footer {
   margin-top: auto;
   padding-top: 12px;
@@ -892,16 +889,16 @@ section {
   justify-content: flex-end;
 }
 
-/* === Photo Tile (2:3 Ratio) === */
+/* Photo tile (2:3 aspect ratio) */
 .community-photo {
   margin: 0;
   border-radius: 20px;
   overflow: hidden;
-  border: 1px solid rgba(30, 58, 138, 0.10);
+  border: 1px solid rgba(30,58,138,0.10);
   box-shadow: var(--shadow-lg);
-  height: var(--comm-row1);
   position: relative;
   background: #eaf2f8;
+  aspect-ratio: 2 / 3; /* ⬅️ 비율 고정 */
 }
 .community-photo img {
   position: absolute;
@@ -909,25 +906,29 @@ section {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  aspect-ratio: 2 / 3;
   transform: translateZ(0);
 }
 
-/* === Responsive: tablet and below === */
+/* STEM 카드 높이 — 이미지 비율에 맞춰 균형 */
+.area-stem .community-card {
+  height: auto;
+  min-height: clamp(440px, 55vw, 520px); /* 화면 크기에 따라 자연스럽게 조정 */
+}
+
+/* Responsive (tablet & below) */
 @media (max-width: 980px) {
   .community-grid-areas {
     grid-template-columns: 1fr;
-    grid-template-rows: auto;
     grid-template-areas:
       "stem"
       "photo"
       "serv"
       "music";
   }
-  :root { --comm-row1: 420px; }
-  .community-photo { height: var(--comm-row1); }
+  .area-stem .community-card {
+    min-height: auto;
+  }
+  .community-photo {
+    aspect-ratio: 2 / 3;
+  }
 }
-
-
-
-
