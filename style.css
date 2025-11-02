@@ -720,7 +720,7 @@ nav {
 .gallery-header-banner{
     background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
     color:#fff;
-    padding: 4rem 0 6rem 0;  /* 하단 여백으로 Hero 아래 여유 공간 확보 */
+    padding: 4rem 0 8rem;  /* 하단 여백으로 Hero 아래 여유 공간 확보 */
     margin-top:80px;
     position:relative;
     overflow:hidden;
