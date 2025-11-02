@@ -3,60 +3,181 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>STEM Leadership Gallery</title>
-  <meta name="description" content="Leadership across Science Olympiad, Science Bowl, Math Team, and Chemistry Club." />
+  <title>STEM Leadership — Gallery & Details</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .gallery-header-banner{background:linear-gradient(135deg,#1e3a8a,#0891b2);color:#fff;padding:4rem 0 5rem;margin-top:80px;text-align:center}
-    .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:10px;margin:2rem 0}
-    .gallery-item{overflow:hidden;border-radius:8px;box-shadow:var(--shadow-sm)}
-    .gallery-item img{width:100%;height:100%;object-fit:cover}
-    .item-span-2-row{grid-row:span 2}.item-span-2-col{grid-column:span 2}
-    @media (max-width:600px){.gallery-grid{grid-template-columns:1fr;grid-auto-rows:300px}.item-span-2-row,.item-span-2-col{grid-row:auto;grid-column:auto}}
+    /* ===== Page frame ===== */
+    .page-hero {
+      background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
+      color:#fff; padding:4rem 0 5rem; margin-top:80px;
+      text-align:left;
+    }
+    .page-hero h1 { color:#fff; -webkit-text-fill-color:#fff; margin:0 0 .5rem; }
+    .page-hero p  { color:rgba(255,255,255,.92); font-size:1.1rem; margin:0; }
+
+    /* ===== Two-column layout (desktop) ===== */
+    .stem-wrap {
+      display:grid; gap:2rem; align-items:start;
+      grid-template-columns: 1fr 1fr; /* left text / right gallery */
+      margin-top:-3rem; /* overlap a bit into the hero for depth */
+    }
+
+    /* Left column: stacked cards (uses site card typography) */
+    .stem-text .card { margin-bottom:1rem; }
+    .stem-text .card h3 { margin:0 0 .5rem; color:var(--primary-navy); }
+    .stem-text .card p  { font-size:1.1rem; line-height:1.7; color:var(--neutral-gray); }
+    .stem-text .badge { display:inline-block; padding:.2rem .6rem; border-radius:999px;
+      background:rgba(16,185,129,.1); color:#0f766e; font-weight:600; font-size:.85rem; margin-right:.35rem; }
+
+    /* Right column: desktop photo wall (grid-areas matches existing gallery) */
+    .gallery-grid-desktop{
+      display:grid; gap:10px; grid-auto-rows:200px;
+      grid-template-columns:repeat(4,1fr);
+      grid-template-areas:
+        "A2 A2 A6 A6"
+        "A2 A2 A6 A6"
+        "A3 A7 A14 A15"
+        "A3 A16 A23 A15"
+        "A21 A21 A17 A5"
+        "A21 A21 A17 A5"
+        "A22 A22 A20 A20"
+        "A22 A22 A20 A20"
+        "A4 A19 A1 A11"
+        "A4 A19 A1 A11";
+      border-radius:20px; overflow:hidden;
+    }
+    .gallery-grid-desktop .tile { width:100%; height:100%; position:relative; overflow:hidden; border-radius:12px; box-shadow:var(--shadow-sm); }
+    .gallery-grid-desktop img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+
+    /* map areas */
+    .A1{grid-area:A1}.A2{grid-area:A2}.A3{grid-area:A3}.A4{grid-area:A4}.A5{grid-area:A5}
+    .A6{grid-area:A6}.A7{grid-area:A7}.A11{grid-area:A11}.A14{grid-area:A14}.A15{grid-area:A15}
+    .A16{grid-area:A16}.A17{grid-area:A17}.A19{grid-area:A19}.A20{grid-area:A20}.A21{grid-area:A21}
+    .A22{grid-area:A22}.A23{grid-area:A23}
+
+    /* Mobile-first interleaved photos (hidden on desktop) */
+    .section-photos-mobile{ display:none; margin:.75rem 0 1.25rem; }
+    .section-photos-mobile .row { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    .section-photos-mobile img{ width:100%; height:180px; object-fit:cover; border-radius:12px; box-shadow:var(--shadow-sm); }
+
+    /* YouTube container */
+    .video-16x9 { aspect-ratio:16/9; width:100%; border-radius:12px; box-shadow:var(--shadow-lg); overflow:hidden; }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 980px){
+      .stem-wrap{ grid-template-columns:1fr; }
+      .gallery-grid-desktop{ display:none; }    /* hide big wall */
+      .section-photos-mobile{ display:block; } /* show per-section photos */
+    }
   </style>
 </head>
 <body>
-  <a href="index.html#community" class="back-to-portfolio" title="Back">←</a>
-  <nav id="navbar"><div class="nav-container"><a class="logo" href="index.html"><div class="logo-icon">🐼</div><span>Min's ChemLab</span></a></div></nav>
 
-  <section class="gallery-header-banner">
+  <!-- Nav (site shared) -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo"><div class="logo-icon">🐼</div><span>Min's ChemLab</span></a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="page-hero">
     <div class="container">
-      <h1>STEM Leadership Gallery</h1>
-      <p style="opacity:.9">Science Olympiad · Science Bowl · Math Team · Chemistry Club</p>
+      <h1>STEM Leadership</h1>
+      <p>Captaining science teams, founding a chemistry club, and sustaining a state-championship math program — highlights below.</p>
     </div>
   </section>
 
-  <section class="benzene-bg">
-    <div class="container">
-      <h2 class="text-center" style="color:#1e3a8a;">Teams & Competitions</h2>
+  <section class="benzene-bg" style="padding:3rem 0;">
+    <div class="container stem-wrap">
 
-      <div class="gallery-grid">
-        <!-- 예시 배열 (서비스 관련 A4,A5,A6,A17 제외) -->
-        <div class="gallery-item item-span-2-col"><img src="gallery3/A1.jpg" alt=""></div>
-        <div class="gallery-item"><img src="gallery3/A2.jpg" alt=""></div>
-        <div class="gallery-item item-span-2-row"><img src="gallery3/A3.jpg" alt=""></div>
-        <div class="gallery-item"><img src="gallery3/A7.jpg" alt=""></div>
-        <div class="gallery-item"><img src="gallery3/A11.jpg" alt=""></div>
-        <div class="gallery-item"><img src="gallery3/A14.jpg" alt=""></div>
-        <div class="gallery-item"><img src="gallery3/A15.jpg" alt=""></div>
-        <div class="gallery-item item-span-2-col"><img src="gallery3/A16.jpg" alt=""></div>
-        <div class="gallery-item item-span-2-col"><img src="gallery3/A20.jpg" alt=""></div>
-        <div class="gallery-item item-span-2-col"><img src="gallery3/A21.jpg" alt=""></div>
-        <div class="gallery-item item-span-2-col"><img src="gallery3/A22.jpg" alt=""></div>
-        <div class="gallery-item"><img src="gallery3/A23.jpg" alt=""></div>
+      <!-- LEFT: Text stack -->
+      <div class="stem-text">
+        <!-- SciOly -->
+        <article class="card">
+          <h3>Science Olympiad (Captain)</h3>
+          <p>
+            Led ‘Iolani to its first-ever <strong>Top-12 finish at the 2025 National Tournament</strong> and a <strong>Top-9 at MIT</strong>; consistent wins at state and invitationals. Built a positive, high-accountability culture through test logs, targeted practice, and partner support. Organized optional labs and team-bonding to keep momentum across the season. :contentReference[oaicite:3]{index=3}
+          </p>
+          <div class="section-photos-mobile">
+            <div class="row">
+              <img src="gallery3/A21.jpg" alt="SciOly medals photo">
+              <img src="gallery3/A22.jpg" alt="SciOly team group 2">
+            </div>
+            <div class="row">
+              <img src="gallery3/A20.jpg" alt="SciOly team group 1">
+              <img src="gallery3/A16.jpg" alt="Chem Lab event">
+            </div>
+          </div>
+        </article>
+
+        <!-- Science Bowl -->
+        <article class="card">
+          <h3>Science Bowl (Captain)</h3>
+          <p>
+            Co-captained the A-team to <strong>Top-12 at the 2025 National Science Bowl</strong> — a program first — and helped run local invitationals (rooms, brackets, packets). Wrote question sets, moderated rounds, and built statewide networks for study resources and practice. :contentReference[oaicite:4]{index=4}
+          </p>
+          <div class="section-photos-mobile">
+            <div class="row">
+              <img src="gallery3/A1.jpg"  alt="NSB monument team">
+              <img src="gallery3/A2.jpg"  alt="NSB team orange shirts">
+            </div>
+            <div class="row">
+              <img src="gallery3/A7.jpg"  alt="Practice / tutoring">
+              <img src="gallery3/A11.jpg" alt="Team huddle at table">
+            </div>
+          </div>
+        </article>
+
+        <!-- Math Team -->
+        <article class="card">
+          <h3>Math Team (Captain)</h3>
+          <p>
+            Varsity (22–26). Helped sustain the school’s <strong>multi-year State Championship streak</strong> with multiple perfect-score honors; co-wrote tryout problems and mentored younger members. :contentReference[oaicite:5]{index=5}
+          </p>
+          <div class="video-16x9">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/iCKV4A-SW4A"
+              title="Math Team Championship" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </article>
+
+        <!-- Chemistry Club -->
+        <article class="card">
+          <h3>Chemistry Club (Founder)</h3>
+          <p>
+            Launched student-run lab sessions and USNCO prep; earned <strong>USNCO Honors (Top-150 nationwide)</strong> and local high-scorer recognition. Regular hands-on experiments and tutoring broadened participation in advanced chemistry. :contentReference[oaicite:6]{index=6}
+          </p>
+        </article>
+
+        <div class="hero-buttons-container mt-1" style="justify-content:flex-end;">
+          <a class="btn btn-secondary" href="index.html#community">← Back</a>
+        </div>
       </div>
 
-      <p class="text-center" style="color:#64748b;max-width:760px;margin:1rem auto 0">
-        Highlights reflect leadership outcomes noted in the community summary (Nationals Top-12 in SciOly & Science Bowl; state titles; mentoring & culture-building). 
-      </p>
+      <!-- RIGHT: Desktop photo wall (hidden on mobile) -->
+      <aside class="gallery-grid-desktop">
+        <div class="tile A2"><img src="gallery3/A2.jpg"  alt="Science Bowl team in orange"></div>
+        <div class="tile A6"><img src="gallery3/A6.jpg"  alt="Civic/meeting"></div>
+        <div class="tile A3"><img src="gallery3/A3.jpg"  alt="SciOly prep"></div>
+        <div class="tile A7"><img src="gallery3/A7.jpg"  alt="Tutoring"></div>
+        <div class="tile A16"><img src="gallery3/A16.jpg" alt="Chem Lab event"></div>
+        <div class="tile A14"><img src="gallery3/A14.jpg" alt="Performance / event"></div>
+        <div class="tile A23"><img src="gallery3/A23.jpg" alt="Holiday activity"></div>
+        <div class="tile A15"><img src="gallery3/A15.jpg" alt="Competition scene"></div>
+        <div class="tile A21"><img src="gallery3/A21.jpg" alt="Medals"></div>
+        <div class="tile A17"><img src="gallery3/A17.jpg" alt="Service activity"></div>
+        <div class="tile A5"><img  src="gallery3/A5.jpg"  alt="Award ceremony"></div>
+        <div class="tile A22"><img src="gallery3/A22.jpg" alt="Team group 2"></div>
+        <div class="tile A20"><img src="gallery3/A20.jpg" alt="Team group 1"></div>
+        <div class="tile A4"><img  src="gallery3/A4.jpg"  alt="Internship meeting"></div>
+        <div class="tile A19"><img src="gallery3/A19.jpg" alt="Team huddle"></div>
+        <div class="tile A1"><img  src="gallery3/A1.jpg"  alt="NSB monument team"></div>
+        <div class="tile A11"><img src="gallery3/A11.jpg" alt="Table huddle"></div>
+      </aside>
+
     </div>
   </section>
 
-  <footer style="background:#1e3a8a;color:#fff;padding:3rem 0;">
-    <div class="container text-center">
-      <a class="btn btn-secondary" href="index.html#community">← Back to Community</a>
-    </div>
-  </footer>
   <script src="script.js"></script>
 </body>
 </html>
