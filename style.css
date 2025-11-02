@@ -711,3 +711,47 @@ nav {
     box-shadow: none !important;
   }
 }
+
+/* =========================================================
+   13. Gallery Page Styles
+   ========================================================= */
+
+/* ===== Gallery header: unified with research detail pages ===== */
+.gallery-header-banner{
+    background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
+    color:#fff;
+    padding: 4rem 0 6rem 0;  /* 하단 여백으로 Hero 아래 여유 공간 확보 */
+    margin-top:80px;
+    position:relative;
+    overflow:hidden;
+    text-align:center;
+}
+.gallery-header-banner h1{
+    color:#fff; -webkit-text-fill-color:#fff; margin:0 0 .5rem;
+}
+.gallery-header-banner p{
+    color: rgba(255,255,255,0.9);
+    font-size: 1.2rem;
+    margin:0;
+}
+/* fixed back button (optional) */
+.back-to-portfolio{
+    position:fixed;
+    top:100px; left:20px;
+    background:#fff;
+    border-radius:50%;
+    width:60px; height:60px;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow: var(--shadow-lg);
+    text-decoration:none;
+    color: var(--primary-navy);
+    font-size:1.5rem;
+    z-index:100;
+    transition: var(--transition-normal);
+}
+.back-to-portfolio:hover{ transform: translateY(-2px); }
+/* mobile: 조금 더 컴팩트 */
+@media (max-width:980px){
+.gallery-header-banner{ padding: 3rem 0 5rem; }
+.back-to-portfolio{ top:84px; left:12px; width:52px; height:52px; font-size:1.3rem; }
+}
