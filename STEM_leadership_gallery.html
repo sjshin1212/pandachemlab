@@ -6,15 +6,7 @@
   <title>STEM Leadership — Gallery & Details</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* ===== Page frame ===== */
-    .page-hero {
-      background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
-      color:#fff; padding:4rem 0 5rem; margin-top:80px;
-      text-align:left;
-    }
-    .page-hero h1 { color:#fff; -webkit-text-fill-color:#fff; margin:0 0 .5rem; }
-    .page-hero p  { color:rgba(255,255,255,.92); font-size:1.1rem; margin:0; }
-
+    
     /* ===== Two-column layout (desktop) ===== */
     .stem-wrap {
       display:grid; gap:2rem; align-items:start;
@@ -34,16 +26,18 @@
       display:grid; gap:10px; grid-auto-rows:200px;
       grid-template-columns:repeat(4,1fr);
       grid-template-areas:
-        "A2 A2 A6 A6"
-        "A2 A2 A6 A6"
-        "A3 A7 A14 A15"
-        "A3 A16 A23 A15"
-        "A21 A21 A17 A5"
-        "A21 A21 A17 A5"
-        "A22 A22 A20 A20"
-        "A22 A22 A20 A20"
-        "A4 A19 A1 A11"
-        "A4 A19 A1 A11";
+        "A20 A20 A20 A20"
+        "A20 A20 A20 A20"
+        "A3 A2 A7 A7"
+        "A3 A2 A16 A16"
+        "A15 A15 A14 A14"
+        "A15 A15 A23 A23"
+        "A2 A2 A2 A2"
+        "A2 A2 A2 A2"
+        "A19 A19 A12 A12"
+        "A19 A19 A10 A10"
+        "A13 A13 A13 A13"
+        "A13 A13 A13 A13";
       border-radius:20px; overflow:hidden;
     }
     .gallery-grid-desktop .tile { width:100%; height:100%; position:relative; overflow:hidden; border-radius:12px; box-shadow:var(--shadow-sm); }
@@ -80,15 +74,18 @@
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="page-hero">
-    <div class="container">
-      <h1>STEM Leadership</h1>
-      <p>Captaining science teams, founding a chemistry club, and sustaining a state-championship math program — highlights below.</p>
-    </div>
-  </section>
+   <!-- Back button (선택) -->
+   <a class="back-to-portfolio" href="index.html#community" aria-label="Back to Community">←</a>
 
-  <section class="benzene-bg" style="padding:3rem 0;">
+   <!-- Unified gallery header -->
+   <section class="gallery-header-banner">
+        <div class="container">
+            <h1>STEM Leadership</h1>
+            <p>Captaining science teams, founding a chemistry club, and sustaining a state-championship math program — highlights below.</p>
+        </div>
+   </section>
+
+   <section class="benzene-bg" style="padding:3rem 0;">
     <div class="container stem-wrap">
 
       <!-- LEFT: Text stack -->
@@ -181,3 +178,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
