@@ -7,6 +7,12 @@
   <meta name="description" content="Computational analysis of byproduct formation pathways in furfural hydrogenation using VASP/NEB; Pt vs PtSn selectivity."/>
   <link rel="stylesheet" href="style.css"/>
   <link rel="canonical" href="https://engineershin.com/ut_austin_research_detail.html"/>
+  <style>
+  /* Hero Stats Overrides */
+  .hero-stats-grid {
+      grid-template-columns: repeat(4, minmax(180px,1fr));
+  }
+  </style>
 </head>
 <body>
   <nav id="navbar">
@@ -19,13 +25,25 @@
 
   <section class="research-header-banner" style="background:linear-gradient(135deg,var(--primary-navy),var(--primary-teal));color:#fff;padding:4rem 0 6rem;margin-top:80px;">
     <div class="container text-center">
-      <h1 style="color:#fff;margin-bottom:.5rem">Computational Analysis of Byproduct Formation</h1>
-      <h2 style="color:rgba(255,255,255,.9);font-size:1.1rem;font-weight:500">Pathways in Furfural Hydrogenation</h2>
+      <h1 style="color:#fff;margin-bottom:.5rem">Computational Analysis of Byproduct Formation: Furfural Hydrogenation</h1>
+      <h2 style="color:rgba(255,255,255,.9);font-size:1.1rem;font-weight:500">VASP/NEB pathways analysis and selectivity of Pt vs PtSn catalytic surfaces</h2>
       <div class="hero-stats-grid" style="margin-top:1.5rem">
-        <div class="stat-item"><span class="stat-number">VASP · NEB</span><div class="stat-label">DFT & pathways</div></div>
-        <div class="stat-item"><span class="stat-number">Pt vs PtSn</span><div class="stat-label">Surface comparison</div></div>
-        <div class="stat-item"><span class="stat-number">~2 eV</span><div class="stat-label">Barrier (unwanted C–C)</div></div>
-        <div class="stat-item"><span class="stat-number">Poster</span><div class="stat-label">HSRA/UT Austin</div></div>
+        <div class="stat-item">
+          <span class="stat-number">VASP DFT</span>
+          <span class="stat-number">& NEB</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">Pt vs PtSn</span>
+          <span class="stat-number">Catalytic Surfaces</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">Mechanistic</span>
+          <span class="stat-number">Studies</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">Catalyst Surface</span>
+          <span class="stat-number">Selectivity</span>
+        </div>
       </div>
     </div>
   </section>
@@ -35,37 +53,27 @@
       <div class="prose">
         <h2 style="color:var(--primary-navy)">Background</h2>
         <p>
-          Furfuryl alcohol is industrially valuable, but hydrogenation can divert into
-          <em>undesired</em> pathways (furan/THF) via C–C scission. We probe atomic-scale mechanisms
-          to explain selectivity differences between Pt(111) and PtSn alloy surfaces.
+          Hydrogenation of furfural, a process used to convert biomass into useful chemicals, can sometimes produce unwanted byproducts like furan and THF due to breaking carbon–carbon bonds. We use computational simulations such as VASP DFT and NEB to study the reaction at the atomic level and explain why pure platinum (Pt) and platinum–tin (PtSn) alloy surfaces favor different reaction pathways, helping us understand which surface produces more of the desired product
         </p>
 
         <h2 style="color:var(--primary-navy)">Methods</h2>
         <ul>
-          <li><b>VASP DFT</b> for initial/final state relaxations (ΔH selectivity screen).</li>
-          <li><b>NEB</b> to obtain activation profiles and identify kinetically feasible routes.</li>
-          <li><b>Surface models:</b> Pt(111) vs PtSn with hydrogen binding characteristics.</li>
+          <li><b>VASP Density Functional Theory (DFT)</b> for relaxations of initial and final states and thermodynamic analysis</li>
+          <li><b>Nudged Elastic Band (NEB)</b> for reaction coordinates and kinetically feasible routes</li>
+          <li><b>Surface Models:</b> Pt(111) vs PtSn with distinct H binding characteristics</li>
+          <p></p>
         </ul>
 
         <h2 style="color:var(--primary-navy)">Key Results</h2>
         <ul>
-          <li>On Pt(111), strong H binding facilitates C–C scission routes → byproducts form readily.</li>
-          <li>On PtSn, Sn donation weakens local H binding and raises barriers for unwanted routes
-              (~2 eV range), while keeping carbonyl hydrogenation favorable/selective.</li>
+          <li><b>Pt(111):</b> strong H bindings → C–C scission routes accessible → byproducts</li>
+          <li><b>PtSn:</b> Sn donation weakens local H binding and raises barriers (~2 eV) for unwanted routes, while keeping carbonyl hydrogenation favorable/selective</li>
         </ul>
 
         <h2 style="color:var(--primary-navy)">Impact</h2>
         <p>
-          Provides a mechanistic basis for alloy-driven selectivity in biomass-derived molecule
-          upgrading and informs catalyst design for greener processes.
+          Electronic modification by Sn explains the improved selectivity of PtSn catalysts, providing a mechanistic basis for designing alloy surfaces that minimize byproduct formation in biomass upgrading
         </p>
-      </div>
-
-      <div>
-        <figure class="research-image">
-          <img src="images/Desirable-Undesirable-Pathway.png" loading="lazy" alt="Desirable vs Undesirable pathways" style="border-radius:12px;max-width:100%"/>
-          <figcaption style="color:var(--neutral-gray);font-style:italic;margin-top:.5rem">Desirable (furfuryl alcohol) vs undesired (furan/THF) routes.</figcaption>
-        </figure>
 
         <div class="card" style="margin-top:1.5rem">
           <h4 style="color:var(--primary-teal)">Docs</h4>
@@ -73,6 +81,32 @@
             <a class="btn btn-accent" href="HSRA Poster.pdf" target="_blank" rel="noopener">Poster (PDF)</a>
           </div>
         </div>
+
+      </div>
+
+      <div>
+        <p></p>
+        <p></p>
+        <figure class="research-image" style="text-align:center;">
+          <img src="images/Desirable-Undesirable-Pathway.png" loading="lazy" alt="Desirable vs Undesirable pathways" style="border-radius:12px;max-width:100%"/>
+          <figcaption style="color:var(--neutral-gray);font-style:italic;margin-top:.5rem">Mechanisms for furfural hydrogenation showing formation of the desired product, furfuryl alcohol, and undesired byproducts, including furan and tetrahydrofuran </figcaption>
+        </figure>
+        <p></p>
+        <p></p>
+        <figure class="research-image" style="text-align:center;">
+          <img src="images/Binding.png" loading="lazy" alt="Desirable vs Undesirable pathways" style="border-radius:12px;max-width:50%"/>
+          <figcaption style="color:var(--neutral-gray);font-style:italic;margin-top:.5rem">Variation in hydrogen binding energy at different adsorption sites on the PtSn alloy surface
+</figcaption>
+        </figure>
+        <p></p>
+        <p></p>
+        <figure class="research-image" style="text-align:center;">
+          <img src="images/Energy-Profile.png" loading="lazy" alt="Desirable vs Undesirable pathways" style="border-radius:12px;max-width:100%"/>
+          <figcaption style="color:var(--neutral-gray);font-style:italic;margin-top:.5rem">Reaction energy profile for the formation of undesired products, furan and the CH₂OH intermediate, from furfural on the PtSn catalytic surface
+</figcaption>
+        </figure>
+
+        
       </div>
     </div>
   </section>
