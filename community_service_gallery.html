@@ -3,58 +3,167 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Community Service Gallery</title>
-  <meta name="description" content="Civic engagement, Math Center outreach, and environmental stewardship." />
+  <title>Community Service — Gallery & Details</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .gallery-header-banner{background:linear-gradient(135deg,#1e3a8a,#0891b2);color:#fff;padding:4rem 0 5rem;margin-top:80px;text-align:center}
-    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:2rem 0}
-    .gallery-item{overflow:hidden;border-radius:8px;box-shadow:var(--shadow-sm);aspect-ratio:4/3}
-    .gallery-item img{width:100%;height:100%;object-fit:cover}
-    @media (max-width:600px){.gallery-grid{grid-template-columns:1fr}}
+    
+    /* ===== Two-column layout (desktop) ===== */
+    .stem-wrap {
+      display:grid; gap:2rem; align-items:start;
+      grid-template-columns: 1fr 1fr; /* left text / right gallery */
+      margin-top:0; /* overlap a bit into the hero for depth */
+    }
+
+    /* Left column: stacked cards (uses site card typography) */
+    .stem-text .card { margin-bottom:1rem; }
+    .stem-text .card h3 { margin:0 0 .5rem; color:var(--primary-navy); }
+    .stem-text .card p  { font-size:1.1rem; line-height:1.7; color:var(--neutral-gray); }
+    .stem-text .badge { display:inline-block; padding:.2rem .6rem; border-radius:999px;
+      background:rgba(16,185,129,.1); color:#0f766e; font-weight:600; font-size:.85rem; margin-right:.35rem; }
+
+    /* Right column: desktop photo wall (grid-areas matches existing gallery) */
+    .gallery-grid-desktop{
+      display:grid !important; gap:10px; grid-auto-rows:200px;
+      grid-template-columns:repeat(4,1fr);
+      grid-template-areas:
+        "A6 A6 A6 A6"
+        "A6 A6 A6 A6"
+        "A4 A4 A4 A4"
+        "A4 A4 A4 A4"
+        "A5 A5 A17 A17"
+        "A5 A5 A17 A17"
+      border-radius:20px; overflow:hidden;
+      min-height: 420px;
+    }
+    .gallery-grid-desktop .tile { width:100%; height:100%; position:relative; overflow:hidden; border-radius:12px; box-shadow:var(--shadow-sm);background: #eaf2f8 }
+    .gallery-grid-desktop .tile img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 절대 포지션 없이도 꽉 차게 */
+    }
+
+
+
+    /* map areas */
+    .A6{grid-area:A6}.A4{grid-area:A4}.A5{grid-area:A5}.A17{grid-area:A17}
+
+    /* Mobile-first interleaved photos (hidden on desktop) */
+    .section-photos-mobile{ display:none; margin:.75rem 0 1.25rem; }
+    .section-photos-mobile .row { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    .section-photos-mobile img{ width:100%; height:180px; object-fit:cover; border-radius:12px; box-shadow:var(--shadow-sm); }
+
+    /* YouTube container */
+    .video-16x9 { aspect-ratio:16/9; width:100%; border-radius:12px; box-shadow:var(--shadow-lg); overflow:hidden; }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 980px){
+      .stem-wrap{ grid-template-columns:1fr; }
+      .gallery-grid-desktop{ display:none; }    /* hide big wall */
+      .section-photos-mobile{ display:block; } /* show per-section photos */
+    }
   </style>
 </head>
 <body>
-  <a href="index.html#community" class="back-to-portfolio" title="Back">←</a>
-  <nav id="navbar"><div class="nav-container"><a class="logo" href="index.html"><div class="logo-icon">🐼</div><span>Min's ChemLab</span></a></div></nav>
 
-  <section class="gallery-header-banner">
-    <div class="container">
-      <h1>Community Service Gallery</h1>
-      <p style="opacity:.9">Rep. Kong’s Office · Math Center · Beach & Foodbank</p>
+  <!-- Nav (site shared) -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo"><div class="logo-icon">🐼</div><span>Min's ChemLab</span></a>
+    </div>
+  </nav>
+
+   <!-- Back button (선택) -->
+   <a class="back-to-portfolio" href="index.html#community" aria-label="Back to Community">←</a>
+
+   <!-- Unified gallery header -->
+   <section class="gallery-header-banner">
+        <div class="container">
+            <h1>Community Service</h1>
+            <p>Volunteering for Hawaii Sustainable Community</p>
+        </div>
+   </section>
+
+   <section class="benzene-bg" style="padding:3rem 0;">
+    <div class="container stem-wrap">
+
+      <!-- LEFT: Text stack -->
+      <div class="stem-text">
+        <!-- Rep. Kong's Office Legislative Intern -->
+        <article class="card">
+          <h3>Rep. Kong's Office Legislative Intern</h3>
+            <ul>
+                <li class="mb-2">Participated in floor hearings and committee meetings at Hawaii State Legislature</li>
+                <li class="mb-2">Advised representative on environmental issues using scientific knowledge</li>
+                <li class="mb-2">Conducted discussions on socioeconomic and environmental community issues</li>
+            </ul>
+          <div class="section-photos-mobile">
+            <div class="row">
+              <img src="gallery3/A6.jpg" alt="">
+            </div>
+            <div class="row">
+              <img src="gallery3/A4.jpg" alt="">
+              <img src="gallery3/A5.jpg" alt="">
+            </div>
+          </div>
+        </article>
+
+        <!-- Math Center Head Tutor -->
+        <article class="card">
+          <h3>Math Center Head Tutor</h3>
+            <ul>
+                <li class="mb-2">Head Tutor managing and tutoring 200+ middle and high school students yearly</li>
+                <li class="mb-2">Foster safe and collaborative learning atmosphere for struggling students</li>
+                <li class="mb-2">Created activities for tutors and produced promotional videos for math center</li>
+            </ul>
+          <div class="video-16x9">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/watch?v=r-O_5KOIKnI&t=1s"
+              title="Math Center Orienation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </article>
+
+        <!-- Hawaii Food Bank/Hawaii Beach Cleaning -->
+        <article class="card">
+          <h3>Hawaii Food Bank/Hawaii Beach Cleanup</h3>
+          <ul>
+                <li class="mb-2">Created 5000+ food packages for Hawaii elders' health and wellness</li>
+                <li class="mb-2">Contributed to reducing food waste in Hawaii community</li>
+                <li class="mb-2">Volunteered in May 2024 supporting local food distribution efforts</li>
+                <li class="mb-2">Volunteered in May 2024 supporting local food distribution efforts</li>
+          </ul>
+          <div class="section-photos-mobile">
+            <div class="row">
+              <img src="gallery3/A17.jpg" alt="Hawaii Beach Cleanup">
+            </div>
+        </article>
+
+        <!-- WAIEA Water Intern -->
+        <article class="card">
+          <h3>WAIEA Water Intern</h3>
+          <ul>
+                <li class="mb-2">Assist employees at WAIEA Water distribution center operations</li>
+                <li class="mb-2">Support sustainable water initiatives for Hawaii and global communities</li>
+                <li class="mb-2">Explain science behind reverse osmosis and carbon filter technologies</li>
+           </ul>
+        </article>
+
+        <div class="hero-buttons-container mt-1" style="justify-content:flex-end;">
+          <a class="btn btn-secondary" href="index.html#community">← Back</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Desktop photo wall (hidden on mobile) -->
+      <aside class="gallery-grid-desktop">
+        <div class="tile A6"><img src="gallery3/A6.jpg" alt=""></div>
+        <div class="tile A4"><img src="gallery3/A4.jpg"  alt=""></div>
+        <div class="tile A5"><img src="gallery3/A5.jpg"  alt=""></div>
+        <div class="tile A17"><img src="gallery3/A17.jpg" alt=""></div>
+      </aside>
+
     </div>
   </section>
 
-  <section class="benzene-bg">
-    <div class="container">
-      <h2 class="text-center" style="color:#1e3a8a;">Service Highlights</h2>
-
-      <div class="gallery-grid">
-        <div class="gallery-item"><img src="gallery3/A4.jpg"  alt="Internship meeting"></div>
-        <div class="gallery-item"><img src="gallery3/A5.jpg"  alt="Award/recognition"></div>
-        <div class="gallery-item"><img src="gallery3/A6.jpg"  alt="Civic engagement session"></div>
-        <div class="gallery-item"><img src="gallery3/A17.jpg" alt="Service activity"></div>
-      </div>
-
-      <div class="video-container" style="max-width:800px;margin:2rem auto;aspect-ratio:16 / 9;box-shadow:var(--shadow-lg);">
-        <!-- Math Center YouTube (커뮤니티 갤러리 참고) -->
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/r-O_5KOIKnI"
-          title="Math Center Promotion" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen style="border-radius:12px"></iframe>
-      </div>
-
-      <p class="text-center" style="color:#64748b;max-width:780px;margin:1rem auto 0">
-        Internship with Rep. Sam Kong, Math Center head tutor programming, Hawaii Foodbank (5,000+ packages), and beach cleanups are summarized from community records. 
-      </p>
-    </div>
-  </section>
-
-  <footer style="background:#1e3a8a;color:#fff;padding:3rem 0;">
-    <div class="container text-center">
-      <a class="btn btn-secondary" href="index.html#community">← Back to Community</a>
-    </div>
-  </footer>
   <script src="script.js"></script>
 </body>
 </html>
+
