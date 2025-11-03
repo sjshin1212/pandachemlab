@@ -766,3 +766,38 @@ nav {
 .gallery-header-banner{ padding: 3rem 0 5rem; }
 .back-to-portfolio{ top:84px; left:12px; width:52px; height:52px; font-size:1.3rem; }
 }
+
+/* =========================================================
+   14. Research Page Styles
+   ========================================================= */
+
+/* 배너 컨테이너를 기준 레이어로 */
+.research-header-banner {
+  position: relative;
+  color: #fff;
+}
+
+/* 배너의 장식/광택/무늬는 항상 텍스트 뒤로 */
+.research-header-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* 배경 무늬/효과가 있다면 여기에 유지 */
+  pointer-events: none;
+  z-index: 0;            /* ← 텍스트보다 뒤 */
+  /* opacity: 0.15; 등 효과값은 유지하되, z-index는 0으로 */
+}
+
+/* 실제 텍스트 레이어는 앞으로 */
+.research-header-banner .container {
+  position: relative;
+  z-index: 1;            /* ← 텍스트를 위로 */
+}
+
+/* 혹시 전역에 background-clip:text 계열이 살아 있으면 대비 보장 */
+.research-header-banner h1,
+.research-header-banner p {
+  color: #fff;
+  -webkit-text-fill-color: #fff;   /* Safari/WebKit 대비 */
+  opacity: 1;                      /* 상속된 opacity가 있으면 초기화 */
+}
