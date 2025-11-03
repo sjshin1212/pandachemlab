@@ -31,7 +31,7 @@
         "A4 A4 A4 A4"
         "A4 A4 A4 A4"
         "A5 A5 A17 A17"
-        "A5 A5 A17 A17"
+        "A5 A5 A17 A17";
       border-radius:20px; overflow:hidden;
       min-height: 420px;
     }
@@ -42,8 +42,6 @@
         height: 100%;
         object-fit: cover; /* 절대 포지션 없이도 꽉 차게 */
     }
-
-
 
     /* map areas */
     .A6{grid-area:A6}.A4{grid-area:A4}.A5{grid-area:A5}.A17{grid-area:A17}
@@ -116,10 +114,16 @@
                 <li class="mb-2">Foster safe and collaborative learning atmosphere for struggling students</li>
                 <li class="mb-2">Created activities for tutors and produced promotional videos for math center</li>
             </ul>
-          <div class="video-16x9">
-            <iframe width="100%" height="100%" src="https://www.youtube.com/watch?v=r-O_5KOIKnI&t=1s"
-              title="Math Center Orienation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          </div>
+            <div class="video-16x9">
+            <iframe
+                src="https://www.youtube.com/embed/r-O_5KOIKnI?start=1"
+                title="Math Center Orientation"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                style="width:100%; height:100%; border:0;"></iframe>
+            </div>
         </article>
 
         <!-- Hawaii Food Bank/Hawaii Beach Cleaning -->
@@ -135,6 +139,7 @@
             <div class="row">
               <img src="gallery3/A17.jpg" alt="Hawaii Beach Cleanup">
             </div>
+          </div>
         </article>
 
         <!-- WAIEA Water Intern -->
@@ -166,4 +171,5 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
