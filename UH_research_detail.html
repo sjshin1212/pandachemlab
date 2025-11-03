@@ -21,15 +21,27 @@
 
   <section class="research-header-banner" style="background:linear-gradient(135deg,var(--primary-navy),var(--primary-teal));color:#fff;padding:4rem 0 6rem;margin-top:80px;">
     <div class="container text-center">
-      <h1 style="color:#fff;margin-bottom:.5rem">Organobismuth Hydride Cleavage (DFT)</h1>
+      <h1 style="color:#fff;margin-bottom:.5rem">Computational Studies of Molecular Bismuth Complexes </h1>
       <h2 style="color:rgba(255,255,255,.9);font-size:1.1rem;font-weight:500">
-        Correlating Bi–H cleavage energetics with ligand π-acceptor capacity to guide low-toxicity catalyst design
+        Computational modeling to study how different ligand designs affect bond breaking and electron distribution in molecular bismuth compounds. The goal is to identify ligand features that stabilize reactive bismuth species and guide the design of safer, more efficient main-group catalysts.
       </h2>
       <div class="hero-stats-grid" style="margin-top:1.5rem">
-        <div class="stat-item"><span class="stat-number">DFT (M06L/def2-TZVP)</span><div class="stat-label">Level of theory</div></div>
-        <div class="stat-item"><span class="stat-number">QUAO · CPCM</span><div class="stat-label">Analysis & solvation</div></div>
-        <div class="stat-item"><span class="stat-number">Ligand set</span><div class="stat-label">π-acceptor/σ-donor sweep</div></div>
-        <div class="stat-item"><span class="stat-number">Design heuristics</span><div class="stat-label">Main-group catalysis</div></div>
+        <div class="stat-item">
+          <span class="stat-number">Organobismuth</span>
+          <span class="stat-number">Complexes</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">Ligand </span>
+          <span class="stat-number">Elctronic</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">Bi-X Bond</span>
+          <span class="stat-number">Dissociation</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">QUAO</span>
+          <span class="stat-number">Analysis</span>
+        </div>
       </div>
     </div>
   </section>
@@ -39,35 +51,46 @@
       <div class="prose">
         <h2 style="color:var(--primary-navy)">Background</h2>
         <p>
-          We explore how ligand architecture modulates homolytic Bi–H bond cleavage in molecular bismuth systems,
-          aiming to derive practical rules for greener main-group catalysis.
+          Transition metals are commonly used in chemical reactions because they can easily gain and lose electrons, helping form and break chemical bonds. However, many of these metals—like palladium or platinum—are expensive, toxic, and harmful to the environment. This has led scientists to look for safer and more sustainable alternatives. One promising option is bismuth, a main-group element that is much less toxic and more affordable but can still take part in similar types of reactions. In recent years, researchers have discovered that with the right ligands—the molecules attached to the metal—bismuth compounds can form and break bonds in ways similar to traditional transition-metal catalysts. These ligands are important because their size and electronic properties can help stabilize the reactive parts of the molecule and control how easily bonds break. Yet, it is still unclear how changes in ligand design affect the strength of bismuth bonds and the behavior of the resulting radicals.
+        </p>
+        <p>
+          This study uses computer modeling to explore how different ligand structures influence bond breaking and electron distribution in molecular bismuth compounds, with the goal of guiding the design of safer and more efficient catalysts.
         </p>
 
         <h2 style="color:var(--primary-navy)">Methods</h2>
         <ul>
-          <li><b>DFT:</b> M06L/def2-TZVP with CPCM solvation.</li>
-          <li><b>Orbital analysis:</b> QUAO-based descriptors to probe π-acceptor/σ-donor effects.</li>
-          <li><b>Sweep:</b> Substituent series spanning –F, –OCH<sub>3</sub>, –CH<sub>3</sub>, –NO<sub>2</sub>…</li>
+          <li><b>DFT:</b> DFT: M06L/def2-TZVP with CPCM</li>
+          <li><b>Orbital Descriptors:</b> QUAO to probe π-acceptor/σ-donor effects</li>
+          <li><b>Substituent Series:</b>  –F, –OCH<sub>3</sub>, –CH<sub>3</sub>, –NO<sub>2</sub>, –NH<sub>2</sub>, etc.</li>
+          <li><b>Bridging Group Series:</b> Sulfonyl, Methyl, Sulfur</li>
         </ul>
 
-        <h2 style="color:var(--primary-navy)">Results (in progress)</h2>
+        <h2 style="color:var(--primary-navy)">Key Results (in progress)</h2>
         <ul>
-          <li>Early trend: ligands with stronger π-acceptor character lower the effective Bi–H cleavage barrier.</li>
-          <li>Descriptor set (QUAO) tracks with computed BDEs; candidates surfaced for follow-up refinement.</li>
+          <li><b>Early trend:</b> stronger π-acceptor ligands lower effective Bi–H cleavage barrier</li>
+          
         </ul>
 
-        <h2 style="color:var(--primary-navy)">Impact</h2>
+        <h2 style="color:var(--primary-navy)">Implication</h2>
         <p>
-          The workflow provides quick screening heuristics for low-toxicity catalytic motifs and reduces
-          trial-and-error in main-group catalyst design.
+          Establishing ligand design rules to enable stable, reactive bismuth catalysts as sustainable alternatives to precious transition metals
+        </p>
+        <p>
+          Quantitative QUAO analysis with clear correlations between ligand donor strength and Bi–X bond dissociation energies
         </p>
       </div>
 
       <div>
         <figure class="research-image">
-          <img src="images/bismuth_mo.png" loading="lazy" alt="Representative orbital/geometry for Bi–H system" style="border-radius:12px;max-width:100%"/>
+          <img src="image_UH/UH_Fig25_550.png" loading="lazy" alt="Representative orbital/geometry for Bi–H system" style="border-radius:12px;max-width:100%"/>
           <figcaption style="color:var(--neutral-gray);font-style:italic;margin-top:.5rem">
-            Representative geometry/orbital snapshot used to compare ligand effects.
+            Molecular bismuth complexes with favorable homolytic bond dissociation energies obtained from DFT studies.
+          </figcaption>
+        </figure>
+        <figure class="research-image">
+          <img src="image_UH/UH_Fig23_250.png" loading="lazy" alt="Representative orbital/geometry for Bi–H system" style="border-radius:12px;max-width:50%"/>
+          <figcaption style="color:var(--neutral-gray);font-style:italic;margin-top:.5rem">
+            Potential candidates of bismuth molecular complexes [Bi(di-aryl)SPh] for DFT screening
           </figcaption>
         </figure>
 
