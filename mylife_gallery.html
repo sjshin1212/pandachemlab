@@ -1,190 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Min Shin - Music Performance Gallery</title>
-    <meta name="description" content="A gallery showcasing Min Shin's trombone performance and musical leadership activities, including the Big Band Bash Festival.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Community Service — Gallery & Details</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
     
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🐼</text></svg>">
-    
-    <link rel="stylesheet" href="style.css">
+    /* ===== Two-column layout (desktop) ===== */
+    .stem-wrap {
+      display:grid; gap:2rem; align-items:start;
+      grid-template-columns: 1fr 1fr; /* left text / right gallery */
+      margin-top:0; /* overlap a bit into the hero for depth */
+    }
 
-    <link rel="canonical" href="https://engineershin.com/mylife_gallery.html" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Music Performance Gallery" />
-    <meta property="og:description" content="Trombone performance and musical leadership visuals." />
-    
-    <style>
-        /* Styles to ensure consistency with research detail pages */
-        .gallery-header-banner {
-            background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
-            color: white;
-            padding: 4rem 0 6rem 0;
-            margin-top: 80px;
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
+    /* Left column: stacked cards (uses site card typography) */
+    .stem-text .card { margin-bottom:1rem; }
+    .stem-text .card h3 { margin:0 0 .5rem; color:var(--primary-navy); }
+    .stem-text .card p  { font-size:1.1rem; line-height:1.7; color:var(--neutral-gray); }
+    .stem-text .badge { display:inline-block; padding:.2rem .6rem; border-radius:999px;
+      background:rgba(16,185,129,.1); color:#0f766e; font-weight:600; font-size:.85rem; margin-right:.35rem; }
 
-        .gallery-header-banner h1 {
-            color: white;
-            -webkit-text-fill-color: white;
-        }
+    /* Right column: desktop photo wall (grid-areas matches existing gallery) */
+    .gallery-grid-desktop{
+      display:grid !important; gap:10px; grid-auto-rows:300px;
+      grid-template-columns:repeat(4,1fr);
+      grid-template-areas:
+        "A4 A4 A4 A4"
+        "A2 A2 A3 A3"
+        "A1 A1 A1 A1";
+      border-radius:20px; overflow:hidden;
+      min-height: 420px;
+    }
+    .gallery-grid-desktop .tile { width:100%; height:100%; position:relative; overflow:hidden; border-radius:12px; box-shadow:var(--shadow-sm);background: #eaf2f8 }
+    .gallery-grid-desktop .tile img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 절대 포지션 없이도 꽉 차게 */
+    }
 
-        .back-to-portfolio {
-            position: fixed;
-            top: 100px;
-            left: 20px;
-            background: white;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--shadow-lg);
-            text-decoration: none;
-            color: var(--primary-navy);
-            font-size: 1.5rem;
-            z-index: 100;
-            transition: var(--transition-normal);
-        }
+    /* map areas */
+    .A4{grid-area:A4}.A2{grid-area:A2}.A3{grid-area:A3}.A1{grid-area:A1}
 
-        /* MOSAIC GRID DEFINITIONS */
-        .gallery-grid {
-            display: grid;
-            /* Base grid template: 4 equal columns for desktop/large view */
-            grid-template-columns: repeat(4, 1fr); 
-            grid-auto-rows: 250px; /* Base height for rows */
-            gap: 10px;
-            margin: 2rem 0;
-        }
+    /* Mobile-first interleaved photos (hidden on desktop) */
+    .section-photos-mobile{ display:none; margin:.75rem 0 1.25rem; }
+    .section-photos-mobile .row { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    .section-photos-mobile img{ width:100%; height:180px; object-fit:cover; border-radius:12px; box-shadow:var(--shadow-sm); }
 
-        .gallery-item {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            position: relative;
-            cursor: zoom-in;
-            border-radius: 8px;
-            box-shadow: var(--shadow-sm);
-            transition: transform 0.3s ease;
-        }
+    /* YouTube container */
+    .video-16x9 { aspect-ratio:16/9; width:100%; border-radius:12px; box-shadow:var(--shadow-lg); overflow:hidden; }
 
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            vertical-align: middle;
-        }
-        
-        /* Specific Spans to create the Mosaic */
-        .item-span-2-row {
-            grid-row: span 2;
-        }
-        .item-span-2-col {
-            grid-column: span 2;
-        }
-        
-        /* Mobile Adjustments */
-        @media (max-width: 600px) {
-            .gallery-grid {
-                grid-template-columns: 1fr;
-                grid-auto-rows: 300px;
-            }
-            .item-span-2-row, .item-span-2-col {
-                grid-row: span 1;
-                grid-column: span 1;
-            }
-        }
-    </style>
+    /* ===== Responsive ===== */
+    @media (max-width: 980px){
+      .stem-wrap{ grid-template-columns:1fr; }
+      .gallery-grid-desktop{ display:none; }    /* hide big wall */
+      .section-photos-mobile{ display:block; } /* show per-section photos */
+    }
+  </style>
 </head>
+
 <body>
-    <a href="index.html#mylife" class="back-to-portfolio" title="Back to My Life Section">
-        ←
-    </a>
+  <!-- Nav (site shared) -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo"><div class="logo-icon">🐼</div><span>Min's ChemLab</span></a>
+    </div>
+  </nav>
 
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <div class="logo-icon">🐼</div>
-                <span>Min's ChemLab</span>
-            </a>
-        </div>
-    </nav>
+    <!-- Back button (선택) -->
+    <a class="back-to-portfolio" href="index.html#community" aria-label="Back to Community">←</a>
 
+    <!-- Unified gallery header -->
     <section class="gallery-header-banner">
         <div class="container">
-            <h1>Music & Performance Gallery 🎺</h1>
-            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem;">Lead Trombonist: Stage Band and Big Band Bash Festival</p>
+            <h1>Life of Music 🎺</h1>
+            <p>Musical Leadership: Stage Band and Big Band Bash Festival</p>
         </div>
     </section>
 
-    <section class="benzene-bg">
-        <div class="container">
-            <h2 class="text-center mb-4" style="color: var(--primary-navy);">Performance Highlights</h2>
-            
-            <div class="gallery-grid">
-                
-                <div class="gallery-item item-span-2-col">
-                    <img src="gallery2/IMG_8506.jpg" alt="Lead Trombonist performing with the Iolani Stage Band" loading="lazy">
-                </div>
+    <section class="benzene-bg" style="padding:3rem 0;">
+        <div class="container stem-wrap">
 
-                <div class="gallery-item item-span-2-row">
-                    <img src="gallery2/IMG_0445.png" alt="Close-up of Min Shin playing the trombone during performance" loading="lazy">
-                </div>
+            <!-- LEFT: Text stack -->
+            <div class="stem-text">
+                <!-- Lead Trombonist -->
+                <article class="card">
+                <h3>Lead Trombonist</h3>
+                <h4>Iolani High School Stage Band</h4>
+                    <ul>
+                        <li class="mb-2">Lead trombone section as principal performer, providing musical direction and setting performance standards</li>
+                        <li class="mb-2">Perform solos in concerts and collaborate with the band for active musical engagement</li>
+                        <li class="mb-2">Encourage fellow musicians to express their voice through music and develop confidence</li>
+                        <li class="mb-2">Successfully recruited new members, resulting in a full trombone section for the first time in years</li>
+                        <li class="mb-2">Mentor younger trombone players in technique, music theory, and ensemble performance skills</li>
+                        <li class="mb-2">Coordinate section rehearsals and ensure synchronized performances during concerts</li>
+                    </ul>    
+                    <div class="section-photos-mobile">
+                        <div class="row">
+                            <img src="gallery3/A6.jpg" alt="">
+                        </div>
+                        <div class="row">
+                            <img src="gallery3/A4.jpg" alt="">
+                            <img src="gallery3/A5.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="video-16x9">
+                        <iframe
+                            src="https://www.youtube.com/embed/r-O_5KOIKnI?start=1"
+                            title="Math Center Orientation"
+                            loading="lazy"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen
+                            style="width:100%; height:100%; border:0;">
+                        </iframe>
+                    </div>
+                </article>
 
-                <div class="gallery-item">
-                    <img src="gallery2/2025-09-28.png" alt="Iolani Stage Band performing at Big Band Bash" loading="lazy">
+                <!-- Big Band Bash Festival  -->
+                <article class="card">
+                    <h3>Big Band Bash Festival </h3>
+                    <h4>Annual Jazz Festival Coordinator</h4>
+                    <ul>
+                        <li class="mb-2">Organize and coordinate annual jazz festival open to all Oahu jazz bands</li>
+                        <li class="mb-2">Manage equipment setup and coordinate logistics for multiple performing bands</li>
+                        <li class="mb-2">Lead food and beverage organization to support festival operations</li>
+                        <li class="mb-2">Coordinate fundraising activities to support all participating school bands</li>
+                        <li class="mb-2">Foster cross-school collaboration and build connections within Oahu's jazz community</li>
+                        <li class="mb-2">Handle event logistics including venue setup, scheduling, and participant coordination</li>
+                    </ul>
+        
+                </article>
+
+                <div class="hero-buttons-container mt-1" style="justify-content:flex-end;">
+                    <a class="btn btn-secondary" href="index.html#community">← Back</a>
                 </div>
-                
-                <div class="gallery-item item-span-2-col">
-                    <img src="gallery2/IMG_5947.jpg" alt="Trombone section and rhythm section performing" loading="lazy">
-                </div>
-                
-                <div class="gallery-item item-span-2-row item-span-2-col">
-                    <img src="gallery2/IMG_0390.jpg" alt="Stage Band members including vocalist and horns performing" loading="lazy">
-                </div>
-                
             </div>
-            
-            <div class="text-center mt-4">
-                <p style="font-style: italic; color: var(--neutral-gray);">Images represent performances from the Iolani Stage Band and annual Big Band Bash Festival.</p>
-            </div>
+
+            <!-- RIGHT: Desktop photo wall (hidden on mobile) -->
+            <aside class="gallery-grid-desktop">
+                <div class="tile A4"><img src="gallery2/IMG_04.jpg" alt=""></div>
+                <div class="tile A2"><img src="gallery2/IMG_02.jpg"  alt=""></div>
+                <div class="tile A3"><img src="gallery2/IMG_03.png"  alt=""></div>
+                <div class="tile A1"><img src="gallery3/IMG_01.png" alt=""></div>
+            </aside>
+
         </div>
-        <div class="video-container" style="margin-top: 3rem; margin-bottom: 2rem;">
-                <h3 class="text-center" style="color: var(--primary-navy); margin-bottom: 1.5rem;">
-                    Featured Performance Video 🎥
-                </h3>
-                
-                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000;">
-                    <iframe 
-                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
-                        src="https://www.youtube.com/embed/w_2RfU3ngkw?autoplay=0&rel=0&showinfo=0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen 
-                        title="Min Shin Performance Video">
-                    </iframe>
-                </div>
-                
-                <p class="text-center" style="margin-top: 1rem; color: var(--neutral-gray);">
-                    Video Link: <a href="https://youtu.be/w_2RfU3ngkw" target="_blank">https://youtu.be/w_2RfU3ngkw</a>
-                </p>
-            </div>
-            <div class="text-center mt-4">
-                <p style="font-style: italic; color: var(--neutral-gray);">Images represent performances from the Iolani Stage Band and annual Big Band Bash Festival.</p>
-            </div>
     </section>
     
     <footer style="background: var(--primary-navy); color: white; padding: 3rem 0;">
         <div class="container">
             <div class="text-center" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
-                <p style="color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;">
-                    Thank you for viewing Min Shin's musical performance gallery.
-                </p>
                 <div style="margin-top: 2rem;">
-                    <a href="index.html#mylife" class="btn btn-secondary">← Back to My Life Section</a>
+                    <a href="index.html#community" class="btn btn-secondary">← Back to Community</a>
                 </div>
             </div>
         </div>
