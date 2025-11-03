@@ -1,320 +1,768 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Min Shin - Panda Min's ChemLab | Chemistry Research Portfolio</title>
-    <meta name="description" content="Min Shin's professional chemistry research portfolio. USNCO Top 150, Science Bowl Top 12, research at UH Manoa and UT Austin. Academic excellence and scientific leadership.">
-    <meta name="keywords" content="Min Shin, Chemistry, Research, Science Bowl, USNCO, Hawaii, College Portfolio">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🐼</text></svg>">
-    
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Min Shin - Panda Min's ChemLab">
-    <meta property="og:description" content="Chemistry research portfolio of Min Shin - USNCO Top 150, Science Bowl National Champion">
-    <meta property="og:url" content="https://pandaminschemlab.com">
-    
-    <!-- Schema.org -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Min Shin",
-      "description": "Chemistry researcher and student leader from Hawaii",
-      "url": "https://pandaminschemlab.com",
-      "sameAs": [
-        "https://linkedin.com/in/minshin",
-        "https://github.com/minshin"
-      ]
-    }
-    </script>
-</head>
-<body>
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="#home" class="logo">
-                <div class="logo-icon">🐼</div>
-                <span>Min's ChemLab</span>
-            </a>
-            
-            <ul class="nav-menu" id="primary-navigation">
-            <li><a class="nav-link" href="#chemlab">Research</a></li>
-            <!--li><a class="nav-link" href="#docs">Doc</a></li-->
-            <li><a class="nav-link" href="#community">Community</a></li>
-            <li><a class="nav-link" href="#about">About me</a></li>
-            </ul>
-            <button id="mobileMenuBtn" class="mobile-menu-btn" aria-expanded="false" aria-controls="primary-navigation">☰</button>
+/* Panda Min's ChemLab - Professional Portfolio */
+/* Brand Colors: Navy Blue (#1e3a8a), Teal (#0891b2), Coral (#f97316), Gray (#64748b) */
 
-        </div>
-    </nav>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght+400;500&display=swap');
 
-    <!-- Hero  -->
-    <section class="section-hero benzene-bg hero-with-bg" id="home">
-    <div class="container">
-        <div class="grid grid-2" style="align-items:center; gap:3rem;">
-        <div class="hero-left">
-            <p class="hero-subtitle">Research In Progress</p>
-            <h1>Computational Studies of Molecular Bismuth Complexes</h1> 
-            <p class="lead-text mt-2">
-            DFT and QUAO computational analysis of ligand effects on homolytic bond cleavage, electronic structure, and radical stability in molecular bismuth catalysts for sustainable chemistry
-            </p>
-            <div class="hero-buttons-container mt-2">
-            <a class="btn btn-primary" href="#chemlab">Explore Research</a>
-            <a class="btn btn-secondary" href="#chemlab">View Docs</a>
-            </div>
-        </div>
-        </div>
+/* =========================================================
+   1. Root Variables & Global Reset
+   ========================================================= */
+:root {
+  /* Brand Colors */
+  --primary-navy: #1e3a8a;
+  --primary-teal: #0891b2;
+  --accent-coral: #f97316;
+  --neutral-gray: #64748b;
+  --pure-white: #ffffff;
+  --light-gray: #f8fafc;
+  --dark-gray: #334155;
 
-        <!-- 한눈에 파악되는 스냅샷 3~4칸 -->
-        <div class="hero-stats-grid mt-2">
-            <div class="stat-item">
-                <span class="stat-number">Sustainable</span>
-                <span class="stat-number">Catalysts</span>
-                <div class="stat-label">non-toxic and cheap as compared to transition metals</div>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">Computational</span>
-                <span class="stat-number">Analysis</span>
-                <div class="stat-label">quasi-atomic orbital (QUAO) to analyze the bonding profiles of different computational candidates</div>
-            </div>
-            <div class="stat-item">
-                <Span class="stat-number">Ligand</span>
-                <Span class="stat-number">Design</span>
-                <div class="stat-label">different groups attached to phenyl rings to stabilize the molecule</div>
-            </div>
-            <!--div class="stat-item">
-                <span class="stat-number">Ligand Design</span>
-                <div class="stat-label">Molecular architecture</div>
-            </div-->
-        </div>
-    </div>
-    </section>
+  /* Typography */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 3rem;
+  --spacing-xl: 4rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  /* Transitions */
+  --transition-fast: all 0.15s ease;
+  --transition-normal: all 0.3s ease;
+  --transition-slow: all 0.5s ease;
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  color: var(--dark-gray);
+  background-color: var(--pure-white);
+  overflow-x: hidden;
+}
+
+/* Benzene Ring Background Pattern */
+.benzene-bg {
+  position: relative;
+  /*  pointer-events: none; */
+  z-index: 0;
+}
+
+.benzene-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(30, 58, 138, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(8, 145, 178, 0.03) 0%, transparent 50%);
+  background-size: 200px 200px, 300px 300px;
+  background-position: 0 0, 100px 100px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* =========================================================
+   2. Typography (h1, h2, h3, h4, p, .lead-text)
+   ========================================================= */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: var(--spacing-sm);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-teal) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--primary-navy);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--primary-teal);
+}
+
+h4 {
+  font-size: 1.25rem;
+  color: var(--dark-gray);
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: var(--spacing-sm);
+  color: var(--neutral-gray);
+}
+
+.lead-text {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--primary-navy);
+}
+
+.hero-subtitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #0c4a6e;
+  background: rgba(14,165,233,0.08);
+  border: 1px solid rgba(14,165,233,0.2);
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+/* =========================================================
+   3. Layout & Structure (.container, .grid, section)
+   ========================================================= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.grid {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+section {
+  padding: var(--spacing-xl) 0;
+}
+
+.section-hero {
+  padding: 112px 0 20px;
+  min-height: clamp(520px, 62vh, 720px);
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  position: relative;
+}
+
+.section-alt {
+  background: var(--light-gray);
+}
+
+.section-alt p {
+  text-align: center;
+  margin: 0 auto;            /* 완전 중앙 정렬 */
+  max-width: 70ch;           /* 본문 폭 제한 유지 */
+  line-height: 1.6;          /* 가독성 향상 */
+  color: var(--neutral-gray);
+  margin-bottom: var(--spacing-md)
+}
+
+.section-community {
+  padding: 48px 0;
+}
+
+/* Responsive Layout Overrides */
+/* @media (max-width: 768px) */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Hero Section Layout */
+.section-hero .grid.grid-2 {
+  grid-template-columns: minmax(440px, 660px) 1fr;
+}
+
+.hero-left h1 { max-width: 16ch; }
+.hero-left .lead-text { max-width: 60ch; }
+
+@media (max-width: 980px){
+  .section-hero .grid.grid-2 { grid-template-columns: 1fr; }
+  .hero-left h1 { max-width: 20ch; }
+  .hero-left .lead-text { max-width: 65ch; }
+}
+@media (max-width: 560px){
+  .hero-left h1 { max-width: 22ch; }
+  .hero-left .lead-text { max-width: 100%; }
+}
+
+/* =========================================================
+   4. Navigation (nav)
+   ========================================================= */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(30, 58, 138, 0.1);
+  z-index: 1000;
+  transition: var(--transition-normal);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-sm) var(--spacing-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--primary-navy);
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: var(--spacing-md);
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--dark-gray);
+  font-weight: 500;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 8px;
+  transition: var(--transition-fast);
+  position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary-navy);
+  background: rgba(30, 58, 138, 0.05);
+}
+
+/* Mobile Menu */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--primary-navy);
+  cursor: pointer;
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+}
+
+/* =========================================================
+   5. Buttons (.btn)
+   ========================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: none;
+  border-radius: 12px;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--primary-navy);
+  border: 2px solid var(--primary-navy);
+}
+
+.btn-secondary:hover {
+  background: var(--primary-navy);
+  color: white;
+}
+
+.btn-accent {
+  background: var(--accent-coral);
+  color: white;
+}
+
+.btn-accent:hover {
+  background: #ea580c;
+  transform: translateY(-1px);
+}
+
+.email-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.12);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background 0.25s ease;
+}
+
+.email-button:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* Hero Buttons */
+.hero-buttons-container {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.hero-buttons-container .btn {
+  width: auto;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px){
+  .hero-buttons-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   6. Cards (General, Research, Community)
+   ========================================================= */
+/* General Card */
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+  border: 1px solid rgba(30, 58, 138, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, var(--primary-teal), var(--accent-coral));
+  color: white;
+}
+
+/* Research Project Cards */
+.research-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition-normal);
+  border: 1px solid rgba(30, 58, 138, 0.1);
+}
+
+.research-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.research-header {
+  background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
+  color: white;
+  padding: var(--spacing-md);
+  text-align: center;
+}
+
+.research-body {
+  padding: var(--spacing-md);
+}
+
+.research-status {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: rgba(249, 115, 22, 0.1);
+  color: var(--accent-coral);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Community Cards */
+.community-grid-areas{
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "stem  photo"
+    "serv  music";
+}
+.area-stem   { grid-area: stem; }
+.area-photo  { grid-area: photo; }
+.area-service{ grid-area: serv; }
+.area-music  { grid-area: music; }
+
+.community-card{
+  background:#fff;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow: var(--shadow-lg);
+  border:1px solid rgba(30,58,138,0.10);
+  padding: var(--spacing-md);
+  display:flex; flex-direction:column;
+}
+
+.community-card .research-header{
+  background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
+  color:#fff;
+  text-align:center;
+  padding: var(--spacing-md);
+  margin: calc(-1 * var(--spacing-md)) calc(-1 * var(--spacing-md)) var(--spacing-sm);
+  border-top-left-radius:20px;
+  border-top-right-radius:20px;
+}
+.community-card .research-header h3{
+  margin:0;
+  font-weight:800;
+}
+
+.community-card .card-body p{
+  font-size:1.1rem;
+  line-height:1.7;
+  margin-bottom: var(--spacing-sm);
+  color: var(--neutral-gray);
+}
+.community-card .card-body p strong{
+  color: var(--primary-navy);
+  font-weight:600;
+}
+
+.community-card .card-footer{
+  margin-top:auto; padding-top:12px;
+  display:flex; justify-content:flex-end;
+}
+
+.community-photo{
+  margin:0;
+  border-radius:20px;
+  overflow:hidden;
+  border:1px solid rgba(30,58,138,0.10);
+  box-shadow: var(--shadow-lg);
+  position:relative;
+  background:#eaf2f8;
+  aspect-ratio: 2 / 3;
+}
+.community-photo img{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  transform: translateZ(0);
+}
+
+.area-stem .community-card{
+  height:auto;
+  min-height: clamp(440px, 55vw, 560px);
+}
+
+/* Community Responsive */
+@media (max-width: 980px){
+  .community-grid-areas{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "stem"
+      "photo"
+      "serv"
+      "music";
+  }
+  .area-stem .community-card{ min-height:auto; }
+  .community-photo{ aspect-ratio: 2 / 3; }
+}
+
+/* =========================================================
+   7. Stats (.stat-item, Hero Stats)
+   ========================================================= */
+.stat-item {
+  text-align: center;
+  padding: var(--spacing-md);
+  background: white;
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  border: 2px solid transparent;
+  transition: var(--transition-normal);
+}
+
+.stat-item:hover {
+  border-color: var(--primary-teal);
+  transform: translateY(-2px);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+}
+
+.stat-label {
+  color: var(--neutral-gray);
+  font-weight: 500;
+  margin-top: var(--spacing-xs);
+}
+
+/* Hero Stats Overrides */
+.hero-stats-grid {
+    display: grid;
+    gap: 14px;
+    margin-top: 24px;
+    grid-template-columns: repeat(3, minmax(180px,1fr));
+    position: relative;
+    z-index: 1;
+}
+
+.hero-stats-grid .stat-item {
+  background: rgba(255,255,255,0.78);
+  backdrop-filter: saturate(120%) blur(2px);
+  border: 1px solid #e6ebf1;
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.04);
+}
+.hero-stats-grid .stat-number {
+  display:block; font-weight: 700; color: var(--primary-navy);
+}
+.hero-stats-grid .stat-label  {
+  color: var(--neutral-gray); font-size: .9rem; margin-bottom: 6px;
+}
+
+/* Hero Stats Responsive */
+@media (max-width: 980px){
+  .hero-stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px){
+  .hero-stats-grid { grid-template-columns: 1fr; }
+}
+
+/* =========================================================
+   9. Hero Background (.hero-with-bg)
+   ========================================================= */
+.hero-with-bg {
+  position: relative;
+  overflow: hidden;
+  background: #f6f8fc;
+}
+
+.hero-with-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right,
+      #f6f8fc 0%,
+      rgba(246,248,252,0.95) 28%,
+      rgba(246,248,252,0.75) 45%,
+      rgba(246,248,252,0.35) 62%,
+      rgba(246,248,252,0.00) 78%),
+    url("images/Title_background.png");
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, min(54vw, 760px) auto;
+  background-position: center, right 18% center;
+  z-index: 0;
+}
+
+.hero-with-bg > .container { position: relative; z-index: 1; }
+.hero-with-bg .hero-stats-grid { position: relative; z-index: 1; }
+
+/* Hero Background Responsive */
+@media (max-width: 1280px) {
+  .hero-with-bg::before {
+    background-size: cover, 88vw auto;
+    background-position: center, right 14% top 28%;
+  }
+}
+@media (max-width: 980px) {
+  .hero-with-bg { padding-top: 2.5rem; }
+  .hero-with-bg::before {
+    background-image:
+      linear-gradient(to bottom,
+        #f6f8fc 0%,
+        rgba(246,248,252,0.95) 35%,
+        rgba(246,248,252,0.00) 70%),
+      url("images/Title_background.png");
+    background-size: cover, 105vw auto;
+    background-position: top center, center top 18%;
+  }
+}
+
+/* =========================================================
+   10. Utility & Animations
+   ========================================================= */
+/* Utility Classes */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mb-1 { margin-bottom: var(--spacing-xs); }
+.mb-2 { margin-bottom: var(--spacing-sm); }
+.mb-3 { margin-bottom: var(--spacing-md); }
+.mb-4 { margin-bottom: var(--spacing-lg); }
+
+.mt-1 { margin-top: var(--spacing-xs); }
+.mt-2 { margin-top: var(--spacing-sm); }
+.mt-3 { margin-top: var(--spacing-md); }
+.mt-4 { margin-top: var(--spacing-lg); }
+
+.hidden { display: none; }
+.visible { display: block; }
 
 
-    <!-- Research Hub -->    
-    <section id="chemlab" class="section-alt">
-    <div class="container">
-        <h2 class="text-center mb-3">Research Hub</h2>
-        <!--p class="text-center mb-3" style="max-width:70ch;margin:10px;"-->
-        <p class="section-subtitle text-center" style="max-width:760px;margin:0 auto 28px; color:#64748b;"></p>    
-        Three projects spanning computational studies of molecular bismuth complexes and the selective hydrogenation of biomass-derived molecules, as well as an extensive literature review of biodegradable polymers and their thermal and mechanical properties     
-        </p>
-        <p></p>
-        <p></p>
+/* =========================================================
+   12. Media Queries (Global/Prefers) & Print Styles
+   ========================================================= */
 
-        <div class="grid grid-3">
-        <!-- UH Mānoa -->
-        <article class="research-card">
-            <div class="research-header">
-            <h3>Computational Studies of Molecular Bismuth Complexes</h3>
-            </div>
-            <div class="research-body">
-            <span class="research-status">In progress</span>
-            <p class="mb-2"><strong>Abstract:</strong> Computational analysis of ligand effects on bond strength and radical stability in molecular bismuth complexes through using DFT and Quasi-Atomic Orbital (QUAO)</p>
-            <p class="mb-2"><strong>Methods:</strong> Geometry optimization and bond dissociation energy (BDE) calculations using DFT (M06-L/def2-TZVP/ECP/CPCM), followed by QUAO analysis for electronic structure and orbital localization</p>
-            <p class="mb-2"><strong>Implication:</strong> Advancing sustainable main-group catalysis through predictive ligand design principles to replace traditional transition-metal catalysts</p>
+/* Motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .acc-panel, .acc-indicator { transition: none; }
+}
 
-            <div class="hero-buttons-container mt-1">
-                <a class="btn btn-primary" href="UH_research_detail.html">View Details</a> <!--"#proj-uh"-->
-                <a class="btn btn-secondary" href="Research Proposal.pdf" target="_blank" rel="noopener">DOC</a>
-            </div>
-            </div>
-        </article>
+/* Print Styles */
+@media print {
+  nav, .btn, .mobile-menu-btn {
+    display: none !important;
+  }
 
-        <!-- UT Austin (HSRA) -->
-        <article class="research-card">
-            <div class="research-header">
-            <h3>Furfural Hydrogenation Pathways (VASP)</h3>
-            </div>
-            <div class="research-body">
-            <span class="research-status">Poster</span>
-            <p class="mb-2"><strong>Abstract:</strong> PtSn alloys raise barriers for unwanted C–C scission while enabling selective hydrogenation of carbonyl</p>
-            <p class="mb-2"><strong>Methods:</strong> Utilization of VASP and NEB to investigate reaction pathways on varied nanomaterial catalyst surfaces, including Pt(111) and PtSn</p>
-            <p class="mb-2"><strong>Implication:</strong> Despite thermodynamic favorability ~2 eV kinetic barriers suppress formation of byproducts such as furan and THF; mechanistic basis for selectivity</p>
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+}
 
-            <div class="hero-buttons-container mt-1">
-                <a class="btn btn-primary" href="ut_austin_research_detail.html">View Details</a> <!--"#proj-ut"-->
-                <a class="btn btn-secondary" href="HSRA_Poster.pdf" target="_blank" rel="noopener">DOC</a>
-            </div>
-            </div>
-        </article>
+/* =========================================================
+   13. Gallery Page Styles
+   ========================================================= */
 
-        <!-- Independent (PLA-PHB) -->
-        <article class="research-card">
-            <div class="research-header">
-            <h3>PLA-PHB Biodegradable Polymer Design</h3>
-            </div>
-            <div class="research-body">
-            <span class="research-status">Whitepaper</span>
-            <p class="mb-2"><strong>Abstract:</strong> Balancing toughness vs. crystallinity in PLA-PHB blends via composition/processing heuristics</p>
-            <p class="mb-2"><strong>Methods:</strong> Literature mining · Simple modeling · Property mapping</p>
-            <p class="mb-2"><strong>Implication:</strong> Enabling design of PLA-PHB blends with tailored toughness and crystallinity for practical applications</p>
-
-            <div class="hero-buttons-container mt-1">
-                <a class="btn btn-primary" href="independent_research_detail.html">View Details</a> <!--#proj-pla-->
-                <a class="btn btn-secondary" href="Lumiere.pdf" target="_blank" rel="noopener">DOC</a>
-            </div>
-            </div>
-        </article>
-        </div>
-    </div>
-    </section>
- 
-    <!-- COMMUNITY SECTION (P-BASED FINAL VERSION) -->
-    <section id="community" class="section-community benzene-bg">
-    <div class="container">
-        <h2 class="text-center" style="color:#1e3a8a;margin-bottom:10px;">Community</h2>
-        <p class="section-subtitle text-center" style="max-width:760px;margin:0 auto 28px; color:#64748b;">
-        Outreach, leadership, and music — connecting science, service, and creativity. Expand each category via its gallery.
-        </p>
-
-        <div class="community-grid-areas">
-        <!-- 1) STEM Leadership -->
-        <article class="community-card card--tall area-stem">
-            <header class="card-head research-header">
-            <h3>STEM Leadership</h3>
-            </header>
-            <div class="card-body">
-            <p class="mb-2"><strong>Founder of Chemistry Club:</strong> Building a community of aspiring chemists through hands-on lab sessions, advanced experiments, and peer-led USNCO preparation</p>
-            <p class="mb-2"><strong>Science Olympiad Co-Captain:</strong> Orchestrating 40+ teammates to earn 20+ medals in 10+ tourneys and fostering teamwork through optional practices, culminating in historic Nationals Top-12</p>
-            <p class="mb-2"><strong>Science Bowl Co-Captain:</strong> Spearheading team to historic Top-12 at Nationals and $1K award by coordinating 3+ tourneys, weekly practices, and collaborative study materials</p>
-            <p class="mb-2"><strong>Math Team Co-Captain:</strong>  Co-authoring tryout sets and mentoring 20+ teammates to sustaining 32-year state championship streak</p>
-            </div>
-            <div class="card-footer">
-            <a class="btn btn-secondary" href="STEM_leadership_gallery.html">View Detail</a>
-            </div>
-        </article>
-
-        <!-- 2) Main Photo (2:3 ratio) -->
-        <figure class="community-photo area-photo" aria-label="Community Highlight Photo">
-            <img src="gallery3/A1_1.jpg" alt="National Science Bowl team in Washington, DC">
-        </figure>
-
-        <!-- 3) Community Service -->
-        <article class="community-card area-service">
-            <header class="card-head research-header">
-            <h3>Community Service</h3>
-            </header>
-            <div class="card-body">
-            <p class="mb-2"><strong>Legislative Intern at Representative Sam Satoru Kong’s Office:</strong> Translating scientific reasoning into public policy for Hawai‘i communities.</p>
-            <p class="mb-2"><strong>Math Center Head Tutor:</strong> Building a collaborative community of learners through personalized tutoring and peer activities</p>
-            <p class="mb-2"><strong>Hawai‘i Foodbank & Beach Cleanups:</strong> Supporting community wellness and preserving Hawai‘i’s natural beauty</p>
-            </div>
-            <div class="card-footer">
-            <a class="btn btn-secondary" href="community_service_gallery.html">View Detail</a>
-            </div>
-        </article>
-
-        <!-- 4) Life of Music -->
-        <article class="community-card area-music">
-            <header class="card-head research-header">
-            <h3>Life of Music</h3>
-            </header>
-            <div class="card-body">
-            <p class="mb-2"><strong>Lead Trombonist:</strong> Featured solos and ensemble mentoring in the Stage Band and Big Band Bash.</p>
-            <p class="mb-2"><strong>Performance Leadership:</strong> Coordinated sectional rehearsals and cross-school collaborations for annual jazz festivals.</p>
-            <p class="mb-2"><strong>Creative Expression:</strong> Documented performances and reflections in the music gallery.</p>
-            </div>
-            <div class="card-footer">
-            <a class="btn btn-secondary" href="mylife_gallery.html">View Detail</a>
-            </div>
-        </article>
-        </div>
-    </div>
-    </section>
-    
-
-
-
-    <!-- About -->
-    <section id="about">
-    <div class="container">
-        <h2 class="text-center mb-3">About me</h2>
-        <div class="grid grid-3">
-        <div class="card">
-            <h4>Academics</h4>
-            <p>Selected coursework and GPA (brief). Full resume below.</p>
-        </div>
-        <div class="card">
-            <h4>Honors & Awards</h4>
-            <p>Top highlights only; full list in resume.</p>
-        </div>
-        <div class="card">
-            <h4>Resume</h4>
-            <a class="btn btn-secondary" href="Min_Shin_Resume.pdf">Download Resume</a>
-        </div>
-        </div>
-    </div>
-    </section>
-
-    <!-- Contact/Footer -->
-    <footer style="background: var(--primary-navy); color: white; padding: 3rem 0;">
-        <div class="container">
-            <div class="grid grid-3" style="gap: 3rem;">
-                <div>
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div style="font-size: 2rem;">🐼</div>
-                        <h4 style="color: white;">Min Shin</h4>
-                    </div>
-                    <p style="color: rgba(255,255,255,0.8);">
-                        Chemistry Research & Academic Excellence<br>
-                        Transforming challenges into discoveries
-                    </p>
-                </div>
-                
-                <div class="footer-contact">
-                    <h4>Get In Touch</h4>
-                    <a href="mailto:minshin362@gmail.com" class="email-button" aria-label="Contact via Emai">
-                      <span>📧 Email Me</span>
-                    </a>
-                    <p>📍 Honolulu, Hawaii</p>
-                </div>
-                
-                <div>
-                    <h4 style="color: white; margin-bottom: 1rem;">Quick Links</h4>
-                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                        <a href="#about" style="color: rgba(255,255,255,0.8); text-decoration: none;">About Me</a>
-                        <a href="#chemlab" style="color: rgba(255,255,255,0.8); text-decoration: none;">Research Portfolio</a>
-                        <a href="#community" style="color: rgba(255,255,255,0.8); text-decoration: none;">Community Impact</a>
-                        <a href="/resume.pdf" style="color: rgba(255,255,255,0.8); text-decoration: none;" target="_blank">Download Resume</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="border-top: 1px solid rgba(255,255,255,0.2); margin-top: 2rem; padding-top: 2rem; text-align: center; color: rgba(255,255,255,0.6);">
-                <p>&copy; 2025 Min Shin - Panda Min's ChemLab. Built with curiosity and dedication.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Video Modal -->
-    <div id="videoModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; align-items: center; justify-content: center;">
-        <div style="background: white; padding: 2rem; border-radius: 16px; max-width: 600px; width: 90%;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                <h3>My Story (Coming Soon)</h3>
-                <button onclick="closeVideoModal()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
-            </div>
-            <div style="aspect-ratio: 16/9; background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal)); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; margin-bottom: 1rem;">
-                <div style="text-align: center;">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎬</div>
-                    <p>Video coming soon with AI animation!</p>
-                    <p style="font-size: 0.9rem; opacity: 0.8;">Featuring Min Shin's academic and research journey</p>
-                </div>
-            </div>
-            <p style="text-align: center; color: var(--neutral-gray);">
-                This video will showcase my personal journey through animated storytelling, 
-                combining real footage with animated storytelling elements.
-            </p>
-        </div>
-    </div>
-
-    <!-- JavaScript -->
-    <script src="script.js"></script>
-</body>
-</html>
+/* ===== Gallery header: unified with research detail pages ===== */
+.gallery-header-banner{
+    background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
+    color:#fff;
+    padding: 4rem 0 8rem 0;  /* 하단 여백으로 Hero 아래 여유 공간 확보 */
+    margin-top:80px;
+    position:relative;
+    overflow:hidden;
+    text-align:center;
+}
+.gallery-header-banner h1{
+    color:#fff; -webkit-text-fill-color:#fff; margin:0 0 .5rem;
+}
+.gallery-header-banner p{
+    color: rgba(255,255,255,0.9);
+    font-size: 1.2rem;
+    margin:0;
+}
+/* fixed back button (optional) */
+.back-to-portfolio{
+    position:fixed;
+    top:100px; left:20px;
+    background:#fff;
+    border-radius:50%;
+    width:60px; height:60px;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow: var(--shadow-lg);
+    text-decoration:none;
+    color: var(--primary-navy);
+    font-size:1.5rem;
+    z-index:100;
+    transition: var(--transition-normal);
+}
+.back-to-portfolio:hover{ transform: translateY(-2px); }
+/* mobile: 조금 더 컴팩트 */
+@media (max-width:980px){
+.gallery-header-banner{ padding: 3rem 0 5rem; }
+.back-to-portfolio{ top:84px; left:12px; width:52px; height:52px; font-size:1.3rem; }
+}
