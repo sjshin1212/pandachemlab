@@ -185,6 +185,15 @@ section {
   background: var(--light-gray);
 }
 
+.section-alt p {
+  text-align: center;
+  margin: 0 auto;            /* 완전 중앙 정렬 */
+  max-width: 70ch;           /* 본문 폭 제한 유지 */
+  line-height: 1.6;          /* 가독성 향상 */
+  color: var(--neutral-gray);
+  margin-bottom: var(--spacing-md)
+}
+
 .section-community {
   padding: 48px 0;
 }
