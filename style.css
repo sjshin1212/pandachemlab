@@ -533,7 +533,7 @@ nav {
   box-shadow: var(--shadow-lg);
   position:relative;
   background:#eaf2f8;
-  aspect-ratio: 4.5 / 5;
+  aspect-ratio: 4 / 5;
 }
 .community-photo img{
   position:absolute; inset:0;
