@@ -7,6 +7,12 @@
   <meta name="description" content="Balancing toughness and crystallinity in PLA-PHB blends; practical composition/processing heuristics."/>
   <link rel="stylesheet" href="style.css"/>
   <link rel="canonical" href="https://engineershin.com/independent_research_detail.html"/>
+  <style>
+  /* Hero Stats Overrides */
+  .hero-stats-grid {
+      grid-template-columns: repeat(4, minmax(180px,1fr));
+  }
+  </style>
 </head>
 <body>
   <nav id="navbar">
@@ -21,13 +27,26 @@
     <div class="container text-center">
       <h1 style="color:#fff;margin-bottom:.5rem">PLA-PHB Biodegradable Polymer Design</h1>
       <h2 style="color:rgba(255,255,255,.9);font-size:1.1rem;font-weight:500">
-        Composition/processing heuristics to balance crystallinity, toughness, and degradability
+        Balancing crystallinity and toughness via composition/processing heuristics
       </h2>
       <div class="hero-stats-grid" style="margin-top:1.5rem">
-        <div class="stat-item"><span class="stat-number">PLA · PHB</span><div class="stat-label">Blend system</div></div>
-        <div class="stat-item"><span class="stat-number">Property maps</span><div class="stat-label">Crystallinity vs. toughness</div></div>
-        <div class="stat-item"><span class="stat-number">Guidelines</span><div class="stat-label">Processing & comp.</div></div>
-        <div class="stat-item"><span class="stat-number">Whitepaper</span><div class="stat-label">Summary (PDF)</div></div>
+        <div class="stat-item">
+          <span class="stat-number">Biodegradable</span>
+          <span class="stat-number">Plastics</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">Mechanical </span>
+          <span class="stat-number">Thermal</span>
+          <span class="stat-number">Enhancement</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">Copolymerization</span>
+          <span class="stat-number">(PLA-PHB)</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">Natural Fiber</span>
+          <span class="stat-number">Composites</span>
+        </div>
       </div>
     </div>
   </section>
@@ -37,23 +56,22 @@
       <div class="prose">
         <h2 style="color:var(--primary-navy)">Background</h2>
         <p>
-          PLA-PHB blends offer biodegradability with tunable mechanics. However, increased crystallinity
-          often trades off with toughness and processing ease. We synthesize literature insights to
-          provide practical design heuristics for target applications.
+          Biodegradable plastics are designed to break down more easily than traditional plastics, which can persist in the environment for hundreds of years. However, many biodegradable plastics struggle with lower mechanical strength and thermal stability compared to conventional plastics like polyethylene (PE) or PET. Their properties depend on factors such as polymer crystallinity and molecular structure, which affect both durability and degradability. Researchers have explored techniques like chemical additives, natural fiber reinforcement, and copolymerization (e.g., PLA-PHB blends) to improve mechanical and thermal performance while maintaining biodegradability
         </p>
 
         <h2 style="color:var(--primary-navy)">Approach</h2>
         <ul>
-          <li>Literature mining and normalization of reported properties across compositions.</li>
-          <li>Simple mapping of crystallinity vs. tensile metrics with processing notes.</li>
-          <li>Heuristic recommendations for application-oriented targets.</li>
+          <li>Literature mining & normalization of reported properties across compositions</li>
+          <li>Simple mapping of crystallinity vs. tensile metrics with processing notes</li>
+          <li>Heuristic recommendations for application-oriented targets</li>
         </ul>
 
         <h2 style="color:var(--primary-navy)">Key Takeaways</h2>
         <ul>
-          <li>Moderate PHB fraction improves crystallinity while maintaining workable toughness ranges.</li>
-          <li>Nucleation/annealing protocols materially shift property windows; processing discipline matters.</li>
-          <li>Provide shortlists of blend windows for packaging vs. durable biodegradable goods.</li>
+          <li>Moderate PHB fraction improves crystallinity while maintaining workable toughness ranges</li>
+          <li>Presence of bulky groups on PLA improves thermal properties of polymer (significant increase in glass transition temperature)</li>
+          <li>Nucleation/annealing protocols shift property windows → processing discipline matters</li>
+          <li>Shortlists of blend windows for packaging vs. durable biodegradable goods</li>
         </ul>
 
         <h2 style="color:var(--primary-navy)">Docs</h2>
@@ -65,9 +83,9 @@
 
       <div>
         <figure class="research-image">
-          <img src="images/pla_phb_map.png" loading="lazy" alt="Property mapping for PLA-PHB blends" style="border-radius:12px;max-width:100%"/>
+          <img src="images/lactic acid.png" loading="lazy" alt="Property mapping for PLA-PHB blends" style="border-radius:12px;max-width:100%"/>
           <figcaption style="color:var(--neutral-gray);font-style:italic;margin-top:.5rem">
-            Example property map: crystallinity vs. tensile performance across blend windows.
+            Effects of substituent groups on lactic acid monomers on the glass transition temperature (Tg) of the corresponding PLA polymer chain
           </figcaption>
         </figure>
       </div>
