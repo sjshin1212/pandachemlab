@@ -511,7 +511,7 @@ style.textContent =
         }
         
         .nav-menu.mobile-active {
-            display: flex;
+            display: flex !important;
         }
         
         .nav-menu.mobile-active .nav-link {
