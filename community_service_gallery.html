@@ -51,6 +51,11 @@
     .section-photos-mobile .row { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
     .section-photos-mobile img{ width:100%; height:180px; object-fit:cover; border-radius:12px; box-shadow:var(--shadow-sm); }
 
+    /* Mobile-first interleaved photos (hidden on desktop) */
+    .section-photos-mobile-H{ display:none; margin:.75rem 0 1.25rem; }
+    .section-photos-mobile-H .row { display:grid; grid-template-columns:1fr; gap:8px; }
+    .section-photos-mobile-H img{ width:100%; height:180px; object-fit:cover; border-radius:12px; box-shadow:var(--shadow-sm); }
+
     /* YouTube container */
     .video-16x9 { aspect-ratio:16/9; width:100%; border-radius:12px; box-shadow:var(--shadow-lg); overflow:hidden; }
 
@@ -59,6 +64,7 @@
       .stem-wrap{ grid-template-columns:1fr; }
       .gallery-grid-desktop{ display:none; }    /* hide big wall */
       .section-photos-mobile{ display:block; } /* show per-section photos */
+      .section-photos-mobile-H{ display:block; } /* show per-section photos */
     }
   </style>
 </head>
@@ -96,10 +102,12 @@
                 <li class="mb-2">Advised representative on environmental issues using scientific knowledge</li>
                 <li class="mb-2">Conducted discussions on socioeconomic and environmental community issues</li>
             </ul>
-          <div class="section-photos-mobile">
+          <div class="section-photos-mobile-H">
             <div class="row">
               <img src="gallery3/A6.jpg" alt="">
             </div>
+        </div>
+        <div class="section-photos-mobile">
             <div class="row">
               <img src="gallery3/A4.jpg" alt="">
               <img src="gallery3/A5.jpg" alt="">
