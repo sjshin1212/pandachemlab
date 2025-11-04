@@ -535,6 +535,17 @@ nav {
   background:#eaf2f8;
   aspect-ratio: 4 / 5;
 }
+
+.community-photo-32{
+  margin:0;
+  border-radius:20px;
+  overflow:hidden;
+  border:1px solid rgba(30,58,138,0.10);
+  box-shadow: var(--shadow-lg);
+  position:relative;
+  background:#eaf2f8;
+  aspect-ratio: 3 / 2;
+}
 .community-photo img{
   position:absolute; inset:0;
   width:100%; height:100%;
