@@ -539,6 +539,13 @@ nav {
   aspect-ratio: 4 / 5;
 }
 
+.community-photo img{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  transform: translateZ(0);
+}
+
 .community-photo-43{
   margin:0;
   border-radius:20px;
@@ -549,12 +556,14 @@ nav {
   background:#eaf2f8;
   aspect-ratio: 3 / 2;
 }
-.community-photo img{
+
+.community-photo-43 img{
   position:absolute; inset:0;
   width:100%; height:100%;
   object-fit:cover;
   transform: translateZ(0);
 }
+
 
 .area-stem .community-card{
   height:auto;
