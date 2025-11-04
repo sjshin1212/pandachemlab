@@ -1,271 +1,928 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>STEM Leadership — Gallery & Details</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    
-    /* ===== Two-column layout (desktop) ===== */
-    .stem-wrap {
-      display:grid; gap:2rem; align-items:start;
-      grid-template-columns: 1fr 1fr; /* left text / right gallery */
-      margin-top:0; /* overlap a bit into the hero for depth */
-    }
+/* Panda Min's ChemLab - Professional Portfolio */
+/* Brand Colors: Navy Blue (#1e3a8a), Teal (#0891b2), Coral (#f97316), Gray (#64748b) */
 
-    /* Left column: stacked cards (uses site card typography) */
-    .stem-text .card { margin-bottom:1rem; }
-    .stem-text .card h3 { margin:0 0 .5rem; color:var(--primary-navy); }
-    .stem-text .card p  { font-size:1.1rem; line-height:1.7; color:var(--neutral-gray); }
-    .stem-text .badge { display:inline-block; padding:.2rem .6rem; border-radius:999px;
-      background:rgba(16,185,129,.1); color:#0f766e; font-weight:600; font-size:.85rem; margin-right:.35rem; }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght+400;500&display=swap');
 
-    /* Right column: desktop photo wall (grid-areas matches existing gallery) */
-    .gallery-grid-desktop{
-      display:grid ; gap:10px; grid-auto-rows:200px;
-      grid-template-columns:repeat(4,1fr);
-      grid-template-areas:
-        "A20 A20 A20 A20"
-        "A20 A20 A20 A20"
-        "A3 A3 A7 A7"
-        "A3 A3 A16 A16"
-        "A15 A15 A14 A14"
-        "A15 A15 A23 A23"
-        "A22 A22 A22 A22"
-        "A22 A22 A22 A22"
-        "A21 A21 A21 A21"
-        "A21 A21 A21 A21"
-        "A2 A2 A2 A2"
-        "A2 A2 A2 A2"
-        "A19 A19 A12 A12"
-        "A19 A19 A10 A10"
-        "A13 A13 A13 A13"
-        "A13 A13 A13 A13";
-      border-radius:20px; overflow:hidden;
-      min-height: 420px;
-    }
-    .gallery-grid-desktop .tile { width:100%; height:100%; position:relative; overflow:hidden; border-radius:12px; box-shadow:var(--shadow-sm);background: #eaf2f8 }
-    .gallery-grid-desktop .tile img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* 절대 포지션 없이도 꽉 차게 */
-    }
+/* =========================================================
+   1. Root Variables & Global Reset
+   ========================================================= */
+:root {
+  /* Brand Colors */
+  --primary-navy: #1e3a8a;
+  --primary-teal: #0891b2;
+  --accent-coral: #f97316;
+  --neutral-gray: #64748b;
+  --pure-white: #ffffff;
+  --light-gray: #f8fafc;
+  --dark-gray: #334155;
+
+  /* Typography */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 3rem;
+  --spacing-xl: 4rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  /* Transitions */
+  --transition-fast: all 0.15s ease;
+  --transition-normal: all 0.3s ease;
+  --transition-slow: all 0.5s ease;
+
+  /* Header height */
+  --header-h: 64px; 
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  color: var(--dark-gray);
+  background-color: var(--pure-white);
+  overflow-x: hidden;
+}
+
+/* Benzene Ring Background Pattern */
+.benzene-bg {
+  position: relative;
+  /*  pointer-events: none; */
+  z-index: 0;
+}
+
+.benzene-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(30, 58, 138, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(8, 145, 178, 0.03) 0%, transparent 50%);
+  background-size: 200px 200px, 300px 300px;
+  background-position: 0 0, 100px 100px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* =========================================================
+   2. Typography (h1, h2, h3, h4, p, .lead-text)
+   ========================================================= */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: var(--spacing-sm);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-teal) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--primary-navy);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--primary-teal);
+}
+
+h4 {
+  font-size: 1.25rem;
+  color: var(--dark-gray);
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: var(--spacing-sm);
+  color: var(--neutral-gray);
+}
+
+.lead-text {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--primary-navy);
+}
+
+.hero-subtitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #0c4a6e;
+  background: rgba(14,165,233,0.08);
+  border: 1px solid rgba(14,165,233,0.2);
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+/* =========================================================
+   3. Layout & Structure (.container, .grid, section)
+   ========================================================= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.grid {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+section {
+  padding: var(--spacing-xl) 0;
+}
+
+.section-hero {
+  padding: 112px 0 20px;
+  min-height: clamp(520px, 62vh, 720px);
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  position: relative;
+}
+
+.section-alt {
+  background: var(--light-gray);
+}
+
+.section-alt p {
+  text-align: center;
+  margin: 0 auto;            /* 완전 중앙 정렬 */
+  max-width: 70ch;           /* 본문 폭 제한 유지 */
+  line-height: 1.6;          /* 가독성 향상 */
+  color: var(--neutral-gray);
+  margin-bottom: var(--spacing-md)
+}
+
+.section-community {
+  padding: 48px 0;
+}
+
+/* Responsive Layout Overrides */
+/* @media (max-width: 768px) */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Hero Section Layout */
+.section-hero .grid.grid-2 {
+  grid-template-columns: minmax(440px, 660px) 1fr;
+}
+
+.hero-left h1 { max-width: 16ch; }
+.hero-left .lead-text { max-width: 60ch; }
+
+@media (max-width: 980px){
+  .section-hero .grid.grid-2 { grid-template-columns: 1fr; }
+  .hero-left h1 { max-width: 20ch; }
+  .hero-left .lead-text { max-width: 65ch; }
+}
+@media (max-width: 560px){
+  .hero-left h1 { max-width: 22ch; }
+  .hero-left .lead-text { max-width: 100%; }
+}
+
+/* =========================================================
+   4. Navigation (nav)
+   ========================================================= */
+nav {
+  position: relative;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(30, 58, 138, 0.1);
+  z-index: 1000;
+  transition: var(--transition-normal);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-sm) var(--spacing-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--primary-navy);
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: var(--spacing-md);
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--dark-gray);
+  font-weight: 500;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 8px;
+  transition: var(--transition-fast);
+  position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary-navy);
+  background: rgba(30, 58, 138, 0.05);
+}
+
+/* Mobile Menu */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--primary-navy);
+  cursor: pointer;
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+}
+
+/* =========================================================
+   5. Buttons (.btn)
+   ========================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: none;
+  border-radius: 12px;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--primary-navy);
+  border: 2px solid var(--primary-navy);
+}
+
+.btn-secondary:hover {
+  background: var(--primary-navy);
+  color: white;
+}
+
+.btn-accent {
+  background: var(--accent-coral);
+  color: white;
+}
+
+.btn-accent:hover {
+  background: #ea580c;
+  transform: translateY(-1px);
+}
+
+.email-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.12);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background 0.25s ease;
+}
+
+.email-button:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* Hero Buttons */
+.hero-buttons-container {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.hero-buttons-container .btn {
+  width: auto;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px){
+  .hero-buttons-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   6. Cards (General, Research, Community)
+   ========================================================= */
+/* General Card */
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+  border: 1px solid rgba(30, 58, 138, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, var(--primary-teal), var(--accent-coral));
+  color: white;
+}
+
+/* Research Project Cards */
+.research-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition-normal);
+  border: 1px solid rgba(30, 58, 138, 0.1);
+}
+
+.research-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.research-header {
+  background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
+  color: white;
+  padding: var(--spacing-md);
+  text-align: center;
+}
+
+.research-body {
+  padding: var(--spacing-md);
+}
+
+.research-status {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: rgba(249, 115, 22, 0.1);
+  color: var(--accent-coral);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Community Cards */
+.community-grid-areas{
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "stem  photo"
+    "serv  music";
+}
+.area-stem   { grid-area: stem; }
+.area-photo  { grid-area: photo; }
+.area-service{ grid-area: serv; }
+.area-music  { grid-area: music; }
+
+.community-card{
+  background:#fff;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow: var(--shadow-lg);
+  border:1px solid rgba(30,58,138,0.10);
+  padding: var(--spacing-md);
+  display:flex; flex-direction:column;
+}
+
+.community-card .research-header{
+  background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
+  color:#fff;
+  text-align:center;
+  padding: var(--spacing-md);
+  margin: calc(-1 * var(--spacing-md)) calc(-1 * var(--spacing-md)) var(--spacing-sm);
+  border-top-left-radius:20px;
+  border-top-right-radius:20px;
+}
+.community-card .research-header h3{
+  margin:0;
+  font-weight:800;
+}
+
+.community-card .card-body p{
+  font-size:1.1rem;
+  line-height:1.7;
+  margin-bottom: var(--spacing-sm);
+  color: var(--neutral-gray);
+}
+.community-card .card-body p strong{
+  color: var(--primary-navy);
+  font-weight:600;
+}
+
+.community-card .card-footer{
+  margin-top:auto; padding-top:12px;
+  display:flex; justify-content:flex-end;
+}
+
+.community-photo{
+  margin:0;
+  border-radius:20px;
+  overflow:hidden;
+  border:1px solid rgba(30,58,138,0.10);
+  box-shadow: var(--shadow-lg);
+  position:relative;
+  background:#eaf2f8;
+  aspect-ratio: 4 / 5;
+}
+
+.community-photo img{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  transform: translateZ(0);
+}
+
+.community-photo-43{
+  margin:0;
+  border-radius:20px;
+  overflow:hidden;
+  border:1px solid rgba(30,58,138,0.10);
+  box-shadow: var(--shadow-lg);
+  position:relative;
+  background:#eaf2f8;
+  aspect-ratio: 4 / 3;
+}
+
+.community-photo-43 img{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  transform: translateZ(0);
+}
 
 
+.area-stem .community-card{
+  height:auto;
+  min-height: clamp(440px, 55vw, 560px);
+}
 
-    /* map areas */
-    .A20{grid-area:A20}.A3{grid-area:A3}.A7{grid-area:A7}.A16{grid-area:A16}.A15{grid-area:A15}
-    .A14{grid-area:A14}.A23{grid-area:A23}.A22{grid-area:A22}.A21{grid-area:A21}.A2{grid-area:A2}.A19{grid-area:A19}
-    .A12{grid-area:A12}.A10{grid-area:A10}.A13{grid-area:A13}
+/* Community Responsive */
+@media (max-width: 980px){
+  .community-grid-areas{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "stem"
+      "photo"
+      "serv"
+      "music";
+  }
+  .area-stem .community-card{ min-height:auto; }
+  .community-photo{ aspect-ratio: 2 / 3; }
+}
 
-    /* Mobile-first interleaved photos (hidden on desktop) */
-    .section-photos-mobile{ display:none; margin:.75rem 0 1.25rem; }
-    .section-photos-mobile .row { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
-    .section-photos-mobile img{ width:100%; height:180px; object-fit:cover; border-radius:12px; box-shadow:var(--shadow-sm); }
+/* =========================================================
+   7. Stats (.stat-item, Hero Stats)
+   ========================================================= */
+.stat-item {
+  text-align: center;
+  padding: var(--spacing-md);
+  background: white;
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  border: 2px solid transparent;
+  transition: var(--transition-normal);
+}
 
-    /* Mobile-first interleaved photos (hidden on desktop) */
-    .section-photos-mobile-H{ display:none; margin:.75rem 0 1.25rem; }
-    .section-photos-mobile-H .row { display:grid; grid-template-columns:1fr; gap:8px; }
-    .section-photos-mobile-H img{ width:100%; height:180px; object-fit:cover; border-radius:12px; box-shadow:var(--shadow-sm); }
+.stat-item:hover {
+  border-color: var(--primary-teal);
+  transform: translateY(-2px);
+}
 
-    /* YouTube container */
-    .video-16x9 { aspect-ratio:16/9; width:100%; border-radius:12px; box-shadow:var(--shadow-lg); overflow:hidden; }
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+}
 
-    /* ===== Responsive ===== */
-    @media (max-width: 980px){
-      .stem-wrap{ grid-template-columns:1fr; }
-      .gallery-grid-desktop{ display:none; }    /* hide big wall */
-      .section-photos-mobile{ display:block; } /* show per-section photos */
-    }
-  </style>
-</head>
-<body>
+.stat-label {
+  color: var(--neutral-gray);
+  font-weight: 500;
+  margin-top: var(--spacing-xs);
+}
 
-  <!-- Nav (site shared) -->
-  <nav id="navbar">
-    <div class="nav-container">
-      <a href="index.html" class="logo"><div class="logo-icon">🐼</div><span>Min's ChemLab</span></a>
-    </div>
-  </nav>
+/* Hero Stats Overrides */
+.hero-stats-grid {
+    display: grid;
+    gap: 14px;
+    margin-top: 24px;
+    grid-template-columns: repeat(3, minmax(180px,1fr));
+    position: relative;
+    z-index: 1;
+}
 
-   <!-- Back button (선택) -->
-   <a class="back-to-portfolio" href="index.html#community" aria-label="Back to Community">←</a>
+.hero-stats-grid .stat-item {
+  background: rgba(255,255,255,0.78);
+  backdrop-filter: saturate(120%) blur(2px);
+  border: 1px solid #e6ebf1;
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.04);
+}
+.hero-stats-grid .stat-number {
+  display:block; font-weight: 700; color: var(--primary-navy);
+}
+.hero-stats-grid .stat-label  {
+  color: var(--neutral-gray); font-size: .9rem; margin-bottom: 6px;
+}
 
-   <!-- Unified gallery header -->
-   <section class="gallery-header-banner">
-        <div class="container">
-            <h1>STEM Leadership</h1>
-            <p>4-STEM Club Captain, 1-Club Founder, and Tournament Organizer</p>
-        </div>
-   </section>
+/* Hero Stats Responsive */
+@media (max-width: 980px){
+  .hero-stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px){
+  .hero-stats-grid { grid-template-columns: 1fr; }
+}
 
-   <section class="benzene-bg" style="padding:3rem 0;">
-    <div class="container stem-wrap">
+/* =========================================================
+   9. Hero Background (.hero-with-bg)
+   ========================================================= */
+.hero-with-bg {
+  position: relative;
+  overflow: hidden;
+  background: #f6f8fc;
+}
 
-      <!-- LEFT: Text stack -->
-      <div class="stem-text">
-        <!-- SciOly -->
-        <article class="card">
-          <h3>Science Olympiad</h3>
-            <ul>
-                <li class="mb-2">Team Co-Captain leading historic achievements: 9th place at MIT Invitational and 12th place at 2025 National Tournament (first time in 'Iolani history)</li>
-                <li class="mb-2">Compete in Chemistry Lab and Materials Science events at 10+ national invitationals/tournaments</li>
-                <li class="mb-2">Organize optional practices, team bonding activities, and quality control systems (test logs, early preparation strategies)</li>
-                <li class="mb-2">Foster supportive environment through collaboration and motivation from local to national competitions</li>
-            </ul>
-            <h4>Tournament Official Activities</h4>
-            <ul>
-                <li class="mb-2">Co-writer of Chemistry Lab and Materials Science tests for Mason Science Olympiad Invitational (100+ participating schools)</li>
-            </ul>
-            <h4>Team Awards</h4>
-            <ul>
-                <li class="mb-2">Top 12 in 2025 National Tournament</li>
-                <li class="mb-2">Top 9 in MIT Invitational 2025</li>
-                <li class="mb-2">Top 2 in Jordan Invitational Tournament 2025</li>
-                <li class="mb-2">Top 10 in 2024 Highlands Invitational</li>
-                <li class="mb-2">Top 15 in 2024 National Tournament</li>
-            </ul>
-            <h4>Individual Awards(Major 5)</h4>
-            <ul>
-                <li class="mb-2">10th Place in Materials Science, 2025 National</li>
-                <li class="mb-2">14th Place in Chemistry Lab, 2025 National</li>
-                <li class="mb-2">18th Place in Chemistry Lab, MIT Invitational 20255</li>
-                <li class="mb-2">18th Place in Materials Science, MIT Invitational 2025</li>
-                <li class="mb-2">1st Place in Chemistry Lab, State Tournament 2025</li>
-            </ul>
-          <div class="section-photos-mobile-H">
-            <div class="row">
-              <img src="gallery3/A21.jpg" alt="SciOly medals photo">
-            </div>
-            <div class="row">
-              <img src="gallery3/A22.jpg-H" alt="SciOly team group 2">
-            </div>
-          </div>
-          <div class="section-photos-mobile">
-            <div class="row">
-              <img src="gallery3/A3.jpg" alt="SciOly team group 1">
-              <img src="gallery3/A15.jpg" alt="Chem Lab event">
-            </div>
-          </div>
-        </article>
+.hero-with-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right,
+      #f6f8fc 0%,
+      rgba(246,248,252,0.95) 28%,
+      rgba(246,248,252,0.75) 45%,
+      rgba(246,248,252,0.35) 62%,
+      rgba(246,248,252,0.00) 78%),
+    url("images/Title_background.png");
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, min(54vw, 760px) auto;
+  background-position: center, right 18% center;
+  z-index: 0;
+}
 
-        <!-- Science Bowl -->
-        <article class="card">
-          <h3>Science Bowl</h3>
-            <ul>
-                <li class="mb-2">Team Co-Captain leading weekly meetings with packets and buzzer setup</li>
-                <li class="mb-2">Introduce essential preparation strategies including specialization and preparation logs</li>
-                <li class="mb-2">Foster nationwide STEM community through social media, competition moderation, and resource sharing</li>
-                <li class="mb-2">Organized first 'Iolani Science Bowl Invitational for Oahu students; planning team's first UC Berkeley trip</li>
-                <li class="mb-2">Achieved top 12 nationwide in 2025 National Tournament (first in 'Iolani history), earning $1000 for science department</li>
-            </ul>
-            <h4>Tournament Official Activities</h4>
-            <ul>
-                <li class="mb-2">Co-Director of 'Iolani Science Bowl Invitational</li>
-                <li class="mb-2">Writer of 100+ chemistry questions for Amador Valley Science Bowl Invitational</li>
-                <li class="mb-2">Co-writer of chemistry questions for Yale Science Bowl Invitational</li>
-                <li class="mb-2">Moderator for virtual tournament rounds</li>
-            </ul>
-            <h4>Team Awards</h4>
-            <ul>
-                <li class="mb-2">Top 12, 2025 National Science Bowl</li>
-                <li class="mb-2">Top 6, 2025 Niskayuna Winter Invitational</li>
-                <li class="mb-2">Top 8, 2025 Clements Invitational</li>
-                <li class="mb-2">Top 8, 2025 Thomas Jefferson Invitational</li>
-                <li class="mb-2">Top 12, 2025 Blair-Amador Invitational</li>         
-            </ul>
-          <div class="section-photos-mobile-H">
-            <div class="row">
-              <img src="gallery3/A2.jpg"  alt="NSB monument team">
-            </div>  
-            <div class="row">
-              <img src="gallery3/A13.jpg"  alt="NSB team orange shirts">
-            </div>
-            <div class="row">
-              <img src="gallery3/A10.jpg"  alt="Practice / tutoring">
-             </div>
-          </div>
-        </article>
+.hero-with-bg > .container { position: relative; z-index: 1; }
+.hero-with-bg .hero-stats-grid { position: relative; z-index: 1; }
 
-        <!-- Math Team -->
-        <article class="card">
-          <h3>Math Team</h3>
-          <ul>
-                <li class="mb-2">Team Co-Captain and Varsity Member with 20+ state competitions over three years</li>
-                <li class="mb-2">Earned multiple perfect score honors and lead team to consistent perfect or nearly perfect scores</li>
-                <li class="mb-2">Co-write competitive, high-quality tryout problems to maintain team's competitive edge</li>
-          </ul>
-          <h4>Team/Individual Awards</h4>
-          <ul>
-                <li class="mb-2">1st Place, Oahu Math Competition (State) - 2023, 2024, 2025</li>
-                <li class="mb-2">7th Place, Artelab Math Team Competition (National) 2023</li>
-                <li class="mb-2">10th Place, Artelab Math Team Competition (National) 2022</li>
-                <li class="mb-2">5x Perfect Score Honor, Oahu Math Competition (State) 2023-2025</li>
-                <li class="mb-2">Distinction Roll, AMC (National) 2023</li>
-                <li class="mb-2">Qualified Member, AIME (National) 2023</li>         
-           </ul>
-          <div class="video-16x9">
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/iCKV4A-SW4A"
-              title="Math Team Championship" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          </div>
-        </article>
+/* Hero Background Responsive */
+@media (max-width: 1280px) {
+  .hero-with-bg::before {
+    background-size: cover, 88vw auto;
+    background-position: center, right 14% top 28%;
+  }
+}
+@media (max-width: 980px) {
+  .hero-with-bg { padding-top: 2.5rem; }
+  .hero-with-bg::before {
+    background-image:
+      linear-gradient(to bottom,
+        #f6f8fc 0%,
+        rgba(246,248,252,0.95) 35%,
+        rgba(246,248,252,0.00) 70%),
+      url("images/Title_background.png");
+    background-size: cover, 105vw auto;
+    background-position: top center, center top 18%;
+  }
+}
 
-        <!-- Chemistry Club -->
-        <article class="card">
-          <h3>Chemistry Club</h3>
-          <ul>
-                <li class="mb-2">Founder of Chemistry Club at 'Iolani High School</li>
-                <li class="mb-2">Provide diverse learning opportunities through after-school laboratory sessions featuring advanced experiments</li>
-                <li class="mb-2">Host tutoring sessions for sophomores and USNCO training sessions with sample problems</li>
-                <li class="mb-2">Foster chemistry interest in school community through hands-on learning experiences</li>
-          </ul>
-          <h4>Awards</h4>
-          <ul>
-                <li class="mb-2">National Chemistry Olympiad Qualifier (2024, 2025)</li>
-                <li class="mb-2">USNCO Honors Top 150 Nationwide (2025)</li>
-                <li class="mb-2">USNCO Local High Scorer (2025)</li>    
-           </ul> 
-        </article>
+/* =========================================================
+   10. Utility & Animations
+   ========================================================= */
+/* Utility Classes */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
 
-        <!--div class="hero-buttons-container mt-1" style="justify-content:flex-end;">
-          <a class="btn btn-secondary" href="index.html#community">← Back</a>
-        </div-->
-      </div>
+.mb-1 { margin-bottom: var(--spacing-xs); }
+.mb-2 { margin-bottom: var(--spacing-sm); }
+.mb-3 { margin-bottom: var(--spacing-md); }
+.mb-4 { margin-bottom: var(--spacing-lg); }
 
-      <!-- RIGHT: Desktop photo wall (hidden on mobile) -->
-      <aside class="gallery-grid-desktop">
-        <div class="tile A20"><img src="gallery3/A20.jpg" alt="Team group 1"></div>
-        <div class="tile A3"><img src="gallery3/A3.jpg"  alt=""></div>
-        <div class="tile A7"><img src="gallery3/A7.jpg"  alt="Tutoring"></div>
-        <div class="tile A16"><img src="gallery3/A16.jpg" alt="Chem Lab event"></div>
-        <div class="tile A15"><img src="gallery3/A15.jpg" alt="Competition scene"></div>
-        <div class="tile A14"><img src="gallery3/A14.jpg" alt="Performance / event"></div>
-        <div class="tile A23"><img src="gallery3/A23.jpg" alt="Holiday activity"></div>
-        <div class="tile A22"><img src="gallery3/A22.jpg" alt="Team group 2"></div>    
-        <div class="tile A21"><img src="gallery3/A21.jpg" alt="Team group 2"></div>    
-        <div class="tile A2"><img  src="gallery3/A2.jpg"  alt="Internship meeting"></div>
-        <div class="tile A19"><img src="gallery3/A19.jpg" alt="Team huddle"></div>
-        <div class="tile A12"><img src="gallery3/A12.jpg" alt=""></div>
-        <div class="tile A10"><img src="gallery3/A10.jpg" alt=""></div>
-        <div class="tile A13"><img src="gallery3/A13.jpg" alt=""></div>
-      </aside>
+.mt-1 { margin-top: var(--spacing-xs); }
+.mt-2 { margin-top: var(--spacing-sm); }
+.mt-3 { margin-top: var(--spacing-md); }
+.mt-4 { margin-top: var(--spacing-lg); }
 
-    </div>
-  </section>
+.hidden { display: none; }
+.visible { display: block; }
 
-  <footer style="background: var(--primary-navy); color: white; padding: 3rem 0;">
-        <div class="container">
-            <div class="text-center" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
-                <div style="margin-top: 2rem;">
-                    <a href="index.html#community" class="btn btn-secondary">← Back to Community</a>
-                </div>
-            </div>
-        </div>
-  </footer>
 
-  <script src="script.js"></script>
-</body>
-</html>
+/* =========================================================
+   12. Media Queries (Global/Prefers) & Print Styles
+   ========================================================= */
 
+/* Motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .acc-panel, .acc-indicator { transition: none; }
+}
+
+/* Print Styles */
+@media print {
+  nav, .btn, .mobile-menu-btn {
+    display: none !important;
+  }
+
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+}
+
+/* =========================================================
+   13. Gallery Page Styles
+   ========================================================= */
+
+/* ===== Gallery header: unified with research detail pages ===== */
+.gallery-header-banner{
+    background: linear-gradient(135deg, var(--primary-navy), var(--primary-teal));
+    color:#fff;
+    padding: 4rem 0 8rem 0;  /* 하단 여백으로 Hero 아래 여유 공간 확보 */
+    margin-top:80px;
+    position:relative;
+    overflow:hidden;
+    text-align:center;
+}
+.gallery-header-banner h1{
+    color:#fff; -webkit-text-fill-color:#fff; margin:0 0 .5rem;
+}
+.gallery-header-banner p{
+    color: rgba(255,255,255,0.9);
+    font-size: 1.2rem;
+    margin:0;
+}
+/* fixed back button (optional) */
+.back-to-portfolio{
+    position:fixed;
+    top:100px; left:20px;
+    background:#fff;
+    border-radius:50%;
+    width:60px; height:60px;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow: var(--shadow-lg);
+    text-decoration:none;
+    color: var(--primary-navy);
+    font-size:1.5rem;
+    z-index:100;
+    transition: var(--transition-normal);
+}
+.back-to-portfolio:hover{ transform: translateY(-2px); }
+/* mobile: 조금 더 컴팩트 */
+@media (max-width:980px){
+.gallery-header-banner{ padding: 3rem 0 5rem; }
+.back-to-portfolio{ top:84px; left:12px; width:52px; height:52px; font-size:1.3rem; }
+}
+
+/* =========================================================
+   14. Research Page Styles
+   ========================================================= */
+
+/* 배너 컨테이너를 기준 레이어로 */
+.research-header-banner {
+  position: relative;
+  color: #fff;
+}
+
+/* 배너의 장식/광택/무늬는 항상 텍스트 뒤로 */
+.research-header-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* 배경 무늬/효과가 있다면 여기에 유지 */
+  pointer-events: none;
+  z-index: 0;            /* ← 텍스트보다 뒤 */
+  /* opacity: 0.15; 등 효과값은 유지하되, z-index는 0으로 */
+}
+
+/* 실제 텍스트 레이어는 앞으로 */
+.research-header-banner .container {
+  position: relative;
+  z-index: 1;            /* ← 텍스트를 위로 */
+}
+
+/* 혹시 전역에 background-clip:text 계열이 살아 있으면 대비 보장 */
+.research-header-banner h1,
+.research-header-banner p {
+  color: #fff;
+  -webkit-text-fill-color: #fff;   /* Safari/WebKit 대비 */
+  opacity: 1;                      /* 상속된 opacity가 있으면 초기화 */
+}
+
+
+/* ===== Research stats (독립 그리드) ===== */
+.research-stats-grid{
+  display:grid;
+  gap:14px;
+  /* 데스크탑 4열, 카드 최소폭 220px 보장 */
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+}
+
+/* 태블릿/모바일: 2열 */
+@media (max-width: 980px){
+  .research-stats-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+
+/* 카드 스타일(히어로 카드와 유사하지만 텍스트는 작게 시작) */
+.research-stats-grid .stat-item{
+  background: rgba(255,255,255,.78);
+  backdrop-filter: saturate(120%) blur(2px);
+  border: 1px solid #e6ebf1;
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.04);
+  display:flex; flex-direction:column; justify-content:center;
+  /* 글자 크기 자동조절을 위한 컨테이너 쿼리 활성화 */
+  container-type: inline-size;
+}
+
+/* 기본 폴백(컨테이너 쿼리 미지원 브라우저) */
+.research-stats-grid .stat-number{
+  display:block;
+  font-weight: 800;
+  color: var(--primary-navy);
+  line-height: 1.1;
+  font-size: 1.25rem; /* 폴백 기본값 */
+}
+
+/* 컨테이너 쿼리: 카드 너비에 따라 유동 폰트 사이즈 */
+@container (min-width: 260px){
+  .research-stats-grid .stat-number{ font-size: clamp(1.1rem, 6cqi, 1.6rem); }
+}
+@container (min-width: 320px){
+  .research-stats-grid .stat-number{ font-size: clamp(1.2rem, 5.5cqi, 1.8rem); }
+}
+@container (min-width: 380px){
+  .research-stats-grid .stat-number{ font-size: clamp(1.25rem, 5cqi, 2rem); }
+}
+
+/* 보조 라벨(선택) */
+.research-stats-grid .stat-label{
+  color: var(--neutral-gray);
+  font-size: .92rem;
+  margin-bottom: 6px;
+}
+
+
+/* =========================================================
+   00. Mobile Menu Styles
+   ========================================================= */
+
+/* 헤더 기준점 확보 + 레이어 우선순위 */
+#navbar { position: sticky; top: 0; z-index: 2000; background: rgba(255,255,255,.98); }
+nav { position: relative; } /* 드롭다운 기준점 */
+
+/* 헤더 높이 변수(기기 따라 조정 가능) */
+:root { --nav-h: 64px; }
+@media (max-width:768px){ :root { --nav-h: 72px; } }
+
+/* 앵커 스크롤 오프셋(헤더에 가리지 않게) */
+html { scroll-padding-top: var(--nav-h); }
+
+/* 히어로/첫 배너 패딩 보정(헤더와 안 겹치게) */
+.section-hero,
+.gallery-header-banner,
+.research-header-banner { padding-top: calc(var(--nav-h) + 24px); }
+
+/* 모바일 메뉴: 기본은 숨김 */
+@media (max-width:768px){
+  .nav-menu { display: none; }
+
+  /* 토글되면 보이기 */
+  .nav-menu.mobile-active{
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,.1);
+    padding: 1rem;
+    border-radius: 0 0 12px 12px;
+    z-index: 2100; /* 배경 오버레이보다 위 */
+  }
+  .nav-menu.mobile-active .nav-link{
+    padding: 1rem;
+    border-bottom: 1px solid rgba(30,58,138,.1);
+  }
+  .nav-menu.mobile-active .nav-link:last-child{ border-bottom: 0; }
+}
+
+/* (중요) 히어로/배너의 장식 오버레이가 클릭 막지 않게 */
+.hero-with-bg::before,
+.research-header-banner::before { pointer-events: none; }
