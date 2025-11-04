@@ -61,11 +61,25 @@ function initNavigation() {
         });
     });
 
+    // 메뉴 항목 클릭 시 자동 닫기
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navMenu.classList.contains('mobile-active')) {
+            navMenu.classList.remove('mobile-active');
+            if (mobileMenuBtn) {
+                mobileMenuBtn.innerHTML = '☰';
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            }
+            }
+        });
+    });
+
     // Mobile menu toggle
     if (mobileMenuBtn) {
         mobileMenuBtn.addEventListener('click', function() {
             navMenu.classList.toggle('mobile-active');
             this.innerHTML = navMenu.classList.contains('mobile-active') ? '✕' : '☰';
+            this.setAttribute('aria-expanded', String(open));
         });
     }
 
@@ -455,77 +469,7 @@ function initPageTransitions() {
 // Initialize page transitions
 initPageTransitions();
 
-// Add custom CSS animations
-const style = document.createElement('style');
-style.textContent = 
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-    
-    @keyframes fadeOut {
-        from { opacity: 1; }
-        to { opacity: 0; }
-    }
-    
-    @keyframes ripple {
-        to {
-            transform: scale(2);
-            opacity: 0;
-        }
-    }
-    
-    @keyframes float {
-        0%, 100% { transform: translateY(0px) rotate(0deg); }
-        25% { transform: translateY(-10px) rotate(90deg); }
-        50% { transform: translateY(-20px) rotate(180deg); }
-        75% { transform: translateY(-10px) rotate(270deg); }
-    }
-    
-    .mobile-active {
-        display: flex !important;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: white;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        padding: 1rem;
-        border-radius: 0 0 12px 12px;
-    }
-    
-    .timeline-item.expanded .timeline-content {
-        transform: scale(1.05);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    }
-    
-    .floating-molecule {
-        animation: float 15s ease-in-out infinite;
-    }
-    
-    /* Improved mobile menu */
-    @media (max-width: 768px) {
-        .nav-menu {
-            display: none;
-        }
-        
-        .nav-menu.mobile-active {
-            display: flex !important;
-        }
-        
-        .nav-menu.mobile-active .nav-link {
-            padding: 1rem;
-            border-bottom: 1px solid rgba(30, 58, 138, 0.1);
-        }
-        
-        .nav-menu.mobile-active .nav-link:last-child {
-            border-bottom: none;
-        }
-    }
-;
 
-document.head.appendChild(style);
 
 // Loading animation
 window.addEventListener('load', function() {
