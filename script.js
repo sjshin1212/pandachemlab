@@ -457,7 +457,7 @@ initPageTransitions();
 
 // Add custom CSS animations
 const style = document.createElement('style');
-style.textContent = `
+style.textContent = 
     @keyframes fadeIn {
         from { opacity: 0; }
         to { opacity: 1; }
@@ -523,7 +523,7 @@ style.textContent = `
             border-bottom: none;
         }
     }
-`;
+;
 
 document.head.appendChild(style);
 
