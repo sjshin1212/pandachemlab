@@ -37,6 +37,9 @@
   --transition-fast: all 0.15s ease;
   --transition-normal: all 0.3s ease;
   --transition-slow: all 0.5s ease;
+
+  /* Header height */
+  --header-h: 64px; 
 }
 
 /* Reset and Base Styles */
