@@ -65,6 +65,11 @@
     .section-photos-mobile .row { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
     .section-photos-mobile img{ width:100%; height:180px; object-fit:cover; border-radius:12px; box-shadow:var(--shadow-sm); }
 
+    /* Mobile-first interleaved photos (hidden on desktop) */
+    .section-photos-mobile-H{ display:none; margin:.75rem 0 1.25rem; }
+    .section-photos-mobile-H .row { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    .section-photos-mobile-H img{ width:100%; height:180px; object-fit:cover; border-radius:12px; box-shadow:var(--shadow-sm); }
+
     /* YouTube container */
     .video-16x9 { aspect-ratio:16/9; width:100%; border-radius:12px; box-shadow:var(--shadow-lg); overflow:hidden; }
 
@@ -130,13 +135,15 @@
                 <li class="mb-2">18th Place in Materials Science, MIT Invitational 2025</li>
                 <li class="mb-2">1st Place in Chemistry Lab, State Tournament 2025</li>
             </ul>
-          <div class="section-photos-mobile">
+          <div class="section-photos-mobile-H">
             <div class="row">
               <img src="gallery3/A21.jpg" alt="SciOly medals photo">
             </div>
             <div class="row">
-              <img src="gallery3/A22.jpg" alt="SciOly team group 2">
+              <img src="gallery3/A22.jpg-H" alt="SciOly team group 2">
             </div>
+          </div>
+          <div class="section-photos-mobile">
             <div class="row">
               <img src="gallery3/A3.jpg" alt="SciOly team group 1">
               <img src="gallery3/A15.jpg" alt="Chem Lab event">
@@ -169,7 +176,7 @@
                 <li class="mb-2">Top 8, 2025 Thomas Jefferson Invitational</li>
                 <li class="mb-2">Top 12, 2025 Blair-Amador Invitational</li>         
             </ul>
-          <div class="section-photos-mobile">
+          <div class="section-photos-mobile-H">
             <div class="row">
               <img src="gallery3/A2.jpg"  alt="NSB monument team">
             </div>  
