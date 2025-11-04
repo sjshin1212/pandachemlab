@@ -801,3 +801,58 @@ nav {
   -webkit-text-fill-color: #fff;   /* Safari/WebKit 대비 */
   opacity: 1;                      /* 상속된 opacity가 있으면 초기화 */
 }
+
+
+/* ===== Research stats (독립 그리드) ===== */
+.research-stats-grid{
+  display:grid;
+  gap:14px;
+  /* 데스크탑 4열, 카드 최소폭 220px 보장 */
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+}
+
+/* 태블릿/모바일: 2열 */
+@media (max-width: 980px){
+  .research-stats-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+
+/* 카드 스타일(히어로 카드와 유사하지만 텍스트는 작게 시작) */
+.research-stats-grid .stat-item{
+  background: rgba(255,255,255,.78);
+  backdrop-filter: saturate(120%) blur(2px);
+  border: 1px solid #e6ebf1;
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.04);
+  display:flex; flex-direction:column; justify-content:center;
+  /* 글자 크기 자동조절을 위한 컨테이너 쿼리 활성화 */
+  container-type: inline-size;
+}
+
+/* 기본 폴백(컨테이너 쿼리 미지원 브라우저) */
+.research-stats-grid .stat-number{
+  display:block;
+  font-weight: 800;
+  color: var(--primary-navy);
+  line-height: 1.1;
+  font-size: 1.25rem; /* 폴백 기본값 */
+}
+
+/* 컨테이너 쿼리: 카드 너비에 따라 유동 폰트 사이즈 */
+@container (min-width: 260px){
+  .research-stats-grid .stat-number{ font-size: clamp(1.1rem, 6cqi, 1.6rem); }
+}
+@container (min-width: 320px){
+  .research-stats-grid .stat-number{ font-size: clamp(1.2rem, 5.5cqi, 1.8rem); }
+}
+@container (min-width: 380px){
+  .research-stats-grid .stat-number{ font-size: clamp(1.25rem, 5cqi, 2rem); }
+}
+
+/* 보조 라벨(선택) */
+.research-stats-grid .stat-label{
+  color: var(--neutral-gray);
+  font-size: .92rem;
+  margin-bottom: 6px;
+}
+
