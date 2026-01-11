@@ -1,1 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
 
+  <title>Tollens Reagent Demo – Fun Lab Project</title>
+  <meta name="description" content="Tollens Reagent Demo – a curiosity-driven lab project. Detail page."/>
+  <link rel="stylesheet" href="style.css"/>
+
+  <!-- (Optional) Update domain + filename later -->
+  <!-- <link rel="canonical" href="https://engineershin.com/tollens_reagent_detail.html"/> -->
+</head>
+
+<body>
+  <!-- Same simple nav pattern as independent_research_detail.html -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">🐼</div>
+        <span>Min's ChemLab</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Back button (same behavior pattern) -->
+  <a href="#" onclick="goBack();return false;" class="back-to-portfolio" title="Back">←</a>
+
+  <!-- Header banner (same style approach) -->
+  <section class="research-header-banner"
+    style="background:linear-gradient(135deg,var(--primary-navy),var(--primary-teal));
+           color:#fff;padding:4rem 0 6rem;margin-top:80px;">
+    <div class="container text-center">
+      <h1 style="color:#fff;margin-bottom:.5rem">Tollens Reagent Demo</h1>
+      <h2 style="color:rgba(255,255,255,0.92);font-size:1.1rem;font-weight:500">
+        <!-- (Leave blank or add a short subtitle later) -->
+      </h2>
+    </div>
+  </section>
+
+  <!-- Main content (placeholders only) -->
+  <section class="benzene-bg" style="padding:3rem 0">
+    <div class="container grid grid-2" style="gap:3rem;align-items:start">
+
+      <div class="prose">
+        <h3 style="color:var(--primary-navy)">Overview</h3>
+        <p>
+          <!-- TODO: Add your overview text here -->
+        </p>
+
+        <h3 style="color:var(--primary-navy)">Materials & Setup</h3>
+        <p>
+          <!-- TODO -->
+        </p>
+
+        <h3 style="color:var(--primary-navy)">What Happened</h3>
+        <p>
+          <!-- TODO -->
+        </p>
+
+        <h3 style="color:var(--primary-navy)">Notes / Safety</h3>
+        <p>
+          <!-- TODO -->
+        </p>
+
+        <!-- Optional docs/buttons area (leave blank now) -->
+        <div class="card" style="margin-top:1.5rem">
+          <h4 style="color:var(--primary-teal)">Docs</h4>
+          <div class="hero-buttons-container">
+            <!-- Example:
+            <a class="btn btn-accent" href="Tollens_Notes.pdf" target="_blank" rel="noopener">PDF</a>
+            -->
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <figure class="research-image">
+          <!-- TODO: Replace src + alt later -->
+          <img src="" alt="" loading="lazy" style="border-radius:12px;max-width:100%"/>
+          <figcaption style="color:var(--neutral-gray);font-style:italic;margin-top:.5rem">
+            <!-- TODO: optional caption -->
+          </figcaption>
+        </figure>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background:var(--primary-navy);color:#fff;padding:2.5rem 0">
+    <div class="container text-center">
+      <a href="index.html#Fun" class="btn btn-secondary">← Back to Fun Lab</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    function goBack(){
+      if(document.referrer && document.referrer.indexOf(location.host)!==-1){ history.back(); }
+      else { location.href='index.html#Fun'; }
+    }
+  </script>
+</body>
+</html>
