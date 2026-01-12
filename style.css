@@ -401,6 +401,7 @@ nav {
 
 /* Hero Buttons */
 .hero-buttons-container {
+  margin-top: auto; 
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
