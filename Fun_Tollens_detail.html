@@ -39,53 +39,113 @@
   </section>
 
   <!-- Main content (placeholders only) -->
-  <section class="benzene-bg" style="padding:3rem 0">
-    <div class="container grid grid-2" style="gap:3rem;align-items:start">
 
-      <div class="prose">
-        <h3 style="color:var(--primary-navy)">Overview</h3>
-        <p>
-          <!-- TODO: Add your overview text here -->
-        </p>
+<section class="benzene-bg" style="padding:3rem 0">
+  <div class="container grid grid-2" style="gap:3rem;align-items:start">
 
-        <h3 style="color:var(--primary-navy)">Materials & Setup</h3>
-        <p>
-          <!-- TODO -->
-        </p>
+    <!-- LEFT: Text -->
+    <div class="prose">
+      <h2>Preparing Necessary Chemicals</h2>
 
-        <h3 style="color:var(--primary-navy)">What Happened</h3>
-        <p>
-          <!-- TODO -->
-        </p>
+      <h3>Silver Nitrate Solution</h3>
+      <p>
+        I purchased silver nitrate (AgNO<sub>3</sub>) independently since it was not available in the school’s chemical inventory.
+        Silver nitrate is a controlled reagent due to its cost and light sensitivity, so obtaining it required ordering from a chemical supplier.
+        The solution had to be stored in an amber bottle to prevent photodecomposition, as silver nitrate is highly light-sensitive and degrades when exposed to ultraviolet (UV) light,
+        forming metallic silver precipitates that would compromise the solution’s concentration.
+        <strong>Figure 5</strong> shows the 0.1&nbsp;M silver nitrate solution stored in a light-protective container.
+      </p>
 
-        <h3 style="color:var(--primary-navy)">Notes / Safety</h3>
-        <p>
-          <!-- TODO -->
-        </p>
+      <h3>Other Reagent Acquisition from Chemical Storage</h3>
 
-        <!-- Optional docs/buttons area (leave blank now) -->
-        <div class="card" style="margin-top:1.5rem">
-          <h4 style="color:var(--primary-teal)">Docs</h4>
-          <div class="hero-buttons-container">
-            <!-- Example:
-            <a class="btn btn-accent" href="Tollens_Notes.pdf" target="_blank" rel="noopener">PDF</a>
-            -->
-          </div>
-        </div>
-      </div>
+      <p>
+        <strong>0.1&nbsp;M Sodium hydroxide (NaOH):</strong><br>
+        Obtained from base stock solutions. Sodium hydroxide is hygroscopic (absorbs moisture from the air), so I verified the solution’s concentration and checked for carbonate contamination,
+        which occurs when NaOH reacts with atmospheric CO<sub>2</sub>. If the stock solution had shown signs of degradation, I would have prepared a fresh solution from solid NaOH pellets and standardized it;
+        however, the available stock was suitable.
+      </p>
 
-      <div>
-        <figure class="research-image">
-          <!-- TODO: Replace src + alt later -->
-          <img src="" alt="" loading="lazy" style="border-radius:12px;max-width:100%"/>
-          <figcaption style="color:var(--neutral-gray);font-style:italic;margin-top:.5rem">
-            <!-- TODO: optional caption -->
-          </figcaption>
-        </figure>
-      </div>
+      <p>
+        <strong>Ammonia Solution (NH<sub>3</sub>/NH<sub>4</sub>OH):</strong><br>
+        Concentrated aqueous ammonia (typically 28–30% NH<sub>3</sub>) was obtained from chemical storage. This solution is volatile and has a pungent odor,
+        so all handling was conducted in a fume hood. For Tollens’ reagent preparation, the solution was diluted to the appropriate concentration or used directly depending on protocol requirements.
+      </p>
 
+      <p>
+        <strong>Dextrose (Glucose) Solution:</strong><br>
+        Solid dextrose (D-glucose, C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>) was retrieved from organic chemical storage, and a fresh solution was prepared by dissolving a measured mass in distilled water.
+        Glucose acts as the reducing agent in the silver mirror reaction, so solution freshness was important; old glucose solutions can partially oxidize or undergo bacterial contamination, reducing their effectiveness.
+      </p>
+
+      <h2>Initial Attempt and Troubleshooting</h2>
+
+      <p>
+        Our first attempt at the silver mirror reaction failed to produce the desired results. Instead of forming a reflective silver coating, a brown precipitate formed,
+        as shown in <strong>Figure 6</strong>. This outcome indicated that silver ions were reducing too quickly or unevenly, forming colloidal silver or silver oxide rather than depositing as a smooth metallic film on the glass surface.
+      </p>
+
+      <p>
+        To troubleshoot this issue, we identified several potential problems with our initial conditions. The reaction temperature may have been too low,
+        slowing reduction kinetics and preventing uniform film formation. Additionally, the silver nitrate concentration may have been insufficient to provide an adequate supply of Ag<sup>+</sup> ions for mirror deposition.
+        We adjusted the following reaction conditions for our second attempt:
+      </p>
+
+      <ul>
+        <li><strong>Temperature control:</strong> Implemented a warm water bath to maintain a consistent elevated temperature, promoting controlled reduction kinetics.</li>
+        <li><strong>Silver nitrate concentration:</strong> Increased AgNO<sub>3</sub> concentration to provide greater Ag<sup>+</sup> availability.</li>
+        <li><strong>Scale:</strong> Conducted the experiment with a larger team to ensure more careful monitoring and execution of each step.</li>
+      </ul>
+
+      <h2>Successful Silver Mirror Formation</h2>
+
+      <p>
+        We repeated the experiment several weeks later while incorporating these adjustments. With the heated water bath maintaining an optimal reaction temperature and a higher AgNO<sub>3</sub> concentration,
+        the results improved significantly. As shown in <strong>Figure 7</strong>, a clear and reflective silver mirror formed successfully on the glass surface.
+        The uniform metallic coating demonstrated that the controlled conditions allowed for proper reduction of Ag<sup>+</sup> ions to metallic silver (Ag),
+        which deposited evenly on the glass rather than precipitating as brown colloidal particles.
+      </p>
+
+      <p>
+        The success of this second attempt confirmed that temperature control and adequate reagent concentration are critical parameters for the silver mirror reaction.
+        The warm water bath ensured that the reduction proceeded at an optimal rate (fast enough to deposit silver onto the glass surface) but controlled enough to prevent rapid precipitation in solution.
+        The increased concentration of silver nitrate provided sufficient Ag<sup>+</sup> ions to form a complete reflective coating rather than a scattered precipitate.
+      </p>
     </div>
-  </section>
+
+    <!-- RIGHT: Media (image stack) -->
+    <div class="media-stack">
+      <figure class="research-image" style="margin:0 0 1.25rem 0;">
+        <img src="funlab_images/fun_4.jpeg" alt="0.1 M AgNO3 solution in an amber bottle" loading="lazy" style="width:100%;border-radius:12px;">
+        <figcaption style="color:var(--neutral-gray);font-style:italic;margin-top:.5rem;">
+          Figure 5. 0.1&nbsp;M AgNO<sub>3</sub> solution stored in an amber bottle
+        </figcaption>
+      </figure>
+
+      <figure class="research-image" style="margin:0 0 1.25rem 0;">
+        <img src="funlab_images/fun_3.jpeg" alt="Failed silver mirror attempt showing brown precipitate" loading="lazy" style="width:100%;border-radius:12px;">
+        <figcaption style="color:var(--neutral-gray);font-style:italic;margin-top:.5rem;">
+          Figure 6. Failed silver mirror experiment: brown precipitate formed instead of a thin metallic silver layer
+        </figcaption>
+      </figure>
+
+      <figure class="research-image" style="margin:0 0 1.25rem 0;">
+        <img src="funlab_images/fun_1.jpg" alt="Metallic silver layer formed on glass surface" loading="lazy" style="width:100%;border-radius:12px;">
+        <figcaption style="color:var(--neutral-gray);font-style:italic;margin-top:.5rem;">
+          Figure 7a. Metallic silver layer formed on the surface of glass
+        </figcaption>
+      </figure>
+
+      <figure class="research-image" style="margin:0;">
+        <img src="funlab_images/fun_6.jpg" alt="Second trial with adjusted reaction conditions" loading="lazy" style="width:100%;border-radius:12px;">
+        <figcaption style="color:var(--neutral-gray);font-style:italic;margin-top:.5rem;">
+          Figure 7b. Second official trial with adjusted reaction conditions
+        </figcaption>
+      </figure>
+    </div>
+
+  </div>
+</section>
+
 
   <!-- Footer -->
   <footer style="background:var(--primary-navy);color:#fff;padding:2.5rem 0">
