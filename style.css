@@ -592,6 +592,24 @@ nav {
   transform: translateZ(0);
 }
 
+.community-photo-85{
+  margin:0;
+  border-radius:20px;
+  overflow:hidden;
+  border:1px solid rgba(30,58,138,0.10);
+  box-shadow: var(--shadow-lg);
+  position:relative;
+  background:#eaf2f8;
+  aspect-ratio: 8 / 5;
+}
+
+.community-photo-85 img{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  transform: translateZ(0);
+}
+
 
 .area-stem .community-card{
   height:auto;
