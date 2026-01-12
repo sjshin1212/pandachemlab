@@ -1,1 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Mechatronics Engineering Project – Autonomous Navigation Robot</title>
+  <meta name="description" content="Autonomous Navigation Robot: PID motor control with encoder feedback, calibration, and custom robot redesign for accurate grid navigation."/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="canonical" href="https://engineershin.com/Robotics_detail.html"/>
+
+  <style>
+    /* Optional: keep image stack nicely spaced on the right */
+    .figure-stack{
+      display:flex;
+      flex-direction:column;
+      gap:1.25rem;
+    }
+    .figure-stack figure{
+      margin:0;
+    }
+    .figure-stack img{
+      width:100%;
+      height:auto;
+      border-radius:12px;
+      display:block;
+    }
+    .figure-stack figcaption{
+      color: var(--neutral-gray);
+      font-style: italic;
+      margin-top: .5rem;
+      line-height: 1.5;
+    }
+    /* Make table not overflow on small screens */
+    .prose table{
+      width:100%;
+      border-collapse:collapse;
+      margin: 1rem 0;
+      font-size: 0.98rem;
+    }
+    .prose table caption{
+      caption-side: top;
+      text-align:left;
+      font-weight:600;
+      margin-bottom: .5rem;
+      color: var(--primary-navy);
+    }
+    .prose th, .prose td{
+      border: 1px solid rgba(30, 58, 138, 0.2);
+      padding: 10px;
+      vertical-align: top;
+    }
+    .prose thead th{
+      background: rgba(30, 58, 138, 0.06);
+      color: var(--primary-navy);
+    }
+    .prose code{
+      background: rgba(15, 23, 42, 0.06);
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAV (same pattern) -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">🐼</div>
+        <span>Min's ChemLab</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Back button (same pattern) -->
+  <a href="#" onclick="goBack();return false;" class="back-to-portfolio" title="Back">←</a>
+
+  <!-- TOP BANNER -->
+  <section class="research-header-banner"
+    style="background:linear-gradient(135deg,var(--primary-navy),var(--primary-teal));
+           color:#fff;padding:4rem 0 6rem;margin-top:80px;">
+    <div class="container text-center">
+      <h1 style="color:#fff;margin-bottom:.5rem">Autonomous Navigation Robot</h1>
+      <h2 style="color:rgba(255,255,255,.9);font-size:1.1rem;font-weight:500">
+        Mechatronics Engineering Project – subproject
+      </h2>
+
+      <div class="research-stats-grid" style="margin-top:1.5rem">
+        <div class="stat-item">
+          <span class="stat-number">Closed-loop</span>
+          <span class="stat-number">Control</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">PID +</span>
+          <span class="stat-number">Encoders</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">Grid</span>
+          <span class="stat-number">Navigation</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">Custom</span>
+          <span class="stat-number">Chassis</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT: Left Text / Right Images -->
+  <section class="benzene-bg" style="padding:3rem 0">
+    <div class="container grid grid-2" style="gap:3rem;align-items:start">
+
+      <!-- LEFT: TEXT -->
+      <div class="prose">
+        <h3 style="color:var(--primary-navy)">Autonomous Navigation Robot</h3>
+
+        <p>
+          Over the course of the year, I experimented with both kit-based and increasingly customized robot designs,
+          starting from a standard Pololu kit and progressing toward more refined control implementations.
+          I used the Romi 32U4 Control Board and chassis from Pololu as the base platform, which includes built-in
+          quadrature encoders for precise wheel position and velocity feedback.
+        </p>
+
+        <p>
+          Because encoder feedback was readily available, I focused first on closed-loop motor control using PID principles.
+          Rather than relying on open-loop motor commands, I implemented proportional–integral–derivative (PID) control to
+          regulate wheel speed and improve trajectory accuracy. This approach allowed the robot to correct for disturbances
+          such as battery voltage changes, surface friction, and minor mechanical asymmetries.
+        </p>
+
+        <p>
+          As shown in <strong>Figure 2</strong>, I began by implementing proportional (P) control, where the motor output is adjusted
+          based on the instantaneous error between the target speed and the measured encoder speed. Proportional control
+          significantly improved responsiveness compared to open-loop control; however, I observed steady-state error when
+          the robot was subjected to sustained load or resistance. This highlighted the limitation of P-only control and
+          motivated further exploration of full PID tuning.
+        </p>
+
+        <p>
+          Subsequent experiments incorporated integral and derivative terms to address accumulated error and reduce oscillations.
+          The integral term helped eliminate steady-state bias caused by friction and motor imbalance, while the derivative term
+          dampened rapid changes in error, improving stability during acceleration and deceleration. Through the calibrations
+          shown in <strong>Figure 3</strong>, I was able to make the robot travel more accurately.
+        </p>
+
+        <p>
+          Multiple lines of code were implemented to control the robot’s movements, including forward motion, right turns,
+          and left turns. Each command was carefully programmed to correspond to specific distances and angles, allowing the
+          robot to navigate the square grid accurately. Encoder feedback was used to measure wheel rotations, ensuring precise
+          distance control, while conditional statements adjusted motor speeds to correct deviations in real time.
+        </p>
+
+        <p>
+          The competition track consists of a 5 × 4 grid of square cells, with each square measuring 50 cm × 50 cm.
+          The robot must navigate from a designated start point to a target location by traveling cell-to-cell across the grid.
+          Please refer to <strong>Figure 4</strong> for an example view of the track.
+        </p>
+
+        <p>
+          Barriers placed between certain squares act as obstacles, preventing direct movement through blocked paths.
+          These barriers simulate walls, requiring the robot to plan alternate routes and execute precise turns to avoid collisions.
+        </p>
+
+        <p>
+          Additionally, there are bonus gates where points are awarded if the robot successfully reaches them. However, there is also
+          a target time, and if the robot significantly exceeds this time limit, a substantial number of points are lost. Therefore,
+          carefully balancing speed and bonus point collection is essential for achieving a high score.
+        </p>
+
+        <p>
+          Please refer to <strong>Figure 5</strong> for the example lines of code which I actually utilized for the competition run.
+          Each movement lists the encoder count necessary to travel a certain distance. The conversion is:
+        </p>
+
+        <p style="text-align:center;">
+          <code>N<sub>encoder</sub> = x &middot; (64 &times; 50) / (2 &pi; &times; 4)</code>
+        </p>
+
+        <table>
+          <caption>Variables and constants in the distance-to-encoder conversion</caption>
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>Meaning / Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>N<sub>encoder</sub></td>
+              <td>Encoder count (number of ticks recorded)</td>
+            </tr>
+            <tr>
+              <td>x</td>
+              <td>Linear distance traveled by the robot (cm)</td>
+            </tr>
+            <tr>
+              <td>64</td>
+              <td>Encoder counts per motor revolution</td>
+            </tr>
+            <tr>
+              <td>50</td>
+              <td>Gear ratio (motor revolutions per wheel revolution)</td>
+            </tr>
+            <tr>
+              <td>2&pi;</td>
+              <td>Constant from wheel circumference</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Wheel radius (cm)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          Along with PID control and calibrations, the robot was able to perform very well in many tournaments.
+          The major purpose of the robot is to navigate through the track and reach the target point as closely as possible,
+          as shown in <strong>Figure 6</strong>.
+        </p>
+
+        <h3 style="color:var(--primary-navy); margin-top:2rem;">New Custom Design</h3>
+
+        <p>
+          Nevertheless, we realized that the quadrature encoders on the Romi kit were not entirely accurate, especially over extended operation.
+          Additionally, the round shape of the Romi made it difficult to align precisely to the track—a critical step to ensure the robot stayed on course.
+        </p>
+
+        <p>
+          To address these issues, we implemented a <strong>custom robot design</strong>. The hardware components included:
+        </p>
+
+        <ul>
+          <li><strong>Control board:</strong> A-Star 32U4 Prime Board with Dual G2 High-Power Motor Driver 18v18 Shield</li>
+          <li><strong>Motors:</strong> 50:1 Metal Gear Motors (12 V) with 64 CPR encoders</li>
+        </ul>
+
+        <p>
+          In addition, we designed the chassis to be <strong>perfectly rectangular</strong>, which made it easier to align the robot accurately to the track.
+          This custom design improved both navigation precision and overall reliability during operation.
+          Please refer to <strong>Figure 7</strong> for the design of the robot.
+        </p>
+
+        <p>
+          The major modification is the installation of the control board with the motor shield connected to the motors.
+          Please refer to <strong>Figure 8</strong> for specific details. The figure shows the black and red wires supplying power to the motor driver,
+          as well as four additional wires, two of which power one of the motors. Each motor also has four wires connected to the encoders.
+        </p>
+
+        <p>
+          Other modifications include the implementation of diagonal turns, as shown in <strong>Figure 9</strong>.
+          Previously, we only employed 90° turns, but with the custom design, we have incorporated 45° turns to minimize the distance the robot must travel.
+        </p>
+      </div>
+
+      <!-- RIGHT: IMAGES (stacked) -->
+      <div class="figure-stack">
+        <figure class="research-image">
+          <img src="Eng_image/Robo_1.jpg" loading="lazy" alt="The first Romi 32U4 Control Board kit we received"/>
+          <figcaption>Figure 1. The first Romi 32U4 Control Board kit we received</figcaption>
+        </figure>
+
+        <figure class="research-image">
+          <img src="Eng_image/Robo_2.png" loading="lazy" alt="Example code for proportional (P) control"/>
+          <figcaption>Figure 2. Example code for proportional (P) control</figcaption>
+        </figure>
+
+        <figure class="research-image">
+          <img src="Eng_image/Robo_3.png" loading="lazy" alt="Robot calibration through repeated traversal of square cells"/>
+          <figcaption>Figure 3. Robot calibration through repeated traversal of square cells</figcaption>
+        </figure>
+
+        <figure class="research-image">
+          <img src="Eng_image/Robo_4.jpg" loading="lazy" alt="Sample track from one of the local invitationals"/>
+          <figcaption>Figure 4. Sample track from one of the local invitationals</figcaption>
+        </figure>
+
+        <figure class="research-image">
+          <img src="Eng_image/Robo_10.png" loading="lazy" alt="Example lines of codes utilized for track run"/>
+          <figcaption>Figure 5. Example lines of code utilized for a track run</figcaption>
+        </figure>
+
+        <figure class="research-image">
+          <img src="Eng_image/Robo_6.jpg" loading="lazy" alt="Romi robot successfully reaching the target point"/>
+          <figcaption>Figure 6. Romi robot successfully reaching the target point</figcaption>
+        </figure>
+
+        <figure class="research-image">
+          <img src="Eng_image/Robo_7.jpg" loading="lazy" alt="Overview of the customized robot"/>
+          <figcaption>Figure 7. Overview of the customized robot</figcaption>
+        </figure>
+
+        <figure class="research-image">
+          <img src="Eng_image/Robo_8.jpg" loading="lazy" alt="Diagram of motor driver connected to the motors"/>
+          <figcaption>Figure 8. Diagram of motor driver connected to the motors</figcaption>
+        </figure>
+
+        <figure class="research-image">
+          <img src="Eng_image/Robo_5.png" loading="lazy" alt="The robot performing diagonal turns on the practice track"/>
+          <figcaption>Figure 9. The robot performing diagonal turns on the practice track</figcaption>
+        </figure>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER (same pattern) -->
+  <footer style="background:var(--primary-navy);color:#fff;padding:2.5rem 0">
+    <div class="container text-center">
+      <a href="index.html#Engineering" class="btn btn-secondary">← Back to Mechatronics Engineering Project</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    function goBack(){
+      if(document.referrer && document.referrer.indexOf(location.host)!==-1){ history.back(); }
+      else { location.href='index.html#Engineering'; }
+    }
+  </script>
+</body>
+</html>
 
