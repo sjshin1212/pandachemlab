@@ -630,6 +630,8 @@ nav {
   .community-photo{ aspect-ratio: 2 / 3; }
 }
 .photo-stack{
+  width: 100%;
+  height: 100%;
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px; /* 사진 사이 간격 */
